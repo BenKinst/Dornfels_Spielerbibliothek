@@ -91,3 +91,10 @@
 .accordion-controls button:hover,.accordion-controls button:focus-visible{color:var(--gold);outline:none}
 .accordion-controls-bottom{margin-top:6px}
 @media(max-width:480px){.accordion-panel{padding-left:0}.accordion-trigger{font-size:18px}}
+
+/* Mehr Abstand zwischen den Bereichsüberschriften und ihrem Inhalt */
+.accordion-panel{margin-left:34px;padding:8px 0 30px 0}
+.possession-list{padding:2px 0 8px;color:var(--muted);font:14px/1.8 Arial,sans-serif}
+.possession-list p{margin:7px 0}
+.possession-list strong{color:var(--gold-soft);font-weight:400}
+@media(max-width:480px){.accordion-panel{margin-left:22px;padding-left:0}}
