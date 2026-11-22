@@ -105,3 +105,20 @@
 .calculated-value:hover::after,.calculated-value:focus-visible::after{opacity:1;visibility:visible}
 .calculated-value:focus-visible{outline:1px solid var(--gold-soft);outline-offset:3px}
 .skill-card .sheet-table td:last-child{color:var(--text)}
+
+/* Hauptreiter klar von den darunterliegenden Unterreitern absetzen. */
+.accordion-trigger{font-size:22px;font-weight:600;letter-spacing:.015em;color:var(--gold-soft);padding:16px 3px}
+.accordion-trigger[aria-expanded="true"]{color:var(--gold)}
+.accordion-trigger svg{width:21px;height:21px;flex-basis:21px}
+.nested-accordion{margin:12px 0 4px 0;border-left:1px solid rgba(213,189,141,.2);padding-left:18px}
+.subaccordion-item{margin:0 0 5px}
+.subaccordion-trigger{display:flex;align-items:center;gap:10px;width:100%;padding:10px 12px;border:1px solid transparent;border-radius:6px;background:rgba(255,255,255,.018);color:var(--muted);text-align:left;font:600 13px/1.4 Arial,sans-serif;letter-spacing:.075em;text-transform:uppercase;cursor:pointer}
+.subaccordion-trigger:before{content:"+";display:inline-block;width:13px;color:var(--gold-soft);font:16px/1 Arial,sans-serif}
+.subaccordion-trigger[aria-expanded="true"]{color:var(--gold-soft);background:rgba(213,189,141,.055);border-color:rgba(213,189,141,.16)}
+.subaccordion-trigger[aria-expanded="true"]:before{content:"−"}
+.subaccordion-trigger:hover,.subaccordion-trigger:focus-visible{color:var(--gold);outline:1px solid rgba(213,189,141,.35);outline-offset:1px}
+.subaccordion-panel{padding:12px 8px 16px 23px}
+.subaccordion-panel[hidden]{display:none}
+.skill-tabs{margin-top:18px}
+.skill-subitem .sheet-card{margin:0}
+@media(max-width:480px){.accordion-trigger{font-size:20px}.nested-accordion{padding-left:10px}.subaccordion-panel{padding-left:12px}}
