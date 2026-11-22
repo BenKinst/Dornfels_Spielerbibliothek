@@ -30,3 +30,49 @@
   margin: 24px 0;
   border-radius: 10px;
 }
+
+/* Charakterprofil: an die Feldgruppen und die zweitseitige Struktur des RuneQuest-Heldenbogens angelehnt. */
+.character-page{padding-bottom:72px}
+.profile-subtitle{margin:0;color:var(--muted);font:14px Arial,sans-serif;letter-spacing:.04em}
+.profile-art{min-height:250px}
+.profile-intro{max-width:780px;margin:0 auto 10px;text-align:center}
+.profile-intro p{margin:8px 0;color:var(--muted);font:15px/1.75 Arial,sans-serif}
+.profile-intro strong{color:var(--gold);font:12px Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase}
+.character-tabs{display:flex;gap:7px;flex-wrap:wrap;padding:12px;margin:12px 0 22px;border:1px solid var(--line);border-radius:12px;background:var(--panel)}
+.character-tab{flex:1 1 auto;min-height:42px;padding:10px 13px;border:1px solid transparent;border-radius:7px;background:transparent;color:var(--muted);font:13px Arial,sans-serif;cursor:pointer}
+.character-tab:hover,.character-tab:focus-visible{border-color:var(--gold-soft);color:var(--gold);outline:none}
+.character-tab.is-active{border-color:var(--gold-soft);background:rgba(213,189,141,.1);color:var(--gold)}
+.tab-panel{padding:8px 0 28px}
+.tab-panel[hidden]{display:none}
+.panel-intro{max-width:850px;color:var(--muted);font:13px/1.65 Arial,sans-serif}
+.sheet-grid{display:grid;gap:10px}
+.sheet-grid-2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.sheet-grid-3{grid-template-columns:repeat(3,minmax(0,1fr))}
+.sheet-grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.sheet-field,.sheet-card{min-width:0;padding:15px 16px;border:1px solid var(--line);border-radius:9px;background:linear-gradient(145deg,rgba(255,255,255,.025),transparent 70%),var(--panel)}
+.sheet-field>span{display:block;margin-bottom:7px;color:var(--gold-soft);font:11px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
+.sheet-field>strong{display:block;color:var(--text);font:14px/1.5 Georgia,serif;font-weight:400;overflow-wrap:anywhere}
+.sheet-card h3,.story-block h3{margin:0 0 10px;color:var(--gold);font-size:17px;font-weight:500}
+.sheet-card p{margin:8px 0;color:var(--muted);font:13px/1.65 Arial,sans-serif}
+.sheet-card p strong{color:var(--text)}
+.section-head.subhead{margin-top:28px}
+.subhead h2{font-size:18px}
+.skill-grid,.inventory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
+.skill-card{min-height:230px}
+.skill-list{padding-bottom:10px;border-bottom:1px solid var(--line);color:var(--text)!important}
+.skill-card .sheet-field{margin-top:12px;padding:10px 12px}
+.formula-card{margin-top:14px}
+.table-scroll{overflow-x:auto}
+.sheet-table{width:100%;border-collapse:collapse;font:13px Arial,sans-serif}
+.sheet-table th,.sheet-table td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
+.sheet-table th{color:var(--gold-soft);font-weight:400}
+.sheet-table td{color:var(--muted)}
+.story-block{max-width:820px;padding:22px 0;border-bottom:1px solid var(--line)}
+.story-block .eyebrow{margin-bottom:8px}
+.story-block p{color:var(--muted);font:15px/1.8 Arial,sans-serif}
+.mini-placeholder{min-height:110px;display:grid;place-items:center;border:1px dashed var(--gold-soft);border-radius:7px;background:rgba(213,189,141,.035);color:var(--subtle);font:12px Arial,sans-serif;text-align:center;padding:15px}
+.inventory-total{display:block;margin-top:14px;padding-top:10px;border-top:1px solid var(--line);color:var(--gold-soft);font:12px Arial,sans-serif}
+.total-load{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px;padding:18px 20px;border:1px solid var(--gold-soft);border-radius:9px;background:rgba(213,189,141,.07);color:var(--muted);font:13px Arial,sans-serif}
+.total-load strong{color:var(--gold);font:20px Georgia,serif}
+@media(max-width:760px){.sheet-grid-3,.sheet-grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}.character-tab{flex:1 1 30%;font-size:12px}}
+@media(max-width:480px){.sheet-grid-2,.sheet-grid-3,.sheet-grid-4,.skill-grid,.inventory-grid{grid-template-columns:1fr}.character-tabs{padding:8px;gap:5px}.character-tab{flex:1 1 44%;padding:9px 7px}.profile-art{min-height:170px}.total-load{align-items:flex-start;flex-direction:column}}
