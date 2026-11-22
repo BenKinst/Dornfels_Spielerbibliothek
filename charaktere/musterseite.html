@@ -4,8 +4,8 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#11100e">
-<meta name="description" content="Musterseite für die Charakterporträts der Spielerbibliothek von Dornfels.">
-<title>Musterseite – Die Helden von Dornfels</title>
+<meta name="description" content="Musterseite für Charakterporträts und Charakterdaten der Spielerbibliothek von Dornfels.">
+<title>Charakterprofil – Die Helden von Dornfels</title>
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
@@ -14,32 +14,162 @@
     <a class="brand" href="../"><span class="brand-mark">✧</span><span>Das Archiv von Dornfels</span></a>
   </div>
 </header>
-<main class="wrap">
+<main class="wrap character-page">
   <section class="page-hero">
     <a class="back" href="../">← Zur Spielerbibliothek</a>
-    <div class="eyebrow">Die letzten Schreie von Dornfels</div>
-    <h1>[Titel der Hintergrundgeschichte]</h1>
-    <div class="image-placeholder" role="img" aria-label="Platzhalter für die Charakterillustration">
-      <div>Charakterillustration<span>Eine passende Szene, die den Charakter bei einer für seinen Beruf typischen Tätigkeit zeigt</span></div>
+    <div class="eyebrow">Die letzten Schreie von Dornfels · Spielerakte</div>
+    <h1>[Name des Charakters]</h1>
+    <p class="profile-subtitle">[Volk] · [Beruf]</p>
+    <div class="image-placeholder profile-art" role="img" aria-label="Platzhalter für die Charakterillustration">
+      <div>Charakterillustration<span>[Porträt oder charakteristische Szene – passend zu Volk, Beruf und Hintergrund]</span></div>
+    </div>
+    <div class="profile-intro">
+      <p><strong>Auf einen Blick</strong></p>
+      <p>[Kurzer, atmosphärischer Einstieg: Wer ist diese Person, woher stammt sie und was zeichnet sie aus? Noch offene Angaben bleiben als Platzhalter gekennzeichnet.]</p>
     </div>
   </section>
 
-  <section class="content-section" aria-labelledby="character-details">
-    <h2 id="character-details">Rasse und Beruf</h2>
-    <p><strong>Rasse:</strong> [Rasse des Charakters]</p>
-    <p><strong>Beruf:</strong> [Kurze, sachliche Beschreibung des Berufs entsprechend der Spielerbibliothek]</p>
+  <nav class="character-tabs" role="tablist" aria-label="Bereiche des Charakterprofils">
+    <button class="character-tab is-active" id="tab-stammdaten" role="tab" aria-selected="true" aria-controls="panel-stammdaten" tabindex="0">Stammdaten</button>
+    <button class="character-tab" id="tab-eigenschaften" role="tab" aria-selected="false" aria-controls="panel-eigenschaften" tabindex="-1">Eigenschaften</button>
+    <button class="character-tab" id="tab-fertigkeiten" role="tab" aria-selected="false" aria-controls="panel-fertigkeiten" tabindex="-1">Fertigkeiten</button>
+    <button class="character-tab" id="tab-kampf" role="tab" aria-selected="false" aria-controls="panel-kampf" tabindex="-1">Kampf &amp; Ausrüstung</button>
+    <button class="character-tab" id="tab-hintergrund" role="tab" aria-selected="false" aria-controls="panel-hintergrund" tabindex="-1">Hintergrund</button>
+    <button class="character-tab" id="tab-besitz" role="tab" aria-selected="false" aria-controls="panel-besitz" tabindex="-1">Besitz &amp; Notizen</button>
+  </nav>
+
+  <section class="tab-panel is-active" id="panel-stammdaten" role="tabpanel" aria-labelledby="tab-stammdaten" tabindex="0">
+    <div class="section-head"><h2>Persönliche Angaben</h2><span class="section-note">Charakterblatt · Vorderseite</span></div>
+    <div class="sheet-grid sheet-grid-3">
+      <div class="sheet-field"><span>Name</span><strong>[Name – wird vom Spieler festgelegt]</strong></div>
+      <div class="sheet-field"><span>Volk</span><strong>[Volk / Rasse]</strong></div>
+      <div class="sheet-field"><span>Beruf</span><strong>[Beruf]</strong></div>
+      <div class="sheet-field"><span>Religion</span><strong>[Religion / Glaube]</strong></div>
+      <div class="sheet-field"><span>Geschlecht</span><strong>[Offen – Festlegung durch den Spieler]</strong></div>
+      <div class="sheet-field"><span>Alter</span><strong>[Alter]</strong></div>
+      <div class="sheet-field"><span>Größe</span><strong>[Größe]</strong></div>
+      <div class="sheet-field"><span>Gewicht</span><strong>[Gewicht]</strong></div>
+      <div class="sheet-field"><span>Reichweite</span><strong>[Bewegungsreichweite]</strong></div>
+      <div class="sheet-field"><span>Haarfarbe</span><strong>[Haarfarbe – falls festgelegt]</strong></div>
+      <div class="sheet-field"><span>Augenfarbe</span><strong>[Augenfarbe – falls festgelegt]</strong></div>
+    </div>
+    <div class="section-head subhead"><h2>Erfahrung und Lebenswerte</h2></div>
+    <div class="sheet-grid sheet-grid-4">
+      <div class="sheet-field"><span>Erfahrung</span><strong>[Wert]</strong></div>
+      <div class="sheet-field"><span>Stufe</span><strong>[Wert]</strong></div>
+      <div class="sheet-field"><span>Ehre</span><strong>[Wert]</strong></div>
+      <div class="sheet-field"><span>Abenteuerpunkte</span><strong>[Wert]</strong></div>
+      <div class="sheet-field"><span>Lebenspunkte (LP)</span><strong>[Grundwert + Modifikatoren]</strong></div>
+      <div class="sheet-field"><span>Astralpunkte (AP)</span><strong>[Grundwert + Modifikatoren]</strong></div>
+      <div class="sheet-field"><span>AP noch verfügbar</span><strong>[Wert]</strong></div>
+    </div>
+    <div class="section-head subhead"><h2>Sprachen und Magie</h2></div>
+    <div class="sheet-grid sheet-grid-2">
+      <div class="sheet-card"><h3>Sprachen</h3><p>[Sprache, Kenntnisgrad und gegebenenfalls Herkunft der Sprachkenntnis]</p></div>
+      <div class="sheet-card"><h3>Zauber und Spruchlisten</h3><p>[Verfügbare Spruchlisten und Sprüche; Spruchstufen und Lernkosten nachvollziehbar ausweisen.]</p><p><strong>Zaubern:</strong> [Wert]　<strong>Gegenzauber:</strong> [Wert]</p></div>
+    </div>
   </section>
 
-  <section class="content-section" aria-labelledby="background-story">
-    <h2 id="background-story">Hintergrundgeschichte</h2>
+  <section class="tab-panel" id="panel-eigenschaften" role="tabpanel" aria-labelledby="tab-eigenschaften" tabindex="0" hidden>
+    <div class="section-head"><h2>Eigenschaften</h2><span class="section-note">Charakterblatt · Vorderseite</span></div>
+    <p class="panel-intro">Grundwerte, Modifikatoren und berechnete Werte werden getrennt dargestellt. Kein Bonus oder Malus wird stillschweigend in den Grundwert eingerechnet.</p>
+    <div class="sheet-grid sheet-grid-2">
+      <div class="sheet-field"><span>Stärke</span><strong>[Grundwert] · [Modifikatoren] · [Effektivwert]</strong></div>
+      <div class="sheet-field"><span>Intuition</span><strong>[Grundwert] · [Modifikatoren] · [Effektivwert]</strong></div>
+      <div class="sheet-field"><span>Gewandheit</span><strong>[Grundwert] · [Modifikatoren] · [Effektivwert]</strong></div>
+      <div class="sheet-field"><span>Erscheinung</span><strong>[Grundwert] · [Modifikatoren] · [Effektivwert]</strong></div>
+      <div class="sheet-field"><span>Größe</span><strong>[Grundwert] · [Modifikatoren] · [Effektivwert]</strong></div>
+      <div class="sheet-field"><span>Ausdauer</span><strong>[Grundwert] · [Modifikatoren] · [Effektivwert]</strong></div>
+      <div class="sheet-field"><span>Intelligenz</span><strong>[Grundwert] · [Modifikatoren] · [Effektivwert]</strong></div>
+      <div class="sheet-field"><span>Reaktion</span><strong>[Berechnung und Ergebnis]</strong></div>
+      <div class="sheet-field"><span>Initiative</span><strong>[Würfel + Reaktion + Stufe]</strong></div>
+      <div class="sheet-field"><span>Tragkraft</span><strong>[Grundwert / Berechnung]</strong></div>
+    </div>
+    <div class="sheet-card formula-card"><h3>Berechnungsnachweise</h3><p>[Formel, eingesetzte Ausgangswerte, Modifikatoren mit Quelle sowie Zwischenergebnis und Endwert.]</p></div>
+  </section>
 
-    <h2>[Individuelle Überschrift zur Kindheit]</h2>
-    <p>[Erzählerischer Einstieg in die Kindheit des Charakters: Herkunft, Familie, Aufwachsen in Dornfels, Freundschaften und prägende Erlebnisse. Die Geschichte wird aus der persönlichen Perspektive des Charakters erzählt.]</p>
+  <section class="tab-panel" id="panel-fertigkeiten" role="tabpanel" aria-labelledby="tab-fertigkeiten" tabindex="0" hidden>
+    <div class="section-head"><h2>Fertigkeitsgebiete</h2><span class="section-note">Charakterblatt · Vorderseite</span></div>
+    <p class="panel-intro">Jede Fertigkeit zeigt ihren Grundwert, den Gebietsbonus oder -malus, berufliche beziehungsweise individuelle Modifikatoren und den daraus berechneten Endwert.</p>
+    <div class="skill-grid">
+      <article class="sheet-card skill-card"><h3>Beweglichkeit</h3><p class="skill-list">Boot · Klettern · Springen · Reiten · Schwimmen · Werfen · Schleichen · Verstecken</p><div class="sheet-field"><span>Gebietsbonus / -malus</span><strong>[Wert und Berechnung]</strong></div><p>[Einzelwerte und Modifikatoren je Fertigkeit]</p></article>
+      <article class="sheet-card skill-card"><h3>Wissen</h3><p class="skill-list">Pflanzen · Tiere · Menschen · Welt · Handwerk · Erste Hilfe</p><div class="sheet-field"><span>Gebietsbonus / -malus</span><strong>[Wert und Berechnung]</strong></div><p>[Einzelwerte und Modifikatoren je Fertigkeit]</p></article>
+      <article class="sheet-card skill-card"><h3>Beeinflussung</h3><p class="skill-list">Stehlen · Spielen · Überreden · Lügen · Lehren · Schätzen</p><div class="sheet-field"><span>Gebietsbonus / -malus</span><strong>[Wert und Berechnung]</strong></div><p>[Einzelwerte und Modifikatoren je Fertigkeit]</p></article>
+      <article class="sheet-card skill-card"><h3>Wahrnehmung</h3><p class="skill-list">Hören · Riechen · Spähen · Geschmack · Spurenlesen · Orientierung</p><div class="sheet-field"><span>Gebietsbonus / -malus</span><strong>[Wert und Berechnung]</strong></div><p>[Einzelwerte und Modifikatoren je Fertigkeit]</p></article>
+    </div>
+  </section>
 
-    <h2>[Individuelle Überschrift zu den vergangenen Jahren]</h2>
-    <p>[Erzählerische Fortsetzung: Was ist seit der Kindheit geschehen? Welche Erfahrungen, Entscheidungen und Begegnungen haben den Charakter geprägt? Beruf, Fähigkeiten, Eigenheiten und Grenzen werden organisch in die persönliche Erzählung eingebunden.]</p>
+  <section class="tab-panel" id="panel-kampf" role="tabpanel" aria-labelledby="tab-kampf" tabindex="0" hidden>
+    <div class="section-head"><h2>Kampfwerte und Waffen</h2><span class="section-note">Charakterblatt · Vorderseite</span></div>
+    <div class="sheet-card"><h3>Waffen</h3><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Waffe</th><th>A %</th><th>P %</th><th>S</th><th>BF</th><th>B</th></tr></thead><tbody><tr><td>[Waffenname]</td><td>[Wert]</td><td>[Wert]</td><td>[Wert]</td><td>[Wert]</td><td>[Wert]</td></tr><tr><td>[Weitere Waffe]</td><td>[Wert]</td><td>[Wert]</td><td>[Wert]</td><td>[Wert]</td><td>[Wert]</td></tr></tbody></table></div></div>
+    <div class="section-head subhead"><h2>Rüstung</h2></div>
+    <div class="sheet-card"><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Rüstungsteil</th><th>RS</th><th>Belastung</th><th>Behinderung</th><th>BF</th></tr></thead><tbody><tr><td>[Rüstungsteil]</td><td>[Wert]</td><td>[Wert]</td><td>[Wert]</td><td>[Wert]</td></tr><tr><td>[Weiteres Rüstungsteil]</td><td>[Wert]</td><td>[Wert]</td><td>[Wert]</td><td>[Wert]</td></tr></tbody></table></div></div>
+    <div class="section-head subhead"><h2>Schutz und Titel</h2></div>
+    <div class="sheet-grid sheet-grid-2">
+      <div class="sheet-field"><span>Rüstungsschutz (RS)</span><strong>[Wert je Trefferzone]</strong></div>
+      <div class="sheet-field"><span>Trefferpunkte (TP)</span><strong>[Wert je Trefferzone]</strong></div>
+      <div class="sheet-field"><span>Titel</span><strong>[Titel / Rang – falls vorhanden]</strong></div>
+      <div class="sheet-field"><span>Weitere Kampfwerte</span><strong>[Berufliche oder besondere Regeln]</strong></div>
+    </div>
+  </section>
+
+  <section class="tab-panel" id="panel-hintergrund" role="tabpanel" aria-labelledby="tab-hintergrund" tabindex="0" hidden>
+    <div class="section-head"><h2>Hintergrundgeschichte</h2><span class="section-note">Erzählteil der Spielerbibliothek</span></div>
+    <div class="story-block"><div class="eyebrow">Herkunft &amp; Kindheit</div><h3>[Individuelle Überschrift zur Kindheit]</h3><p>[Herkunft, Familie, Aufwachsen in Dornfels, Freundschaften und prägende Erlebnisse. Die Erzählung bleibt geschlechtsneutral, solange kein Geschlecht ausdrücklich festgelegt wurde.]</p></div>
+    <div class="story-block"><div class="eyebrow">Die vergangenen Jahre</div><h3>[Individuelle Überschrift zu den vergangenen Jahren]</h3><p>[Erfahrungen, Entscheidungen und Begegnungen seit der Kindheit. Beruf, Fähigkeiten und Eigenheiten werden organisch in die Erzählung eingebunden.]</p></div>
+    <div class="story-block"><div class="eyebrow">Persönliches</div><h3>[Prägende Beziehungen oder Wendepunkte]</h3><p>[Wichtige Bezugspersonen, offene Fragen, Ziele oder Ereignisse – nur ausformulieren, soweit sie bereits festgelegt sind.]</p></div>
+  </section>
+
+  <section class="tab-panel" id="panel-besitz" role="tabpanel" aria-labelledby="tab-besitz" tabindex="0" hidden>
+    <div class="section-head"><h2>Besitz, Ausrüstung und Notizen</h2><span class="section-note">Charakterblatt · Rückseite</span></div>
+    <div class="sheet-grid sheet-grid-2">
+      <div class="sheet-card"><h3>Charakterskizze</h3><div class="mini-placeholder">[Platzhalter für Skizze oder Ganzkörperansicht]</div></div>
+      <div class="sheet-card"><h3>Besonderheiten und Bemerkungen</h3><p>[Besondere Merkmale, Talente, Fehler, Eigenheiten und ergänzende Hinweise.]</p></div>
+      <div class="sheet-card"><h3>Wappen</h3><div class="mini-placeholder">[Platzhalter für Wappen oder Familienzeichen]</div></div>
+      <div class="sheet-card"><h3>Mitgeführtes Vermögen</h3><p>[Münzen, Schmuck und sonstige Wertgegenstände]</p></div>
+    </div>
+    <div class="section-head subhead"><h2>Inventar nach Aufbewahrungsort</h2></div>
+    <div class="inventory-grid">
+      <div class="sheet-card"><h3>Gürtel, Hosentaschen …</h3><p>[Gegenstand · Anzahl · Belastung]</p><p>[Gegenstand · Anzahl · Belastung]</p><span class="inventory-total">Belastung: [Wert]</span></div>
+      <div class="sheet-card"><h3>Stiefelschächte, Verstecke</h3><p>[Gegenstand · Anzahl · Belastung]</p><p>[Gegenstand · Anzahl · Belastung]</p><span class="inventory-total">Belastung: [Wert]</span></div>
+      <div class="sheet-card"><h3>Angelegte Ringe, Amulette</h3><p>[Gegenstand · Anzahl · Belastung]</p><p>[Gegenstand · Anzahl · Belastung]</p><span class="inventory-total">Belastung: [Wert]</span></div>
+      <div class="sheet-card"><h3>Rucksack, Satteltaschen …</h3><p>[Gegenstand · Anzahl · Belastung]</p><p>[Gegenstand · Anzahl · Belastung]</p><span class="inventory-total">Belastung: [Wert]</span></div>
+      <div class="sheet-card"><h3>Nicht mitgeführte Gegenstände</h3><p>[Gegenstände in Zimmer, Depot oder anderem Lagerort]</p><span class="inventory-total">Belastung: [Nicht Teil der aktuellen Belastung]</span></div>
+    </div>
+    <div class="total-load"><span>Gesamtbelastung der mitgeführten Gegenstände</span><strong>[Wert]</strong></div>
+    <p class="panel-intro">[Belastungsberechnung mit Einzelwerten und nachvollziehbarer Summe. Körpergewicht und nicht mitgeführte Gegenstände werden getrennt behandelt.]</p>
   </section>
 </main>
 <footer><div class="wrap">Die letzten Schreie von Dornfels · Spielerbibliothek</div></footer>
+<script>
+(() => {
+  const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
+  const panels = tabs.map(tab => document.getElementById(tab.getAttribute('aria-controls')));
+  function activate(index, moveFocus = false) {
+    tabs.forEach((tab, i) => {
+      const active = i === index;
+      tab.classList.toggle('is-active', active);
+      tab.setAttribute('aria-selected', String(active));
+      tab.tabIndex = active ? 0 : -1;
+      panels[i].hidden = !active;
+      panels[i].classList.toggle('is-active', active);
+    });
+    if (moveFocus) tabs[index].focus();
+  }
+  tabs.forEach((tab, index) => {
+    tab.addEventListener('click', () => activate(index));
+    tab.addEventListener('keydown', event => {
+      let next = index;
+      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
+      else if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
+      else if (event.key === 'Home') next = 0;
+      else if (event.key === 'End') next = tabs.length - 1;
+      else return;
+      event.preventDefault();
+      activate(next, true);
+    });
+  });
+})();
+</script>
 </body>
 </html>
