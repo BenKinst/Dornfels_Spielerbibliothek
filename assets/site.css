@@ -98,3 +98,10 @@
 .possession-list p{margin:7px 0}
 .possession-list strong{color:var(--gold-soft);font-weight:400}
 @media(max-width:480px){.accordion-panel{margin-left:22px;padding-left:0}}
+
+/* Endwerte bleiben übersichtlich; die Rechenwege erscheinen bei Hover oder Tastaturfokus. */
+.calculated-value{position:relative;display:inline-block;border-bottom:1px dotted var(--gold-soft);cursor:help}
+.calculated-value::after{content:attr(data-tip);position:absolute;left:0;bottom:calc(100% + 9px);z-index:20;width:max-content;max-width:min(320px,80vw);padding:9px 11px;border:1px solid var(--line);border-radius:7px;background:#211e18;color:var(--text);font:12px/1.5 Arial,sans-serif;white-space:normal;box-shadow:0 8px 24px rgba(0,0,0,.35);opacity:0;visibility:hidden;pointer-events:none;transition:opacity .12s ease}
+.calculated-value:hover::after,.calculated-value:focus-visible::after{opacity:1;visibility:visible}
+.calculated-value:focus-visible{outline:1px solid var(--gold-soft);outline-offset:3px}
+.skill-card .sheet-table td:last-child{color:var(--text)}
