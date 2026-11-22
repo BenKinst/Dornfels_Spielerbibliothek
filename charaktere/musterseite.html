@@ -22,8 +22,8 @@
   <div class="accordion-controls" aria-label="Bereiche steuern"><button type="button" data-expand-all>Alle öffnen</button><button type="button" data-collapse-all>Alle schließen</button></div>
   <div class="character-accordion">
     <section class="accordion-item" data-accordion-item>
-      <h2 class="accordion-heading"><button class="accordion-trigger" type="button" aria-expanded="true" aria-controls="panel-hintergrund"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2h8l4 4v16H8z"/><path d="M16 2v5h5M12 11h5M12 15h5M12 19h3M4 6v14M2 8v10"/></svg><span>Hintergrundgeschichte</span></button></h2>
-      <div class="accordion-panel" id="panel-hintergrund" >
+      <h2 class="accordion-heading"><button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="panel-hintergrund"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2h8l4 4v16H8z"/><path d="M16 2v5h5M12 11h5M12 15h5M12 19h3M4 6v14M2 8v10"/></svg><span>Hintergrundgeschichte</span></button></h2>
+      <div class="accordion-panel" id="panel-hintergrund" hidden>
     <div class="section-head"><h2>Hintergrundgeschichte</h2><span class="section-note">Die Geschichte der Figur</span></div>
     <div class="story-block"><div class="eyebrow">Herkunft &amp; Kindheit</div><h3>[Individuelle Überschrift zur Kindheit]</h3><p>[Herkunft, Familie, Aufwachsen in Dornfels, Freundschaften und prägende Erlebnisse. Geschlechtsneutral erzählen, solange kein Geschlecht ausdrücklich festgelegt wurde.]</p></div>
     <div class="story-block"><div class="eyebrow">Die vergangenen Jahre</div><h3>[Individuelle Überschrift zu den vergangenen Jahren]</h3><p>[Erfahrungen, Entscheidungen und Begegnungen seit der Kindheit. Beruf, Fähigkeiten und Eigenheiten organisch in die persönliche Erzählung einbinden.]</p></div>
@@ -32,7 +32,11 @@
     <section class="accordion-item" data-accordion-item>
       <h2 class="accordion-heading"><button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="panel-eigenschaften"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-2-5.8L4 11l6-2.2L12 3Z"/><path d="m19 14 1.2 2.8L23 18l-2.8 1.2L19 22l-1.2-2.8L15 18l2.8-1.2L19 14ZM5 2l.8 2.2L8 5l-2.2.8L5 8l-.8-2.2L2 5l2.2-.8L5 2Z"/></svg><span>Eigenschaften</span></button></h2>
       <div class="accordion-panel" id="panel-eigenschaften" hidden>
-    <div class="section-head"><h2>Charakterdaten</h2><span class="section-note">Heldenbogen · Vorderseite</span></div>
+<div class="nested-accordion">
+<section class="subaccordion-item" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-charakterdaten">Charakterdaten</button>
+<div class="subaccordion-panel" id="sub-charakterdaten" hidden>
+Charakterdaten,    <div class="section-head"><h2>Charakterdaten</h2><span class="section-note">Heldenbogen · Vorderseite</span></div>
     <div class="sheet-grid sheet-grid-3">
             <div class="sheet-field"><span>Volk</span><strong>[Volk / Rasse]</strong></div>
       <div class="sheet-field"><span>Beruf</span><strong>[Beruf]</strong></div>
@@ -42,7 +46,13 @@
       <div class="sheet-field"><span>Gewicht</span><strong>[Gewicht]</strong></div>
       <div class="sheet-field"><span>Reichweite</span><strong>[Bewegungsreichweite]</strong></div>
                 </div>
-    <div class="section-head subhead"><h2>Eigenschaften und abgeleitete Werte</h2></div>
+
+</div>
+</section>
+<section class="subaccordion-item" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-eigenschaften">Eigenschaften &amp; abgeleitete Werte</button>
+<div class="subaccordion-panel" id="sub-eigenschaften" hidden>
+Eigenschaften & abgeleitete Werte,    <div class="section-head subhead"><h2>Eigenschaften und abgeleitete Werte</h2></div>
     <p class="panel-intro">Angezeigt werden die fertigen Werte. Bewege den Mauszeiger über einen Wert, um seine Berechnung zu sehen.</p>
     <div class="sheet-grid sheet-grid-2">
       <div class="sheet-field"><span>Stärke</span><strong class="calculated-value" tabindex="0" data-tip="Grundwert + Modifikatoren">[Endwert]</strong></div>
@@ -55,23 +65,52 @@
       <div class="sheet-field"><span>Reaktion</span><strong class="calculated-value" tabindex="0" data-tip="Berechnung der Reaktion">[Endwert]</strong></div>
             <div class="sheet-field"><span>Tragkraft</span><strong class="calculated-value" tabindex="0" data-tip="Berechnung der Tragkraft">[Endwert]</strong></div>
     </div>
-    <div class="section-head subhead"><h2>Lebenswerte</h2></div>
+
+</div>
+</section>
+<section class="subaccordion-item" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-lebenswerte">Lebenswerte</button>
+<div class="subaccordion-panel" id="sub-lebenswerte" hidden>
+Lebenswerte,    <div class="section-head subhead"><h2>Lebenswerte</h2></div>
     <div class="sheet-grid sheet-grid-4">
                               <div class="sheet-field"><span>Lebenspunkte (LP)</span><strong class="calculated-value" tabindex="0" data-tip="Grundwert + Modifikatoren">[Endwert]</strong></div>
       <div class="sheet-field"><span>Astralpunkte (AP)</span><strong class="calculated-value" tabindex="0" data-tip="Grundwert + Modifikatoren">[Endwert]</strong></div>
           </div>
-  </div>
+
+</div>
+</section>
+</div>  </div>
     </section>
     <section class="accordion-item" data-accordion-item>
       <h2 class="accordion-heading"><button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="panel-fertigkeiten"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 17.5 3 3L22 16l-3-3M3 7l5 5M14 4l6-2-2 6-8 8-4-4 8-8ZM3 21l6-6M3 3l6 6"/></svg><span>Fertigkeiten</span></button></h2>
       <div class="accordion-panel" id="panel-fertigkeiten" hidden>
     <div class="section-head"><h2>Fertigkeiten</h2><span class="section-note">Heldenbogen · Vorderseite</span></div>
     <p class="panel-intro">Hier stehen nur die fertigen Fertigkeitswerte. Die Berechnung wird beim Darüberfahren mit der Maus angezeigt.</p>
-    <div class="skill-grid">
-      <article class="sheet-card skill-card"><h3>Beweglichkeit</h3><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Fertigkeit</th><th>Wert</th></tr></thead><tbody><tr><td>Boot</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Klettern</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Springen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Reiten</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Schwimmen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Werfen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Schleichen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Verstecken</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr></tbody></table></div></article>
-      <article class="sheet-card skill-card"><h3>Wissen</h3><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Fertigkeit</th><th>Wert</th></tr></thead><tbody><tr><td>Pflanzen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Tiere</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Menschen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Welt</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Handwerk</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Erste Hilfe</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr></tbody></table></div></article>
-      <article class="sheet-card skill-card"><h3>Beeinflussung</h3><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Fertigkeit</th><th>Wert</th></tr></thead><tbody><tr><td>Stehlen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Spielen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Überreden</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Lügen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Lehren</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Schätzen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr></tbody></table></div></article>
-      <article class="sheet-card skill-card"><h3>Wahrnehmung</h3><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Fertigkeit</th><th>Wert</th></tr></thead><tbody><tr><td>Hören</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Riechen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Spähen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Geschmack</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Spurenlesen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Orientierung</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr></tbody></table></div></article>
+    <div class="nested-accordion skill-tabs">
+      <section class="subaccordion-item skill-subitem" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-skill-0">Beweglichkeit</button>
+<div class="subaccordion-panel" id="sub-skill-0" hidden>
+<div class="sheet-card skill-card"><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Fertigkeit</th><th>Wert</th></tr></thead><tbody><tr><td>Boot</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Klettern</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Springen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Reiten</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Schwimmen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Werfen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Schleichen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Verstecken</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr></tbody></table></div></div>
+</div>
+</section>
+      <section class="subaccordion-item skill-subitem" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-skill-1">Wissen</button>
+<div class="subaccordion-panel" id="sub-skill-1" hidden>
+<div class="sheet-card skill-card"><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Fertigkeit</th><th>Wert</th></tr></thead><tbody><tr><td>Pflanzen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Tiere</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Menschen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Welt</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Handwerk</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Erste Hilfe</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr></tbody></table></div></div>
+</div>
+</section>
+      <section class="subaccordion-item skill-subitem" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-skill-2">Beeinflussung</button>
+<div class="subaccordion-panel" id="sub-skill-2" hidden>
+<div class="sheet-card skill-card"><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Fertigkeit</th><th>Wert</th></tr></thead><tbody><tr><td>Stehlen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Spielen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Überreden</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Lügen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Lehren</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Schätzen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr></tbody></table></div></div>
+</div>
+</section>
+      <section class="subaccordion-item skill-subitem" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-skill-3">Wahrnehmung</button>
+<div class="subaccordion-panel" id="sub-skill-3" hidden>
+<div class="sheet-card skill-card"><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Fertigkeit</th><th>Wert</th></tr></thead><tbody><tr><td>Hören</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Riechen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Spähen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Geschmack</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Spurenlesen</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr><tr><td>Orientierung</td><td><span class="calculated-value" tabindex="0" data-tip="Grundwert + Gebietsbonus/-malus + weitere Modifikatoren">[Endwert]</span></td></tr></tbody></table></div></div>
+</div>
+</section>
     </div>
   </div>
     </section>
@@ -109,19 +148,23 @@
 <footer><div class="wrap">Die letzten Schreie von Dornfels · Spielerbibliothek</div></footer>
 <script>
 (() => {
-  const items = [...document.querySelectorAll('[data-accordion-item]')];
-  const setOpen = (item, open) => {
-    const button = item.querySelector('.accordion-trigger');
+  const groups = [
+    {items: [...document.querySelectorAll('[data-accordion-item]')], button: '.accordion-trigger', panel: '.accordion-panel'},
+    {items: [...document.querySelectorAll('[data-subaccordion-item]')], button: '.subaccordion-trigger', panel: '.subaccordion-panel'}
+  ];
+  const setOpen = (item, open, group) => {
+    const button = item.querySelector(group.button);
     const panel = document.getElementById(button.getAttribute('aria-controls'));
     button.setAttribute('aria-expanded', String(open));
     panel.hidden = !open;
   };
-  items.forEach(item => item.querySelector('.accordion-trigger').addEventListener('click', () => {
-    const button = item.querySelector('.accordion-trigger');
-    setOpen(item, button.getAttribute('aria-expanded') !== 'true');
-  }));
-  document.querySelectorAll('[data-expand-all]').forEach(button => button.addEventListener('click', () => items.forEach(item => setOpen(item, true))));
-  document.querySelectorAll('[data-collapse-all]').forEach(button => button.addEventListener('click', () => items.forEach(item => setOpen(item, false))));
+  groups.forEach(group => group.items.forEach(item => item.querySelector(group.button).addEventListener('click', () => {
+    const button = item.querySelector(group.button);
+    setOpen(item, button.getAttribute('aria-expanded') !== 'true', group);
+  })));
+  const main = groups[0];
+  document.querySelectorAll('[data-expand-all]').forEach(button => button.addEventListener('click', () => main.items.forEach(item => setOpen(item, true, main))));
+  document.querySelectorAll('[data-collapse-all]').forEach(button => button.addEventListener('click', () => main.items.forEach(item => setOpen(item, false, main))));
 })();
 </script>
 </body>
