@@ -3,3 +3,5 @@
 
 
 https://benkinst.github.io/Dornfels_Spielerbibliothek/
+
+https://benkinst.github.io/Dornfels_Spielerbibliothek/charaktere/musterseite.html
