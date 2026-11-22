@@ -76,3 +76,18 @@
 .total-load strong{color:var(--gold);font:20px Georgia,serif}
 @media(max-width:760px){.sheet-grid-3,.sheet-grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}.character-tab{flex:1 1 30%;font-size:12px}}
 @media(max-width:480px){.sheet-grid-2,.sheet-grid-3,.sheet-grid-4,.skill-grid,.inventory-grid{grid-template-columns:1fr}.character-tabs{padding:8px;gap:5px}.character-tab{flex:1 1 44%;padding:9px 7px}.profile-art{min-height:170px}.total-load{align-items:flex-start;flex-direction:column}}
+
+/* Charakterprofil: dezente, unabhängig aufklappbare Bereiche */
+.character-accordion{margin:22px 0 14px}
+.accordion-item{margin:0}
+.accordion-heading{margin:0}
+.accordion-trigger{display:flex;align-items:center;gap:12px;width:100%;padding:13px 2px;border:0;background:transparent;color:var(--text);text-align:left;font:500 19px/1.35 Georgia,"Times New Roman",serif;cursor:pointer}
+.accordion-trigger:hover,.accordion-trigger:focus-visible{color:var(--gold);outline:none}
+.accordion-trigger svg{width:19px;height:19px;flex:0 0 19px;fill:none;stroke:var(--gold-soft);stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
+.accordion-panel{padding:5px 0 26px 31px}
+.accordion-panel[hidden]{display:none}
+.accordion-controls{display:flex;justify-content:flex-end;gap:18px;padding:8px 0}
+.accordion-controls button{padding:5px 0;border:0;background:transparent;color:var(--muted);font:12px Arial,sans-serif;cursor:pointer}
+.accordion-controls button:hover,.accordion-controls button:focus-visible{color:var(--gold);outline:none}
+.accordion-controls-bottom{margin-top:6px}
+@media(max-width:480px){.accordion-panel{padding-left:0}.accordion-trigger{font-size:18px}}

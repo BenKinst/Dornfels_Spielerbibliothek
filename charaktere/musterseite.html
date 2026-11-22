@@ -19,22 +19,20 @@
     <div class="image-placeholder profile-art" role="img" aria-label="Platzhalter für die Charakterillustration"><div>Charakterillustration<span>[Porträt oder charakteristische Szene – passend zu Volk, Beruf und Hintergrund]</span></div></div>
   </section>
 
-  <nav class="character-tabs" role="tablist" aria-label="Bereiche des Charakterprofils">
-    <button class="character-tab is-active" id="tab-hintergrund" role="tab" aria-selected="true" aria-controls="panel-hintergrund" tabindex="0">Hintergrundgeschichte</button>
-    <button class="character-tab" id="tab-eigenschaften" role="tab" aria-selected="false" aria-controls="panel-eigenschaften" tabindex="-1">Eigenschaften</button>
-    <button class="character-tab" id="tab-fertigkeiten" role="tab" aria-selected="false" aria-controls="panel-fertigkeiten" tabindex="-1">Fertigkeiten</button>
-    <button class="character-tab" id="tab-magie" role="tab" aria-selected="false" aria-controls="panel-magie" tabindex="-1">Magie</button>
-    <button class="character-tab" id="tab-ausruestung" role="tab" aria-selected="false" aria-controls="panel-ausruestung" tabindex="-1">Ausrüstung</button>
-  </nav>
-
-  <section class="tab-panel is-active" id="panel-hintergrund" role="tabpanel" aria-labelledby="tab-hintergrund" tabindex="0">
+  <div class="accordion-controls" aria-label="Bereiche steuern"><button type="button" data-expand-all>Alle öffnen</button><button type="button" data-collapse-all>Alle schließen</button></div>
+  <div class="character-accordion">
+    <section class="accordion-item" data-accordion-item>
+      <h2 class="accordion-heading"><button class="accordion-trigger" type="button" aria-expanded="true" aria-controls="panel-hintergrund"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2h8l4 4v16H8z"/><path d="M16 2v5h5M12 11h5M12 15h5M12 19h3M4 6v14M2 8v10"/></svg><span>Hintergrundgeschichte</span></button></h2>
+      <div class="accordion-panel" id="panel-hintergrund" >
     <div class="section-head"><h2>Hintergrundgeschichte</h2><span class="section-note">Die Geschichte der Figur</span></div>
     <div class="story-block"><div class="eyebrow">Herkunft &amp; Kindheit</div><h3>[Individuelle Überschrift zur Kindheit]</h3><p>[Herkunft, Familie, Aufwachsen in Dornfels, Freundschaften und prägende Erlebnisse. Geschlechtsneutral erzählen, solange kein Geschlecht ausdrücklich festgelegt wurde.]</p></div>
     <div class="story-block"><div class="eyebrow">Die vergangenen Jahre</div><h3>[Individuelle Überschrift zu den vergangenen Jahren]</h3><p>[Erfahrungen, Entscheidungen und Begegnungen seit der Kindheit. Beruf, Fähigkeiten und Eigenheiten organisch in die persönliche Erzählung einbinden.]</p></div>
     <div class="story-block"><div class="eyebrow">Persönliches</div><h3>[Prägende Beziehungen oder Wendepunkte]</h3><p>[Bezugspersonen, Ziele, offene Fragen oder wichtige Ereignisse – nur ausformulieren, soweit sie bereits festgelegt sind.]</p></div>
-  </section>
-
-  <section class="tab-panel" id="panel-eigenschaften" role="tabpanel" aria-labelledby="tab-eigenschaften" tabindex="0" hidden>
+  </div>
+    </section>
+    <section class="accordion-item" data-accordion-item>
+      <h2 class="accordion-heading"><button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="panel-eigenschaften"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-2-5.8L4 11l6-2.2L12 3Z"/><path d="m19 14 1.2 2.8L23 18l-2.8 1.2L19 22l-1.2-2.8L15 18l2.8-1.2L19 14ZM5 2l.8 2.2L8 5l-2.2.8L5 8l-.8-2.2L2 5l2.2-.8L5 2Z"/></svg><span>Eigenschaften</span></button></h2>
+      <div class="accordion-panel" id="panel-eigenschaften" hidden>
     <div class="section-head"><h2>Charakterdaten</h2><span class="section-note">Heldenbogen · Vorderseite</span></div>
     <div class="sheet-grid sheet-grid-3">
       <div class="sheet-field"><span>Name</span><strong>[Name – Festlegung durch den Spieler]</strong></div>
@@ -73,9 +71,11 @@
       <div class="sheet-field"><span>Astralpunkte (AP)</span><strong>[Grundwert + Modifikatoren]</strong></div>
       <div class="sheet-field"><span>AP noch verfügbar</span><strong>[Wert]</strong></div>
     </div>
-  </section>
-
-  <section class="tab-panel" id="panel-fertigkeiten" role="tabpanel" aria-labelledby="tab-fertigkeiten" tabindex="0" hidden>
+  </div>
+    </section>
+    <section class="accordion-item" data-accordion-item>
+      <h2 class="accordion-heading"><button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="panel-fertigkeiten"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 17.5 3 3L22 16l-3-3M3 7l5 5M14 4l6-2-2 6-8 8-4-4 8-8ZM3 21l6-6M3 3l6 6"/></svg><span>Fertigkeiten</span></button></h2>
+      <div class="accordion-panel" id="panel-fertigkeiten" hidden>
     <div class="section-head"><h2>Fertigkeiten</h2><span class="section-note">Heldenbogen · Vorderseite</span></div>
     <p class="panel-intro">Die Fertigkeiten sind wie auf dem Charakterbogen in vier Gebiete gegliedert. Jeweils Grundwert, Gebietsbonus oder -malus, weitere Modifikatoren und Endwert getrennt dokumentieren.</p>
     <div class="skill-grid">
@@ -84,9 +84,11 @@
       <article class="sheet-card skill-card"><h3>Beeinflussung</h3><p class="skill-list">Stehlen · Spielen · Überreden · Lügen · Lehren · Schätzen</p><div class="sheet-field"><span>Gebietsbonus / -malus</span><strong>[Wert und Berechnung]</strong></div><p>[Einzelwerte und Modifikatoren je Fertigkeit]</p></article>
       <article class="sheet-card skill-card"><h3>Wahrnehmung</h3><p class="skill-list">Hören · Riechen · Spähen · Geschmack · Spurenlesen · Orientierung</p><div class="sheet-field"><span>Gebietsbonus / -malus</span><strong>[Wert und Berechnung]</strong></div><p>[Einzelwerte und Modifikatoren je Fertigkeit]</p></article>
     </div>
-  </section>
-
-  <section class="tab-panel" id="panel-magie" role="tabpanel" aria-labelledby="tab-magie" tabindex="0" hidden>
+  </div>
+    </section>
+    <section class="accordion-item" data-accordion-item>
+      <h2 class="accordion-heading"><button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="panel-magie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 4 5 5M4 20 16 8M3 6l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2ZM19 13l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2Z"/></svg><span>Magie</span></button></h2>
+      <div class="accordion-panel" id="panel-magie" hidden>
     <div class="section-head"><h2>Sprachen und Magie</h2><span class="section-note">Heldenbogen · Vorderseite</span></div>
     <div class="sheet-grid sheet-grid-2">
       <div class="sheet-card"><h3>Sprachen</h3><p>[Sprache, Kenntnisgrad und gegebenenfalls Herkunft der Sprachkenntnis]</p></div>
@@ -96,9 +98,11 @@
     </div>
     <div class="section-head subhead"><h2>Erlernte Zauber</h2></div>
     <div class="sheet-card"><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Spruchliste</th><th>Spruchstufe</th><th>Zauber</th><th>Lernkosten</th><th>Notizen</th></tr></thead><tbody><tr><td>[Liste]</td><td>[Stufe]</td><td>[Zaubername]</td><td>[Spruchpunkte]</td><td>[Wirkung / Hinweis]</td></tr><tr><td>[Liste]</td><td>[Stufe]</td><td>[Zaubername]</td><td>[Spruchpunkte]</td><td>[Wirkung / Hinweis]</td></tr></tbody></table></div></div>
-  </section>
-
-  <section class="tab-panel" id="panel-ausruestung" role="tabpanel" aria-labelledby="tab-ausruestung" tabindex="0" hidden>
+  </div>
+    </section>
+    <section class="accordion-item" data-accordion-item>
+      <h2 class="accordion-heading"><button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="panel-ausruestung"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14a2 2 0 0 1 2 2v10H3V10a2 2 0 0 1 2-2Z"/><path d="M9 8V5a3 3 0 0 1 6 0v3M3 13h18M8 13v3h8v-3M7 20v2M17 20v2"/></svg><span>Ausrüstung</span></button></h2>
+      <div class="accordion-panel" id="panel-ausruestung" hidden>
     <div class="section-head"><h2>Waffen und Rüstung</h2><span class="section-note">Heldenbogen · Vorderseite</span></div>
     <div class="sheet-card"><h3>Waffen</h3><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Waffe</th><th>A %</th><th>P %</th><th>S</th><th>BF</th><th>B</th></tr></thead><tbody><tr><td>[Waffenname]</td><td>[Wert]</td><td>[Wert]</td><td>[Wert]</td><td>[Wert]</td><td>[Wert]</td></tr><tr><td>[Weitere Waffe]</td><td>[Wert]</td><td>[Wert]</td><td>[Wert]</td><td>[Wert]</td><td>[Wert]</td></tr></tbody></table></div></div>
     <div class="section-head subhead"><h2>Rüstung und Schutz</h2></div>
@@ -118,37 +122,27 @@
       <div class="sheet-card"><h3>Nicht mitgeführte Gegenstände</h3><p>[Gegenstände in Zimmer, Depot oder anderem Lagerort]</p><span class="inventory-total">Nicht Teil der aktuellen Belastung</span></div>
     </div>
     <div class="total-load"><span>Gesamtbelastung der mitgeführten Gegenstände</span><strong>[Wert]</strong></div>
-  </section>
+  </div>
+    </section>
+  </div>
+  <div class="accordion-controls accordion-controls-bottom" aria-label="Bereiche steuern"><button type="button" data-expand-all>Alle öffnen</button><button type="button" data-collapse-all>Alle schließen</button></div>
 </main>
 <footer><div class="wrap">Die letzten Schreie von Dornfels · Spielerbibliothek</div></footer>
 <script>
 (() => {
-  const tabs = Array.from(document.querySelectorAll('[role="tab"]'));
-  const panels = tabs.map(tab => document.getElementById(tab.getAttribute('aria-controls')));
-  function activate(index, moveFocus = false) {
-    tabs.forEach((tab, i) => {
-      const active = i === index;
-      tab.classList.toggle('is-active', active);
-      tab.setAttribute('aria-selected', String(active));
-      tab.tabIndex = active ? 0 : -1;
-      panels[i].hidden = !active;
-      panels[i].classList.toggle('is-active', active);
-    });
-    if (moveFocus) tabs[index].focus();
-  }
-  tabs.forEach((tab, index) => {
-    tab.addEventListener('click', () => activate(index));
-    tab.addEventListener('keydown', event => {
-      let next = index;
-      if (event.key === 'ArrowRight') next = (index + 1) % tabs.length;
-      else if (event.key === 'ArrowLeft') next = (index - 1 + tabs.length) % tabs.length;
-      else if (event.key === 'Home') next = 0;
-      else if (event.key === 'End') next = tabs.length - 1;
-      else return;
-      event.preventDefault();
-      activate(next, true);
-    });
-  });
+  const items = [...document.querySelectorAll('[data-accordion-item]')];
+  const setOpen = (item, open) => {
+    const button = item.querySelector('.accordion-trigger');
+    const panel = document.getElementById(button.getAttribute('aria-controls'));
+    button.setAttribute('aria-expanded', String(open));
+    panel.hidden = !open;
+  };
+  items.forEach(item => item.querySelector('.accordion-trigger').addEventListener('click', () => {
+    const button = item.querySelector('.accordion-trigger');
+    setOpen(item, button.getAttribute('aria-expanded') !== 'true');
+  }));
+  document.querySelectorAll('[data-expand-all]').forEach(button => button.addEventListener('click', () => items.forEach(item => setOpen(item, true))));
+  document.querySelectorAll('[data-collapse-all]').forEach(button => button.addEventListener('click', () => items.forEach(item => setOpen(item, false))));
 })();
 </script>
 </body>
