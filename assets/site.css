@@ -60,15 +60,12 @@
 .skill-grid,.inventory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .skill-card{min-height:230px;min-width:0}
 /* Fertigkeitstabellen bleiben innerhalb ihrer Kartenbreite; kurze Einträge erzeugen keinen künstlichen Tabellenüberlauf. */
-.skill-card .table-scroll{min-width:0;max-width:100%}
-.skill-card .sheet-table{width:100%;table-layout:fixed}
-.skill-card .sheet-table th:first-child,.skill-card .sheet-table td:first-child{width:70%}
-.skill-card .sheet-table th:last-child,.skill-card .sheet-table td:last-child{width:30%}
+
 .skill-list{padding-bottom:10px;border-bottom:1px solid var(--line);color:var(--text)!important}
 .skill-card .sheet-field{margin-top:12px;padding:10px 12px}
 .formula-card{margin-top:14px}
 .table-scroll{overflow-x:auto}
-.sheet-table{width:100%;border-collapse:collapse;font:13px Arial,sans-serif}
+.sheet-table{width:max-content;max-width:100%;border-collapse:collapse;font:13px Arial,sans-serif}
 .sheet-table th,.sheet-table td{padding:11px 12px;border-bottom:1px solid var(--line);text-align:left;white-space:nowrap}
 .sheet-table th{color:var(--gold-soft);font-weight:400}
 .sheet-table td{color:var(--muted)}
