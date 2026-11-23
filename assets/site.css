@@ -34,7 +34,7 @@
 /* Charakterprofil: an die Feldgruppen und die zweitseitige Struktur des RuneQuest-Heldenbogens angelehnt. */
 .character-page{padding-bottom:72px}
 .profile-subtitle{margin:0;color:var(--muted);font:14px Arial,sans-serif;letter-spacing:.04em}
-.profile-art{min-height:250px}
+.profile-art{display:block;width:100%;max-width:100%;height:auto;min-height:0;margin:24px 0;border:0;border-radius:0;padding:0;background:none;object-fit:contain}.profile-art-placeholder{display:grid;place-items:center;min-height:0;color:var(--gold);text-align:center}.profile-art-placeholder span{display:block;color:var(--muted);font:13px Arial,sans-serif;margin-top:8px}
 .profile-intro{max-width:780px;margin:0 auto 10px;text-align:center}
 .profile-intro p{margin:8px 0;color:var(--muted);font:15px/1.75 Arial,sans-serif}
 .profile-intro strong{color:var(--gold);font:12px Arial,sans-serif;letter-spacing:.14em;text-transform:uppercase}
@@ -75,7 +75,7 @@
 .total-load{display:flex;align-items:center;justify-content:space-between;gap:16px;margin-top:16px;padding:18px 20px;border:1px solid var(--gold-soft);border-radius:9px;background:rgba(213,189,141,.07);color:var(--muted);font:13px Arial,sans-serif}
 .total-load strong{color:var(--gold);font:20px Georgia,serif}
 @media(max-width:760px){.sheet-grid-3,.sheet-grid-4{grid-template-columns:repeat(2,minmax(0,1fr))}.character-tab{flex:1 1 30%;font-size:12px}}
-@media(max-width:480px){.sheet-grid-2,.sheet-grid-3,.sheet-grid-4,.skill-grid,.inventory-grid{grid-template-columns:1fr}.character-tabs{padding:8px;gap:5px}.character-tab{flex:1 1 44%;padding:9px 7px}.profile-art{min-height:170px}.total-load{align-items:flex-start;flex-direction:column}}
+@media(max-width:480px){.sheet-grid-2,.sheet-grid-3,.sheet-grid-4,.skill-grid,.inventory-grid{grid-template-columns:1fr}.character-tabs{padding:8px;gap:5px}.character-tab{flex:1 1 44%;padding:9px 7px}.profile-art{min-height:0}.total-load{align-items:flex-start;flex-direction:column}}
 
 /* Charakterprofil: dezente, unabhängig aufklappbare Bereiche */
 .character-accordion{margin:22px 0 14px}
