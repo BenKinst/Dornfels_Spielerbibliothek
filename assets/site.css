@@ -188,11 +188,3 @@
 .attribute-help{display:block;margin-top:4px;color:var(--muted);font:12px/1.45 Arial,sans-serif}
 .sheet-table td .dice-icon{margin-left:3px}
 @media(max-width:560px){.dice-icon{width:24px;height:26px}.dice-pair .dice-icon{width:21px;height:23px}.attribute-help{font-size:11px}}
-.dice-icon{display:inline-block;width:25px;height:27px;vertical-align:middle;overflow:visible;fill:#d5ad62;stroke:#765522;stroke-width:1.6;stroke-linejoin:round;flex:0 0 auto}
-.dice-icon text{fill:#211810;stroke:none;font:700 10px Arial,sans-serif}
-.dice-pair{display:inline-flex;align-items:center;gap:2px;margin-left:5px;vertical-align:middle;white-space:nowrap}
-.dice-pair .dice-icon{width:23px;height:25px}
-.sheet-field>.dice-icon{margin-left:7px}
-.attribute-help{display:block;margin-top:4px;color:var(--muted);font:12px/1.45 Arial,sans-serif}
-.sheet-table td .dice-icon{margin-left:3px}
-@media(max-width:560px){.dice-icon{width:21px;height:23px}.dice-pair .dice-icon{width:19px;height:21px}.attribute-help{font-size:11px}}
