@@ -121,3 +121,33 @@
 .skill-tabs{margin-top:18px}
 .skill-subitem .sheet-card{margin:0}
 @media(max-width:480px){.accordion-trigger{font-size:20px}.nested-accordion{padding-left:10px}.subaccordion-panel{padding-left:12px}}
+
+
+/* Responsive Charakterillustration: an Breite UND verfügbare Bildschirmhöhe anpassen.
+   Gilt nur für Musterseite und Heilerprofil; andere Charakterseiten bleiben unberührt. */
+.profile-art-responsive {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: min(68svh, 720px);
+  min-height: 220px;
+  margin: 24px 0;
+  object-fit: contain;
+  object-position: center;
+}
+.profile-art-placeholder.profile-art-responsive {
+  height: auto;
+  min-height: 0;
+}
+@media (max-width: 760px) {
+  .profile-art-responsive {
+    height: min(62svh, 560px);
+    min-height: 190px;
+  }
+}
+@media (max-width: 480px) {
+  .profile-art-responsive {
+    height: min(56svh, 460px);
+    min-height: 160px;
+  }
+}
