@@ -84,13 +84,12 @@
 .accordion-trigger{display:flex;align-items:center;gap:12px;width:100%;padding:13px 2px;border:0;background:transparent;color:var(--text);text-align:left;font:500 19px/1.35 Georgia,"Times New Roman",serif;cursor:pointer}
 .accordion-trigger:hover,.accordion-trigger:focus-visible{color:var(--gold);outline:none}
 .accordion-trigger svg{width:19px;height:19px;flex:0 0 19px;fill:none;stroke:var(--gold-soft);stroke-width:1.55;stroke-linecap:round;stroke-linejoin:round}
-.accordion-panel{padding:5px 0 26px 31px}
 .accordion-panel[hidden]{display:none}
 .accordion-controls{display:flex;justify-content:flex-end;gap:18px;padding:8px 0}
 .accordion-controls button{padding:5px 0;border:0;background:transparent;color:var(--muted);font:12px Arial,sans-serif;cursor:pointer}
 .accordion-controls button:hover,.accordion-controls button:focus-visible{color:var(--gold);outline:none}
 .accordion-controls-bottom{margin-top:6px}
-@media(max-width:480px){.accordion-panel{padding-left:0}.accordion-trigger{font-size:18px}}
+@media(max-width:480px){.accordion-trigger{font-size:20px}}
 
 /* Mehr Abstand zwischen den Bereichsüberschriften und ihrem Inhalt */
 .accordion-panel{margin-left:34px;padding:8px 0 30px 0}
@@ -107,16 +106,16 @@
 .skill-card .sheet-table td:last-child{color:var(--text)}
 
 /* Hauptreiter klar von den darunterliegenden Unterreitern absetzen. */
-.accordion-trigger{font-size:22px;font-weight:600;letter-spacing:.015em;color:var(--gold-soft);padding:16px 3px}
+.accordion-trigger{display:flex;align-items:center;gap:12px;width:100%;padding:16px 3px;border:0;background:transparent;color:var(--gold-soft);text-align:left;font:600 22px/1.35 Georgia,"Times New Roman",serif;letter-spacing:.015em;cursor:pointer}
 .accordion-trigger[aria-expanded="true"]{color:var(--gold)}
 .accordion-trigger svg{width:21px;height:21px;flex-basis:21px}
 .nested-accordion{margin:12px 0 4px 0;border-left:1px solid rgba(213,189,141,.2);padding-left:18px}
 .subaccordion-item{margin:0 0 5px}
-.subaccordion-trigger{display:flex;align-items:center;gap:10px;width:100%;padding:10px 12px;border:1px solid transparent;border-radius:6px;background:rgba(255,255,255,.018);color:var(--muted);text-align:left;font:600 13px/1.4 Arial,sans-serif;letter-spacing:.075em;text-transform:uppercase;cursor:pointer}
+.subaccordion-trigger{display:flex;align-items:center;gap:10px;width:100%;padding:11px 3px;border:0;border-bottom:1px solid rgba(213,189,141,.12);border-radius:0;background:transparent;color:var(--gold-soft);text-align:left;font:500 17px/1.4 Georgia,"Times New Roman",serif;letter-spacing:.01em;cursor:pointer}
 .subaccordion-trigger:before{content:"+";display:inline-block;width:13px;color:var(--gold-soft);font:16px/1 Arial,sans-serif}
-.subaccordion-trigger[aria-expanded="true"]{color:var(--gold-soft);background:rgba(213,189,141,.055);border-color:rgba(213,189,141,.16)}
+.subaccordion-trigger[aria-expanded="true"]{color:var(--gold);border-bottom-color:rgba(213,189,141,.35)}
 .subaccordion-trigger[aria-expanded="true"]:before{content:"−"}
-.subaccordion-trigger:hover,.subaccordion-trigger:focus-visible{color:var(--gold);outline:1px solid rgba(213,189,141,.35);outline-offset:1px}
+.subaccordion-trigger:hover,.subaccordion-trigger:focus-visible{color:var(--gold);outline:1px solid rgba(213,189,141,.3);outline-offset:1px}
 .subaccordion-panel{padding:12px 8px 16px 23px}
 .subaccordion-panel[hidden]{display:none}
 .skill-tabs{margin-top:18px}
