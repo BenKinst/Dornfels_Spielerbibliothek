@@ -4,72 +4,200 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="theme-color" content="#11100e">
+<meta name="description" content="Charakterprofil des Heilers, eines Peredhil aus Dornfels.">
 <title>Der Heiler – Die Helden von Dornfels</title>
 <link rel="stylesheet" href="../assets/site.css">
 </head>
 <body>
-<header>
-  <div class="wrap topbar">
-    <a class="brand" href="../"><span class="brand-mark">✧</span><span>Das Archiv von Dornfels</span></a>
-    <nav><a href="../#hauptauswahl">Heldenübersicht</a></nav>
-  </div>
-</header>
-<main class="wrap">
+<header><div class="wrap topbar"><a class="brand" href="../"><span class="brand-mark">✧</span><span>Das Archiv von Dornfels</span></a></div></header>
+<main class="wrap character-page">
   <section class="page-hero">
-    <a class="back" href="../">← Zurück zur Heldenübersicht</a>
-    <div class="eyebrow">Die letzten Schreie von Dornfels</div>
+    <a class="back" href="../">← Zur Spielerbibliothek</a>
+    <div class="eyebrow">Die letzten Schreie von Dornfels · Spielerakte</div>
     <h1>Der Heiler</h1>
-    <img class="character-image" src="../assets/Heiler_Beruf.jpg" alt="Ein Heiler versorgt einen verwundeten Kämpfer auf einem Schlachtfeld">
+    <p class="profile-subtitle">Peredhil (Halbelf) · Heiler</p>
+    <div class="image-placeholder profile-art"><img src="../assets/Heiler_Beruf.jpg" alt="Ein Heiler versorgt einen verwundeten Kämpfer auf einem Schlachtfeld" style="max-width:100%;max-height:320px;object-fit:contain;border-radius:8px"></div>
   </section>
-  <section class="content-section">
-    <p><strong>Rasse:</strong> Peredhil (Halbelf)</p>
-    <p><strong>Beruf:</strong> Der Heiler ist ein Magier, der Verletzungen und Krankheiten behandelt, indem er deren Auswirkungen auf den eigenen Körper überträgt.</p>
-  </section>
-  <section class="content-section" id="background-story" hidden aria-live="polite">
-    <div id="background-story-content"></div>
-  </section>
-  <script>
-    (async () => {
-      const section = document.getElementById("background-story");
-      const target = document.getElementById("background-story-content");
-      try {
-        const response = await fetch("../content/heiler.md", { cache: "no-store" });
-        if (!response.ok) return;
-        const markdown = await response.text();
-        const lines = markdown.split(/\r?\n/);
-        let paragraph = [];
-        const flushParagraph = () => {
-          if (!paragraph.length) return;
-          const p = document.createElement("p");
-          p.textContent = paragraph.join(" ");
-          target.appendChild(p);
-          paragraph = [];
-        };
-        for (const line of lines) {
-          if (line.startsWith("## ")) {
-            flushParagraph();
-            const heading = document.createElement("h2");
-            heading.textContent = line.slice(3);
-            target.appendChild(heading);
-          } else if (line.startsWith("# ")) {
-            flushParagraph();
-            const heading = document.createElement("h2");
-            heading.textContent = line.slice(2);
-            target.appendChild(heading);
-          } else if (!line.trim()) {
-            flushParagraph();
-          } else {
-            paragraph.push(line.trim());
-          }
-        }
-        flushParagraph();
-        if (target.childElementCount) section.hidden = false;
-      } catch (error) {
-        console.error("Die freigegebene Heiler-Hintergrundgeschichte konnte nicht geladen werden.", error);
-      }
-    })();
-  </script>
+
+  <div class="accordion-controls" aria-label="Bereiche steuern"><button type="button" data-expand-all>Alle öffnen</button><button type="button" data-collapse-all>Alle schließen</button></div>
+  <div class="character-accordion">
+    <section class="accordion-item" data-accordion-item>
+      <h2 class="accordion-heading"><button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="panel-hintergrund"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2h8l4 4v16H8z"/><path d="M16 2v5h5M12 11h5M12 15h5M12 19h3M4 6v14M2 8v10"/></svg><span>Hintergrundgeschichte</span></button></h2>
+      <div class="accordion-panel" id="panel-hintergrund" hidden>
+    <div class="section-head"><h2>Hintergrundgeschichte</h2><span class="section-note">Die veröffentlichte Hintergrundgeschichte</span></div>
+<div class="story-block"><div class="eyebrow">Herkunft &amp; Kindheit</div><h3>Was Hände bewahren können</h3>
+<p>Wenn ich an meine Kindheit zurückdenke, sehe ich zuerst Dornfels. Den feuchten Dorfweg nach einem Sommerregen, den Rauch über den Dächern, den Dorfplatz und den Wald hinter den letzten Gärten. Ich erinnere mich an warme Sommertage, schmutzige Hände und aufgeschürfte Knie. Damals war Dornfels für mich die ganze Welt.</p>
+<p>Ich wuchs bei meiner Mutter auf. Über meinen Vater wusste ich nur, dass er auf Reisen sei und eines Tages zurückkehren werde. Manchmal erzählte sie von ihm, manchmal wich sie meinen Fragen aus. So wurde er für mich zu einer Gestalt aus wenigen Erzählungen und vielen eigenen Vorstellungen. Lange stellte ich mir vor, wie er wohl aussehen mochte und welche Geschichten er mir eines Tages erzählen würde. Damals ahnte ich noch nicht, welches gut gehütete Geheimnis ihn umgab.</p>
+<p>Schon als Kind bemerkte ich, dass mich andere Dinge beschäftigten als meine Freunde. Wenn jemand hinfiel oder sich verletzte, blieb ich stehen und wollte wissen, wie schlimm es war. Meine eigenen Schrammen und blauen Flecken hielten mich dagegen selten lange auf. Manchmal bemerkte ich erst an den besorgten Blicken der anderen, dass ich mich überhaupt verletzt hatte.</p>
+<p>Mich faszinierte, wie Wunden heilten und wie viel besser sich jemand fühlen konnte, wenn man sich um ihn kümmerte. Ich begann, auf die Kräuter und Hausmittel meiner Mutter zu achten. Ich sammelte Blätter und Blüten, versuchte sie wiederzuerkennen und fragte nach ihrer Wirkung. Nicht alles, was ich fand, war nützlich – aber mit jedem Versuch lernte ich etwas dazu.</p>
+<p>Damals wusste ich noch nicht, wohin mich diese Neugier führen würde. Ich wusste nur, dass es sich richtig anfühlte, anderen zu helfen.</p></div>
+<div class="story-block"><div class="eyebrow">Die vergangenen Jahre</div><h3>Was geblieben ist</h3>
+<p>Sieben Jahre liegen zwischen dem Kind, das einst in Dornfels Kräuter sammelte, und dem Heiler, der ich heute bin. Schwere Jahre, in denen ich auf meinen Wegen viel gelernt habe. Vor allem habe ich verstanden, dass nicht jede Wunde mit Salben und Verbänden behandelt werden kann.</p>
+<p>Die Magie des Heilens hat mir einen Weg eröffnet, der mich bis heute fasziniert: Ich kann das Leiden eines anderen auf mich nehmen. Die Verletzung geht auf meinen eigenen Körper über, der anschließend beginnt, sich selbst zu heilen. Es ist kein leichter Weg, aber einer, den ich bereit bin zu gehen. Vielleicht fällt es mir leichter als anderen, Schmerzen auszuhalten. Unverwundbar macht mich das allerdings nicht.</p>
+<p>Meine Neugier auf Kräuter und Heilmittel ist geblieben. Ich lerne gern neue Pflanzen kennen, frage nach ihren Wirkungen und beobachte, wie andere sie verwenden. Wissen und Magie gehören für mich zusammen.</p>
+<p>Eine Sache hat sich allerdings nie geändert: Rüstungen waren mir schon immer zuwider. Schweres Metall und starres Leder engen mich ein. Ich fühle mich in einfacher Kleidung oder einer Kutte wohler, in der ich mich frei bewegen kann.</p>
+<p>Ich weiß inzwischen, dass ich nicht jeden retten kann. Manchmal reicht meine Kraft nicht aus, manchmal kommt jede Hilfe zu spät. Aber ich kann weiterlernen, mein Wissen vertiefen und versuchen, anderen einen Teil ihrer Last abzunehmen. Genau darin liegt für mich das Wesen des Heilens.</p></div></div>
+    </section>
+    <section class="accordion-item" data-accordion-item>
+      <h2 class="accordion-heading"><button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="panel-eigenschaften"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-2-5.8L4 11l6-2.2L12 3Z"/><path d="m19 14 1.2 2.8L23 18l-2.8 1.2L19 22l-1.2-2.8L15 18l2.8-1.2L19 14ZM5 2l.8 2.2L8 5l-2.2.8L5 8l-.8-2.2L2 5l2.2-.8L5 2Z"/></svg><span>Eigenschaften</span></button></h2>
+      <div class="accordion-panel" id="panel-eigenschaften" hidden>
+<div class="nested-accordion">
+<section class="subaccordion-item" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-charakterdaten">Charakterdaten</button>
+<div class="subaccordion-panel" id="sub-charakterdaten" hidden>
+<div class="section-head"><h2>Charakterdaten</h2><span class="section-note">Heldenbogen · Vorderseite</span></div>
+    <div class="sheet-grid sheet-grid-3">
+<div class="sheet-field"><span>Volk</span><strong>Peredhil (Halbelf), sterbliche Linie</strong></div>
+<div class="sheet-field"><span>Beruf</span><strong>Heiler</strong></div>
+<div class="sheet-field"><span>Religion</span><strong>Glaube an Eru und die Valar; besondere Verehrung Estës</strong></div>
+<div class="sheet-field"><span>Name</span><strong>Offen – Spielerentscheidung</strong></div>
+<div class="sheet-field"><span>Geschlecht</span><strong>Offen – Spielerentscheidung</strong></div>
+<div class="sheet-field"><span>Alter</span><strong>18 Jahre (erwachsener Heldenzustand)</strong></div>
+<div class="sheet-field"><span>Größenwert</span><strong>17</strong></div>
+<div class="sheet-field"><span>Körpergröße</span><strong>2,06–2,15 m</strong></div>
+<div class="sheet-field"><span>Körpergewicht</span><strong>100,97–114,79 kg</strong></div>
+<div class="sheet-field"><span>Bewegungsreichweite</span><strong>112,80 m/Minute</strong></div>
+<div class="sheet-field"><span>Erfahrung / Stufe</span><strong>1 / 1</strong></div>
+<div class="sheet-field"><span>Ehre / Abenteuerpunkte</span><strong>1 / 0</strong></div>
+</div>
+
+</div>
+</section>
+<section class="subaccordion-item" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-eigenschaften">Eigenschaften &amp; abgeleitete Werte</button>
+<div class="subaccordion-panel" id="sub-eigenschaften" hidden>
+<div class="section-head subhead"><h2>Eigenschaften und abgeleitete Werte</h2></div>
+    <p class="panel-intro">Angezeigt werden die fertigen Werte. Bewege den Mauszeiger über einen Wert, um seine Berechnung zu sehen.</p>
+    <div class="sheet-grid sheet-grid-2">
+<div class="sheet-field"><span>Stärke</span><strong class="calculated-value" tabindex="0" data-tip="Grundwert 9; keine Rassenmodifikation ausgewiesen">9</strong></div>
+<div class="sheet-field"><span>Intuition</span><strong class="calculated-value" tabindex="0" data-tip="Grundwert 16; keine Rassenmodifikation ausgewiesen">16</strong></div>
+<div class="sheet-field"><span>Gewandtheit</span><strong class="calculated-value" tabindex="0" data-tip="Grundwert 14; keine Rassenmodifikation ausgewiesen">14</strong></div>
+<div class="sheet-field"><span>Erscheinung</span><strong class="calculated-value" tabindex="0" data-tip="Ausgewürfelt: 12 + W6 (5)">17</strong></div>
+<div class="sheet-field"><span>Größe</span><strong class="calculated-value" tabindex="0" data-tip="Elbentabelle: 8 + W10 (9)">17</strong></div>
+<div class="sheet-field"><span>Ausdauer</span><strong class="calculated-value" tabindex="0" data-tip="Grundwert 10; keine Rassenmodifikation ausgewiesen">10</strong></div>
+<div class="sheet-field"><span>Intelligenz</span><strong class="calculated-value" tabindex="0" data-tip="Grundwert 16; keine Rassenmodifikation ausgewiesen">16</strong></div>
+<div class="sheet-field"><span>Reaktion</span><strong class="calculated-value" tabindex="0" data-tip="(Intelligenz 16 + Gewandtheit 14) / 2 = 15; Talent Schnell wie der Blitz +2">17</strong></div>
+<div class="sheet-field"><span>Tragkraft</span><strong class="calculated-value" tabindex="0" data-tip="Stärke 9 × 3">27</strong></div>
+<div class="sheet-field"><span>Initiative</span><strong class="calculated-value" tabindex="0" data-tip="1W6 + Reaktion 17 + Stufe 1; Wurf je Kampfrunde">1W6 + 18</strong></div>
+</div>
+
+</div>
+</section>
+<section class="subaccordion-item" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-lebenswerte">Lebenswerte</button>
+<div class="subaccordion-panel" id="sub-lebenswerte" hidden>
+<div class="section-head subhead"><h2>Lebenswerte</h2></div>
+    <div class="sheet-grid sheet-grid-4">
+<div class="sheet-field"><span>Lebenspunkte (LP)</span><strong class="calculated-value" tabindex="0" data-tip="Grundwert laut bisheriger Charakterdokumentation; keine zusätzlichen LP gekauft">21</strong></div>
+<div class="sheet-field"><span>Astralpunkte (AP)</span><strong class="calculated-value" tabindex="0" data-tip="W10 (7) + Intuition 16 + 12 für Magierberuf">35</strong></div>
+<div class="sheet-field"><span>AP noch</span><strong>35</strong></div>
+</div>
+
+</div>
+</section>
+</div>  </div>
+    </section>
+    <section class="accordion-item" data-accordion-item>
+      <h2 class="accordion-heading"><button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="panel-fertigkeiten"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 17.5 3 3L22 16l-3-3M3 7l5 5M14 4l6-2-2 6-8 8-4-4 8-8ZM3 21l6-6M3 3l6 6"/></svg><span>Fertigkeiten</span></button></h2>
+      <div class="accordion-panel" id="panel-fertigkeiten" hidden>
+    <div class="section-head"><h2>Fertigkeiten</h2><span class="section-note">Heldenbogen · Vorderseite</span></div>
+    <p class="panel-intro">Hier stehen nur die fertigen Fertigkeitswerte. Die Berechnung wird beim Darüberfahren mit der Maus angezeigt.</p>
+    <div class="nested-accordion skill-tabs">
+      <section class="subaccordion-item skill-subitem" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-skill-0">Beweglichkeit</button>
+<div class="subaccordion-panel" id="sub-skill-0" hidden>
+<div class="sheet-card skill-card"><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Fertigkeit</th><th>Wert</th></tr></thead><tbody><tr><td>Boot</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">36</span></td></tr><tr><td>Klettern</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">21</span></td></tr><tr><td>Springen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">21</span></td></tr><tr><td>Reiten</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">21</span></td></tr><tr><td>Schwimmen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">21</span></td></tr><tr><td>Werfen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">16</span></td></tr><tr><td>Schleichen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">31</span></td></tr><tr><td>Verstecken</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">31</span></td></tr></tbody></table></div></div>
+</div>
+</section>
+      <section class="subaccordion-item skill-subitem" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-skill-1">Wissen</button>
+<div class="subaccordion-panel" id="sub-skill-1" hidden>
+<div class="sheet-card skill-card"><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Fertigkeit</th><th>Wert</th></tr></thead><tbody><tr><td>Pflanzen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">26</span></td></tr><tr><td>Tiere</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">26</span></td></tr><tr><td>Menschen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">36</span></td></tr><tr><td>Welt</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">36</span></td></tr><tr><td>Handwerk</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">26</span></td></tr><tr><td>Erste Hilfe</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">36</span></td></tr></tbody></table></div></div>
+</div>
+</section>
+      <section class="subaccordion-item skill-subitem" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-skill-2">Beeinflussung</button>
+<div class="subaccordion-panel" id="sub-skill-2" hidden>
+<div class="sheet-card skill-card"><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Fertigkeit</th><th>Wert</th></tr></thead><tbody><tr><td>Stehlen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">13</span></td></tr><tr><td>Spielen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">28</span></td></tr><tr><td>Überreden</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">18</span></td></tr><tr><td>Lügen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">13</span></td></tr><tr><td>Lehren</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">33</span></td></tr><tr><td>Schätzen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">23</span></td></tr></tbody></table></div></div>
+</div>
+</section>
+      <section class="subaccordion-item skill-subitem" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-skill-3">Wahrnehmung</button>
+<div class="subaccordion-panel" id="sub-skill-3" hidden>
+<div class="sheet-card skill-card"><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Fertigkeit</th><th>Wert</th></tr></thead><tbody><tr><td>Hören</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">18</span></td></tr><tr><td>Riechen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">23</span></td></tr><tr><td>Spähen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">23</span></td></tr><tr><td>Geschmack</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">18</span></td></tr><tr><td>Spurenlesen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">23</span></td></tr><tr><td>Orientierung</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">23</span></td></tr></tbody></table></div></div>
+</div>
+</section>
+<section class="subaccordion-item" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-sprachen">Sprachen</button>
+<div class="subaccordion-panel" id="sub-sprachen" hidden>
+<div class="section-head subhead"><h2>Sprachen</h2></div>
+<div class="sheet-card"><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Sprache</th><th>Wert</th></tr></thead><tbody><tr><td>Sindarin</td><td>5</td></tr><tr><td>Westron</td><td>5</td></tr><tr><td>Andere elbische Sprachen</td><td>2</td></tr></tbody></table></div></div>
+</div></section>
+    </div>
+  </div>
+    </section>
+    <section class="accordion-item" data-accordion-item>
+      <h2 class="accordion-heading"><button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="panel-magie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 4 5 5M4 20 16 8M3 6l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2ZM19 13l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2Z"/></svg><span>Magie</span></button></h2>
+      <div class="accordion-panel" id="panel-magie" hidden>
+    <div class="section-head"><h2>Magie</h2><span class="section-note">Heldenbogen · Vorderseite</span></div>
+    <div class="sheet-grid sheet-grid-2">
+            <div class="sheet-card"><h3>Spruchlisten</h3><p>Rituelle Reinigung und Oberflächenheilung</p><p>Trankwissen</p><p>Je fünf Start-Sprüche; insgesamt 10 Spruchpunkte (5 je Liste).</p></div>
+      <div class="sheet-field"><span>Zaubern</span><strong class="calculated-value" tabindex="0" data-tip="Fertigkeitswert inklusive aller Modifikatoren">75 %</strong></div>
+      <div class="sheet-field"><span>Gegenzauber</span><strong class="calculated-value" tabindex="0" data-tip="Fertigkeitswert inklusive aller Modifikatoren">75 %</strong></div>
+    </div>
+    <div class="section-head subhead"><h2>Erlernte Zauber</h2></div>
+    <div class="sheet-card"><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Spruchliste</th><th>Spruchstufe</th><th>Zauber</th><th>Lernkosten</th><th>Notizen</th></tr></thead><tbody>
+<tr><td>Rituelle Reinigung und Oberflächenheilung</td><td>1</td><td>Wunden, Krankheit oder Sucht übertragen; alternativ W10 Trefferpunkte heilen</td><td>1</td><td>Auf die eigene Person angewendet</td></tr>
+<tr><td>Rituelle Reinigung und Oberflächenheilung</td><td>2</td><td>Krankheit/Infektion stoppen; alternativ Hitze- oder Kältewunden 1. Grades heilen</td><td>1</td><td></td></tr>
+<tr><td>Rituelle Reinigung und Oberflächenheilung</td><td>3</td><td>Gift neutralisieren; alternativ eine Runde Benommenheit aufheben</td><td>1</td><td></td></tr>
+<tr><td>Rituelle Reinigung und Oberflächenheilung</td><td>4</td><td>Leiche/Körperteil vor Verwesung erhalten; alternativ Regeneration von 1 TP pro Runde, auch bei Bewusstlosigkeit</td><td>1</td><td></td></tr>
+<tr><td>Rituelle Reinigung und Oberflächenheilung</td><td>5</td><td>Sucht erleichtern 1; alternativ Hitze- oder Kältewunden 2. Grades heilen</td><td>1</td><td></td></tr>
+<tr><td>Trankwissen</td><td>1</td><td>Nichtmagische Flüssigkeiten einen Tag sicher handhaben</td><td>1</td><td>Kessel, Feuer und Zutaten erforderlich</td></tr>
+<tr><td>Trankwissen</td><td>2</td><td>Droge identifizieren: Ursprung, Reinheit, Stufe und Wirkung</td><td>1</td><td></td></tr>
+<tr><td>Trankwissen</td><td>3</td><td>Alkohol brauen; erneutes Anwenden ermöglicht Destillation</td><td>1</td><td></td></tr>
+<tr><td>Trankwissen</td><td>4</td><td>Gift identifizieren</td><td>1</td><td></td></tr>
+<tr><td>Trankwissen</td><td>5</td><td>Stimulierende Substanzen aus geeigneten Rohstoffen extrahieren</td><td>1</td><td></td></tr>
+</tbody></table></div></div>
+  </div>
+    </section>
+    <section class="accordion-item" data-accordion-item>
+      <h2 class="accordion-heading"><button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="panel-ausruestung"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14a2 2 0 0 1 2 2v10H3V10a2 2 0 0 1 2-2Z"/><path d="M9 8V5a3 3 0 0 1 6 0v3M3 13h18M8 13v3h8v-3M7 20v2M17 20v2"/></svg><span>Ausrüstung</span></button></h2>
+      <div class="accordion-panel" id="panel-ausruestung" hidden>
+    <div class="section-head"><h2>Waffen und Rüstung</h2><span class="section-note">Heldenbogen · Vorderseite</span></div>
+    <div class="sheet-card"><h3>Waffen</h3><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Waffe</th><th>A %</th><th>P %</th><th>S</th><th>BF</th><th>B</th></tr></thead><tbody><tr><td>Schwert</td><td>55 %</td><td>45 % + 5</td><td>1W+4</td><td>0</td><td>1</td></tr><tr><td>Zauberstab</td><td>48 %</td><td>23 % + 5</td><td>1W+2</td><td>0</td><td>1</td></tr></tbody></table></div></div>
+    <div class="section-head subhead"><h2>Rüstung und Schutz</h2></div>
+    <div class="sheet-card"><div class="table-scroll"><table class="sheet-table"><thead><tr><th>Rüstungsteil</th><th>RS</th><th>Belastung</th><th>Behinderung</th><th>BF</th></tr></thead><tbody><tr><td>Kutte, grobe Wolle (Kleidung)</td><td>1</td><td>2</td><td>Keine</td><td>–</td></tr></tbody></table></div><p>Schutzamulett: einmal täglich wahlweise Bladeturn, Schildspruch mit RS 15 oder W10 TP Heilung für den Heiler selbst.</p><p><strong>Weitere Kampfwerte:</strong> Zaubern 75 %; Gegenzauber 75 %. Die automatische Selbstheilung verwendet bekannte Sprüche mit 35 %, solange AP vorhanden sind. Das Talent „Überlebensinstinkt“ gewährt bei beiden Waffen Parade +5 (separat zum Grundwert ausgewiesen).</p></div>
+    <div class="section-head subhead"><h2>Besitz</h2></div>
+    <div class="possession-list"><p><strong>Berufliche Startausrüstung:</strong> Kutte, Zauberstab, Schwert, Schutzamulett.</p><p><strong>Grundausrüstung:</strong> Rucksack, 4 Fackeln, Seil (15 Schritt), Reiseproviant für eine Woche, Wasserschlauch für zwei Tage, Schuhe, Hose und Hemd.</p><p><strong>Vermögen:</strong> 17 Goldstücke (GS); 0 SS, 0 BS, 0 KS.</p><p><strong>Belastung:</strong> 15,39 Punkte bei 27 Tragkraft. Damit greift eine Belastungsstufe (über der halben Tragkraft von 13,5; unter drei Vierteln von 20,25). Temporär: Geschick −1, „− (20AU) auf Beweglichkeit“ sowie −5 Prozentpunkte auf Attacke und Parade. Diese Abzüge sind nicht in den Grundwerten enthalten.</p><p><strong>Mitgeführt:</strong> Sämtliche aufgeführten Gegenstände einschließlich Seil, Wasser, Proviant und Münzen.</p></div>
+  </div>
+    </section>
+  </div>
+  <div class="accordion-controls accordion-controls-bottom" aria-label="Bereiche steuern"><button type="button" data-expand-all>Alle öffnen</button><button type="button" data-collapse-all>Alle schließen</button></div>
 </main>
 <footer><div class="wrap">Die letzten Schreie von Dornfels · Spielerbibliothek</div></footer>
+<script>
+(() => {
+  const groups = [
+    {items: [...document.querySelectorAll('[data-accordion-item]')], button: '.accordion-trigger', panel: '.accordion-panel'},
+    {items: [...document.querySelectorAll('[data-subaccordion-item]')], button: '.subaccordion-trigger', panel: '.subaccordion-panel'}
+  ];
+  const setOpen = (item, open, group) => {
+    const button = item.querySelector(group.button);
+    const panel = document.getElementById(button.getAttribute('aria-controls'));
+    button.setAttribute('aria-expanded', String(open));
+    panel.hidden = !open;
+  };
+  groups.forEach(group => group.items.forEach(item => item.querySelector(group.button).addEventListener('click', () => {
+    const button = item.querySelector(group.button);
+    setOpen(item, button.getAttribute('aria-expanded') !== 'true', group);
+  })));
+  document.querySelectorAll('[data-expand-all]').forEach(button => button.addEventListener('click', () => {
+    groups.forEach(group => group.items.forEach(item => setOpen(item, true, group)));
+  }));
+  document.querySelectorAll('[data-collapse-all]').forEach(button => button.addEventListener('click', () => {
+    [...groups].reverse().forEach(group => group.items.forEach(item => setOpen(item, false, group)));
+  }));
+})();
+</script>
 </body>
 </html>
