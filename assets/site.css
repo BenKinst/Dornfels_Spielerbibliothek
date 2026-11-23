@@ -58,11 +58,11 @@
 .section-head.subhead{margin-top:28px}
 .subhead h2{font-size:18px}
 .skill-grid,.inventory-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-.skill-card{min-height:230px;min-width:0;width:fit-content;max-width:100%}
+.skill-card{min-height:230px;min-width:0;width:100%;max-width:100%}
 /* Fertigkeitstabellen: intrinsische Tabellenbreite nutzen, nicht in einem eigenen Scrollbereich erzwingen. */
 /* Tooltips dürfen Tabellen-Scrollcontainer verlassen – unabhängig davon, in welchem Tab die Tabelle liegt. */
-.table-scroll:has(.calculated-value){width:fit-content;max-width:100%;overflow:visible}
-.table-scroll:has(.calculated-value) .sheet-table{width:auto;max-width:100%;table-layout:auto}
+.table-scroll:has(.calculated-value){width:100%;max-width:100%;overflow:visible}
+.table-scroll:has(.calculated-value) .sheet-table{width:max-content;max-width:100%;table-layout:auto}
 /* Fertigkeitstabellen bleiben innerhalb ihrer Kartenbreite; kurze Einträge erzeugen keinen künstlichen Tabellenüberlauf. */
 
 .skill-list{padding-bottom:10px;border-bottom:1px solid var(--line);color:var(--text)!important}
