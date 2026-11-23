@@ -36,7 +36,7 @@
 <section class="subaccordion-item" data-subaccordion-item>
 <button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-charakterdaten">Charakterdaten</button>
 <div class="subaccordion-panel" id="sub-charakterdaten" hidden>
-Charakterdaten,    <div class="section-head"><h2>Charakterdaten</h2><span class="section-note">Heldenbogen · Vorderseite</span></div>
+<div class="section-head"><h2>Charakterdaten</h2><span class="section-note">Heldenbogen · Vorderseite</span></div>
     <div class="sheet-grid sheet-grid-3">
             <div class="sheet-field"><span>Volk</span><strong>[Volk / Rasse]</strong></div>
       <div class="sheet-field"><span>Beruf</span><strong>[Beruf]</strong></div>
@@ -52,7 +52,7 @@ Charakterdaten,    <div class="section-head"><h2>Charakterdaten</h2><span class=
 <section class="subaccordion-item" data-subaccordion-item>
 <button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-eigenschaften">Eigenschaften &amp; abgeleitete Werte</button>
 <div class="subaccordion-panel" id="sub-eigenschaften" hidden>
-Eigenschaften & abgeleitete Werte,    <div class="section-head subhead"><h2>Eigenschaften und abgeleitete Werte</h2></div>
+<div class="section-head subhead"><h2>Eigenschaften und abgeleitete Werte</h2></div>
     <p class="panel-intro">Angezeigt werden die fertigen Werte. Bewege den Mauszeiger über einen Wert, um seine Berechnung zu sehen.</p>
     <div class="sheet-grid sheet-grid-2">
       <div class="sheet-field"><span>Stärke</span><strong class="calculated-value" tabindex="0" data-tip="Grundwert + Modifikatoren">[Endwert]</strong></div>
@@ -71,7 +71,7 @@ Eigenschaften & abgeleitete Werte,    <div class="section-head subhead"><h2>Eige
 <section class="subaccordion-item" data-subaccordion-item>
 <button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-lebenswerte">Lebenswerte</button>
 <div class="subaccordion-panel" id="sub-lebenswerte" hidden>
-Lebenswerte,    <div class="section-head subhead"><h2>Lebenswerte</h2></div>
+<div class="section-head subhead"><h2>Lebenswerte</h2></div>
     <div class="sheet-grid sheet-grid-4">
                               <div class="sheet-field"><span>Lebenspunkte (LP)</span><strong class="calculated-value" tabindex="0" data-tip="Grundwert + Modifikatoren">[Endwert]</strong></div>
       <div class="sheet-field"><span>Astralpunkte (AP)</span><strong class="calculated-value" tabindex="0" data-tip="Grundwert + Modifikatoren">[Endwert]</strong></div>
@@ -162,9 +162,12 @@ Lebenswerte,    <div class="section-head subhead"><h2>Lebenswerte</h2></div>
     const button = item.querySelector(group.button);
     setOpen(item, button.getAttribute('aria-expanded') !== 'true', group);
   })));
-  const main = groups[0];
-  document.querySelectorAll('[data-expand-all]').forEach(button => button.addEventListener('click', () => main.items.forEach(item => setOpen(item, true, main))));
-  document.querySelectorAll('[data-collapse-all]').forEach(button => button.addEventListener('click', () => main.items.forEach(item => setOpen(item, false, main))));
+  document.querySelectorAll('[data-expand-all]').forEach(button => button.addEventListener('click', () => {
+    groups.forEach(group => group.items.forEach(item => setOpen(item, true, group)));
+  }));
+  document.querySelectorAll('[data-collapse-all]').forEach(button => button.addEventListener('click', () => {
+    [...groups].reverse().forEach(group => group.items.forEach(item => setOpen(item, false, group)));
+  }));
 })();
 </script>
 </body>
