@@ -151,3 +151,16 @@
     min-height: 160px;
   }
 }
+
+
+/* Fertigkeitsgebietsboni direkt in den Reitern lesbar ausweisen. */
+.skill-group-bonus{margin-left:auto;color:var(--gold);font:600 13px Arial,sans-serif;white-space:nowrap}
+.skill-group-extra{color:var(--muted);font:11px Arial,sans-serif;white-space:nowrap}
+
+/* Zauberspruchlisten als klar getrennte, eigenständige Tabellen darstellen. */
+.spell-list-overview{margin:8px 0 4px;padding-left:22px;color:var(--muted);font:13px/1.7 Arial,sans-serif}
+.spell-list-overview li{padding-left:3px;margin:2px 0}
+.spell-list-block{margin-top:12px}
+.spell-list-block + .spell-list-block{margin-top:20px;border-top:1px solid var(--gold-soft)}
+.spell-list-block h3{padding-bottom:8px;border-bottom:1px solid var(--line)}
+.spell-list-block .sheet-table th:first-child,.spell-list-block .sheet-table td:first-child{white-space:normal;min-width:260px}
