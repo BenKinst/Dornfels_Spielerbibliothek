@@ -51,7 +51,7 @@
 .sheet-grid-4{grid-template-columns:repeat(4,minmax(0,1fr))}
 .sheet-field,.sheet-card{min-width:0;padding:15px 16px;border:1px solid var(--line);border-radius:9px;background:linear-gradient(145deg,rgba(255,255,255,.025),transparent 70%),var(--panel)}
 .sheet-field>span{display:block;margin-bottom:7px;color:var(--gold-soft);font:11px Arial,sans-serif;letter-spacing:.08em;text-transform:uppercase}
-.sheet-field>strong{display:block;color:var(--text);font:14px/1.5 Georgia,serif;font-weight:400;overflow-wrap:anywhere}
+.sheet-field>strong{display:inline-block;color:var(--text);font:14px/1.5 Georgia,serif;font-weight:400;overflow-wrap:anywhere}
 .sheet-card h3,.story-block h3{margin:0 0 10px;color:var(--gold);font-size:17px;font-weight:500}
 .sheet-card p{margin:8px 0;color:var(--muted);font:13px/1.65 Arial,sans-serif}
 .sheet-card p strong{color:var(--text)}
