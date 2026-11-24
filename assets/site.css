@@ -180,3 +180,7 @@
 .attribute-help{display:block;margin-top:4px;color:var(--muted);font:12px/1.45 Arial,sans-serif}
 .sheet-table td .dice-icon{margin-left:3px}
 @media(max-width:560px){.dice-icon{width:24px;height:26px}.dice-pair .dice-icon{width:21px;height:23px}.attribute-help{font-size:11px}}
+
+/* Prozentwürfe: zwei freigestellte Bildwürfel in der Reihenfolge Zehner, Einer. */
+.dice-pair img.dice-icon{display:inline-block;width:25px;height:27px;object-fit:contain;vertical-align:middle;flex:0 0 auto}
+@media(max-width:560px){.dice-pair img.dice-icon{width:21px;height:23px}}
