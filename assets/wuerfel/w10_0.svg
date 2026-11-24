@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 108" role="img" aria-label="W10 0">
+  <defs>
+    <linearGradient id="gold" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#f1d9a0"/>
+      <stop offset=".48" stop-color="#d8bc83"/>
+      <stop offset="1" stop-color="#a98245"/>
+    </linearGradient>
+    <linearGradient id="facet" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fff0c8" stop-opacity=".72"/>
+      <stop offset="1" stop-color="#b18b51" stop-opacity=".18"/>
+    </linearGradient>
+  </defs>
+  <path d="M50 3 82 21 94 53 82 85 50 105 18 85 6 53 18 21Z" fill="url(#gold)" fill-opacity=".16" stroke="url(#gold)" stroke-width="4" stroke-linejoin="round"/>
+  <path d="M50 3 50 105M18 21 82 85M82 21 18 85M6 53 94 53" fill="none" stroke="#d8bc83" stroke-opacity=".66" stroke-width="2"/>
+  <path d="M50 3 82 21 50 53 18 21Z" fill="url(#facet)" opacity=".5"/>
+  <path d="M6 53 50 53 50 105 18 85Z" fill="#d8bc83" fill-opacity=".10"/>
+  <path d="M94 53 50 53 50 105 82 85Z" fill="#a98245" fill-opacity=".12"/>
+  <text x="50" y="61" text-anchor="middle" dominant-baseline="middle" fill="#f0d59a" stroke="#5c4528" stroke-opacity=".7" stroke-width="1.2" paint-order="stroke" font-family="Georgia, 'Times New Roman', serif" font-size="38" font-weight="700">0</text>
+</svg>
