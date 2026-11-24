@@ -172,16 +172,13 @@
 .spell-list-block .sheet-table th:first-child,.spell-list-block .sheet-table td:first-child{white-space:normal;min-width:260px}
 
 
-/* Facettierte Würfel im warmen Elfenbein- und Goldton des Archivs. */
-.dice-icon{display:inline-block;width:29px;height:31px;vertical-align:middle;overflow:visible;flex:0 0 auto;filter:drop-shadow(0 1px 1px rgba(0,0,0,.55))}
-.dice-icon .die-base{fill:#d9c69f;stroke:#80683e;stroke-width:1.7;stroke-linejoin:round}
-.dice-icon .die-facet{stroke:#8f7548;stroke-width:.75;stroke-linejoin:round}
-.dice-icon .die-facet.light{fill:#f0e2bf}
-.dice-icon .die-facet.mid{fill:#d4bd8d}
-.dice-icon .die-facet.dark{fill:#aa9162}
-.dice-icon .die-edge{fill:none;stroke:#8b7146;stroke-width:1;stroke-linejoin:round;opacity:.85}
-.dice-icon .die-number{fill:#342719;stroke:none;font:700 15px Georgia,serif}
-.dice-icon .die-pips{fill:#493923;stroke:#f0e2bf;stroke-width:.45}
+/* Würfel in der klaren, facettierten Linienoptik der bereitgestellten Vorlage. */
+.dice-icon{display:inline-block;width:29px;height:31px;vertical-align:middle;overflow:visible;flex:0 0 auto}
+.dice-icon .die-outline,.dice-icon .die-line{fill:none;stroke:var(--gold);stroke-linecap:round;stroke-linejoin:round}
+.dice-icon .die-outline{stroke-width:2.35}
+.dice-icon .die-line{stroke-width:1.05;opacity:.9}
+.dice-icon .die-number{fill:var(--text);stroke:none;font:700 17px Georgia,"Times New Roman",serif}
+.dice-icon .die-pip{fill:var(--gold)}
 .dice-pair{display:inline-flex;align-items:center;gap:1px;margin-left:5px;vertical-align:middle;white-space:nowrap}
 .dice-pair .dice-icon{width:25px;height:27px}
 .sheet-field>.dice-icon{margin-left:7px}
