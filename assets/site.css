@@ -172,13 +172,8 @@
 .spell-list-block .sheet-table th:first-child,.spell-list-block .sheet-table td:first-child{white-space:normal;min-width:260px}
 
 
-/* Würfel in der klaren, facettierten Linienoptik der bereitgestellten Vorlage. */
-.dice-icon{display:inline-block;width:29px;height:31px;vertical-align:middle;overflow:visible;flex:0 0 auto}
-.dice-icon .die-outline,.dice-icon .die-line{fill:none;stroke:var(--gold);stroke-linecap:round;stroke-linejoin:round}
-.dice-icon .die-outline{stroke-width:2.35}
-.dice-icon .die-line{stroke-width:1.05;opacity:.9}
-.dice-icon .die-number{fill:var(--text);stroke:none;font:700 17px Georgia,"Times New Roman",serif}
-.dice-icon .die-pip{fill:var(--gold)}
+/* Freigestellte Original-Würfelgrafiken aus der bereitgestellten Bildvorlage. */
+.dice-icon{display:inline-block;width:29px;height:31px;object-fit:contain;vertical-align:middle;overflow:visible;flex:0 0 auto}
 .dice-pair{display:inline-flex;align-items:center;gap:1px;margin-left:5px;vertical-align:middle;white-space:nowrap}
 .dice-pair .dice-icon{width:25px;height:27px}
 .sheet-field>.dice-icon{margin-left:7px}
