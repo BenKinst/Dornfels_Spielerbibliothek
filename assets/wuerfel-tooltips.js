@@ -1,7 +1,7 @@
 (() => {
   const explanations = {
     w6: "Schadenswurf: Wirf einen sechsseitigen Würfel (W6). Das Ergebnis bestimmt den Würfelanteil des Schadens; ein angegebener Schadensbonus wird anschließend addiert.",
-    w10: "Fertigkeitswurf (Prozentwurf): Wirf beide zehnseitigen Würfel. Der Zehnerwürfel bestimmt die Zehnerstelle, der Einerwürfel die Einerstelle. Zusammen ergeben sie den Prozentwurf. Der Wurf gelingt, wenn das Ergebnis kleiner oder gleich deinem Fertigkeitswert ist.",
+    w10: "Fertigkeitswurf (Prozentwurf): Wirf beide zehnseitigen Würfel. Der Zehnerwürfel bestimmt die Zehnerstelle, der Einerwürfel die Einerstelle. Zusammen ergeben sie den Prozentwurf. Der Wurf gelingt, wenn das Ergebnis kleiner oder gleich dem angegebenen Prozentwert ist (z. B. Fertigkeits- oder Angriffswert).",
     w20: "Eigenschaftsprobe: Wirf einen zwanzigseitigen Würfel (W20). Der Wurf gelingt, wenn das Ergebnis kleiner oder gleich deinem Eigenschaftswert ist."
   };
   document.querySelectorAll(".dice-pair").forEach((pair) => {
