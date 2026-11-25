@@ -248,3 +248,43 @@
   opacity: 1;
   visibility: visible;
 }
+
+
+/* Grundeigenschaften: Würfelgrafik bleibt neben dem Eigenschaftswert.
+   Die Beschreibungszeile bleibt darunter und nutzt weiterhin die gesamte Kartenbreite. */
+.sheet-field:has(> .attribute-scale-value) {
+  display: grid;
+  grid-template-columns: max-content minmax(0, 1fr);
+  align-items: center;
+  column-gap: 8px;
+}
+.sheet-field:has(> .attribute-scale-value) > span {
+  grid-column: 1 / -1;
+}
+.sheet-field:has(> .attribute-scale-value) > .attribute-scale-value {
+  white-space: nowrap;
+  overflow-wrap: normal;
+}
+.sheet-field:has(> .attribute-scale-value) > .dice-icon {
+  justify-self: start;
+  margin-left: 0;
+}
+.sheet-field:has(> .attribute-scale-value) > .attribute-help {
+  grid-column: 1 / -1;
+}
+
+/* Waffen- und Rüstungstabellen: Tooltips dürfen alle Tabellen- und Kartenwrapper
+   verlassen. Die Regel steht bewusst nach der allgemeinen Scrollcontainer-Regel. */
+.sheet-card:has(.sheet-table .calculated-value) {
+  overflow: visible;
+}
+.sheet-card:has(.sheet-table .calculated-value) .table-scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow: visible;
+}
+.sheet-card:has(.sheet-table .calculated-value) .sheet-table {
+  width: max-content;
+  max-width: 100%;
+  table-layout: auto;
+}
