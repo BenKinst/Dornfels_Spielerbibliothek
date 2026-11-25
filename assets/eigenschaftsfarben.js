@@ -1,5 +1,6 @@
 (() => {
-  // Einheitliche 13-stufige Rot-Gelb-Grün-Skala für die sieben Grundeigenschaften.
+  // Einheitliche 13-stufige Rot-Gelb-Grün-Skala für gewürfelte Grundeigenschaften.
+  // Berücksichtigt werden ausschließlich Eigenschaftswerte, deren Feld ein Würfelbild enthält.
   // Die Spannweite wird für jeden Charakter separat aus dessen effektiven Werten ermittelt.
   const colors = [
     "#c7473d", "#d45a3e", "#df7040", "#e58a43", "#e9a64b",
@@ -7,6 +8,7 @@
     "#70a96a", "#5e9d65", "#4b8e5c"
   ];
   const values = [...document.querySelectorAll("[data-attribute-scale]")]
+    .filter((element) => element.closest(".sheet-field")?.querySelector(".dice-icon"))
     .map((element) => ({ element, value: Number(element.textContent.trim().replace(",", ".")) }))
     .filter((entry) => Number.isFinite(entry.value));
   if (!values.length) return;
