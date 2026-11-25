@@ -192,3 +192,11 @@
   font-weight: 600 !important;
   text-shadow: 0 0 12px color-mix(in srgb, var(--attribute-value-color) 18%, transparent);
 }
+
+
+/* Dieselbe Rot-Gelb-Grün-Skala wie bei den Grundeigenschaften für Fertigkeitsendwerte. */
+.skill-scale-value.skill-scale-applied {
+  color: var(--skill-value-color) !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 12px color-mix(in srgb, var(--skill-value-color) 18%, transparent);
+}
