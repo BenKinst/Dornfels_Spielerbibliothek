@@ -185,3 +185,10 @@
 /* Prozentwürfe: zwei freigestellte Bildwürfel in der Reihenfolge Zehner, Einer. */
 .dice-pair img.dice-icon{display:inline-block;width:25px;height:27px;object-fit:contain;vertical-align:middle;flex:0 0 auto}
 @media(max-width:560px){.dice-pair img.dice-icon{width:21px;height:23px}}
+
+/* Farbskala der sieben Grundeigenschaften (Farbstufe wird zentral per JavaScript gesetzt). */
+.attribute-scale-value.attribute-scale-applied {
+  color: var(--attribute-value-color) !important;
+  font-weight: 600 !important;
+  text-shadow: 0 0 12px color-mix(in srgb, var(--attribute-value-color) 18%, transparent);
+}
