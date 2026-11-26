@@ -1,0 +1,49 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#11100e">
+<title>Der Zauberer – JSON-Prototyp | Die Helden von Dornfels</title>
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/character-components.css">
+</head>
+<body>
+<header>
+  <div class="wrap topbar">
+    <a class="brand" href="../"><span class="brand-mark">✧</span><span>Das Archiv von Dornfels</span></a>
+    <nav><a href="../#hauptauswahl">Heldenübersicht</a></nav>
+  </div>
+</header>
+<main class="wrap character-page-standard">
+  <section class="page-hero">
+    <a class="back" href="../">← Zurück zur Heldenübersicht</a>
+    <div class="eyebrow">Die letzten Schreie von Dornfels · Technischer Prototyp</div>
+    <h1 data-profile-title>Der Zauberer</h1>
+    <p class="profile-subtitle" data-profile-subtitle>Stadtbewohner · Zauberer (Elementarmagier)</p>
+    <img class="character-image" data-profile-image hidden alt="">
+  </section>
+  <section class="content-section">
+    <p><strong>Rasse:</strong> Stadtbewohner</p>
+    <p><strong>Beruf:</strong> Zauberer (Elementarmagier)</p>
+  </section>
+  <section class="content-section profile-render-root"
+    data-profile-src="../content/zauberer.json"
+    data-background-src="../content/zauberer.md">
+    <div class="accordion-controls" aria-label="Bereiche steuern">
+      <button type="button" data-expand-all>Alle öffnen</button>
+      <button type="button" data-collapse-all>Alle schließen</button>
+    </div>
+    <div data-profile-content aria-live="polite">
+      <p>Charakterprofil wird geladen …</p>
+    </div>
+    <div class="accordion-controls accordion-controls-bottom" aria-label="Bereiche steuern">
+      <button type="button" data-expand-all>Alle öffnen</button>
+      <button type="button" data-collapse-all>Alle schließen</button>
+    </div>
+  </section>
+</main>
+<footer><div class="wrap">Die letzten Schreie von Dornfels · Spielerbibliothek</div></footer>
+<script src="../assets/character-profile-renderer.js"></script>
+</body>
+</html>
