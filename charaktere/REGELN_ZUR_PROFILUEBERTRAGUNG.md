@@ -1,40 +1,40 @@
-# Verbindliche Regel zur Übertragung von Heldenprofilen
+# Regelung zur Übertragung von Heldenprofilen
 
-## 1. Maßgebliche Vorlage
+## 1. Maßgebliche Gestaltungsgrundlage
 
-Die Datei `charaktere/musterseite.html` ist die alleinige und abschließende Vorlage für Aufbau, Felder und Inhaltsbereiche aller Heldenprofile in der Spielerbibliothek.
+Der verbindliche Aufbau, die Gestaltung, die Bedienung und die Qualitätsprüfung aller Charakterseiten richten sich nach dem **Standard für Charakterseiten der Spielerbibliothek** im Abenteuer-Repository unter `03_Entscheidungen/06_Standard_fuer_Charakterseiten.md`.
 
-## 2. Verbindliche Positivliste (Whitelist)
+Die Datei `charaktere/musterseite.html` bleibt eine technische und inhaltliche Musterseite. Sie ist nicht länger eine abschließende Positivliste und darf den verbindlichen Charakterseitenstandard nicht einschränken.
 
-- Übernommen und befüllt werden dürfen ausschließlich Felder, Tabellen, Listen und Inhaltsbereiche, die in der aktuellen Musterseite bereits vorhanden sind.
-- Die Musterseite definiert eine verbindliche Positivliste. Die Quelldatei eines Helden erweitert diese Liste nicht.
-- Enthält die Helden-Datei Angaben, für die es in der Musterseite kein entsprechendes Feld gibt, werden diese Angaben nicht in das veröffentlichte Profil übernommen.
-- Es dürfen keine zusätzlichen Felder, Abschnitte, Tabellen, Tabellen-Spalten, Tabellenzeilen mit neuen Feldarten, Unterbereiche oder erläuternden Textblöcke ergänzt werden, nur weil die Quelldatei entsprechende Informationen enthält.
-- Wiederholungen innerhalb eines bereits in der Musterseite vorgesehenen Datentyps sind zulässig, soweit das Feld seiner Natur nach mehrere Einträge aufnehmen kann (z. B. mehrere Zauber, Waffen oder Ausrüstungsgegenstände). Dabei dürfen keine neuen Spalten oder Feldarten entstehen.
+## 2. Maßgebliche Inhaltsquellen
 
-## 3. Befüllen der vorhandenen Felder
+- Charakterwerte, Fertigkeiten, Zauber, Ausrüstung und Hintergrundangaben werden ausschließlich aus den jeweils freigegebenen Projektquellen übernommen.
+- Die Musterseite und vorhandene Charakterseiten dienen als Orientierung für bereits etablierte Feldbezeichnungen und Darstellungsformen, soweit sie dem verbindlichen Standard entsprechen.
+- Fehlende, unklare oder nicht belegte Angaben werden nicht ergänzt oder geraten.
+- Nicht zutreffende Inhaltsbereiche dürfen gemäß dem Charakterseitenstandard entfallen.
 
-- Angaben aus der Helden-Datei werden nur dann übernommen, wenn sie eindeutig einem vorhandenen Feld der Musterseite zugeordnet werden können.
-- Die Bezeichnung und Position der Vorlagenfelder bleiben erhalten. Inhalte dürfen passend eingesetzt werden; zusätzliche Felder oder alternative Feldbezeichnungen werden nicht angelegt.
-- Ist ein Vorlagenfeld in der Helden-Datei nicht belegt, bleibt es offen bzw. erhält den in der Musterseite vorgesehenen Platzhalter. Es werden keine Angaben erfunden oder aus anderen Quellen ergänzt, sofern dies nicht ausdrücklich beauftragt wurde.
-- Ein vorhandener Inhalt darf nicht allein deshalb in ein anderes Feld verschoben werden, weil dort noch Platz ist. Eine Zuordnung muss inhaltlich eindeutig sein.
+## 3. Übertragung und Darstellung
 
-## 4. Struktur und Gestaltung
+- Angaben aus einer Helden-Datei werden in den jeweils passenden Bereichen des verbindlichen Standards dargestellt.
+- Die Bezeichnung eines Wertes darf verständlich erläutert werden; seine regeltechnische Bedeutung und sein Inhalt dürfen dadurch nicht verändert werden.
+- Wiederholbare Inhalte wie Fertigkeiten, Zauber, Waffen und Ausrüstungsgegenstände werden vollständig und in einer zum Datentyp passenden Form dargestellt.
+- Zusätzliche, durch den Charakterseitenstandard vorgesehene Unterbereiche oder Tabellen dürfen verwendet werden, auch wenn sie in einer älteren Musterseite noch nicht enthalten sind.
+- Hintergrundgeschichten werden inhaltlich unverändert aus freigegebenen Quellen übernommen. Eine Gliederung mit Absätzen und Zwischenüberschriften ist zulässig; biografische Inhalte dürfen nicht eigenständig ergänzt, umgedeutet oder gekürzt werden.
 
-- Reihenfolge, Hierarchie, Bezeichnungen und Gestaltung der Musterseite sind beizubehalten.
-- Die vorhandenen Abschnitte und Unterabschnitte dürfen befüllt, aber nicht eigenständig erweitert oder umgebaut werden.
-- Die Hintergrundgeschichte und die Charakterillustration werden ausschließlich in den dafür vorgesehenen Bereichen der Musterseite untergebracht. Individuelle Erzähltexte und Bilddateien dürfen deren vorgesehene Inhalte ersetzen, aber keine zusätzlichen Profilbereiche begründen.
+## 4. Datenqualität und offene Punkte
 
-## 5. Verbindliche Abschlussprüfung
+- Jeder angezeigte Wert muss einer konkreten Projektquelle zugeordnet werden können.
+- Endwerte und Rechenwege müssen mit den maßgeblichen Regelwerks- und Charakterquellen übereinstimmen.
+- Vorläufige Werte, offene Entscheidungen und bestätigte Festlegungen müssen unterscheidbar bleiben.
+- Nicht zuordenbare oder widersprüchliche Angaben werden vor Veröffentlichung außerhalb des Profils zur Klärung festgehalten.
 
-Vor Abschluss jeder Profilübertragung ist das fertige Profil mit der aktuellen Musterseite abzugleichen:
+## 5. Abschlussprüfung
 
-1. Jedes ausgegebene Feld und jeder Inhaltsbereich muss in der Musterseite ein Gegenstück haben.
-2. Alle zusätzlichen Felder, Tabellen, Spalten, Unterbereiche und Textblöcke ohne Gegenstück in der Musterseite sind zu entfernen.
-3. Die Bezeichnungen und Reihenfolge der Vorlagenfelder müssen erhalten sein.
-4. Nicht zuordenbare Angaben aus der Helden-Datei dürfen nicht erscheinen.
-5. Fehlende Angaben dürfen nicht durch Vermutungen oder externe Informationen ergänzt werden.
+Vor Veröffentlichung wird jedes Profil gegen den verbindlichen Charakterseitenstandard und seine Quellen geprüft:
 
-Im Zweifel wird eine Angabe weggelassen und der offene Punkt außerhalb des veröffentlichten Heldenprofils zur Klärung festgehalten.
-
-Diese Regel gilt für alle künftigen Heldenprofile und für die Überprüfung bereits erstellter Profile.
+1. Aufbau, Reihenfolge, Gestaltung und Bedienung entsprechen dem Standard.
+2. Alle dargestellten Inhalte sind durch freigegebene Quellen gedeckt.
+3. Nicht zutreffende oder unbelegte Angaben werden nicht ausgegeben.
+4. Tabellen, Wertfelder, Tooltips und Akkordeons sind auf Desktop und Mobilgeräten bedienbar.
+5. Die Hintergrundgeschichte entspricht der freigegebenen Quelldatei.
+6. Die Seite enthält keine unbeabsichtigten Testhinweise oder Verweise auf isolierte Testdateien.
