@@ -55,6 +55,9 @@
         },
         "lifeValues": {
           "$ref": "#/$defs/valueList"
+        },
+        "specialFeatures": {
+          "$ref": "#/$defs/valueList"
         }
       }
     },
@@ -170,6 +173,9 @@
               }
             }
           }
+        },
+        "details": {
+          "$ref": "#/$defs/valueList"
         }
       }
     },
@@ -187,6 +193,9 @@
           "$ref": "#/$defs/possessionList"
         },
         "wealth": {
+          "$ref": "#/$defs/valueList"
+        },
+        "load": {
           "$ref": "#/$defs/valueList"
         }
       }
@@ -288,6 +297,12 @@
           },
           "status": {
             "$ref": "#/$defs/status"
+          },
+          "breakFactor": {
+            "$ref": "#/$defs/value"
+          },
+          "burden": {
+            "$ref": "#/$defs/value"
           }
         }
       }
@@ -315,6 +330,12 @@
           },
           "status": {
             "$ref": "#/$defs/status"
+          },
+          "impairment": {
+            "$ref": "#/$defs/value"
+          },
+          "breakFactor": {
+            "$ref": "#/$defs/value"
           }
         }
       }
@@ -342,6 +363,9 @@
           },
           "status": {
             "$ref": "#/$defs/status"
+          },
+          "burden": {
+            "$ref": "#/$defs/value"
           }
         }
       }
