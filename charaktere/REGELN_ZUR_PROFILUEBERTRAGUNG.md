@@ -21,20 +21,33 @@ Die Datei `charaktere/musterseite.html` bleibt eine technische und inhaltliche M
 - Zusätzliche, durch den Charakterseitenstandard vorgesehene Unterbereiche oder Tabellen dürfen verwendet werden, auch wenn sie in einer älteren Musterseite noch nicht enthalten sind.
 - Hintergrundgeschichten werden inhaltlich unverändert aus freigegebenen Quellen übernommen. Eine Gliederung mit Absätzen und Zwischenüberschriften ist zulässig; biografische Inhalte dürfen nicht eigenständig ergänzt, umgedeutet oder gekürzt werden.
 
-## 4. Datenqualität und offene Punkte
+## 4. Datenstruktur und technische Umsetzung
 
-- Jeder angezeigte Wert muss einer konkreten Projektquelle zugeordnet werden können.
+- Strukturierte Charakterdaten werden pro Charakter in einer eigenständigen JSON-Datei gepflegt. Die Hintergrundgeschichte liegt separat in einer eindeutig zugeordneten Markdown-Datei.
+- Die JSON-Datei folgt der im Charakterseitenstandard festgelegten versionierten Datenstruktur. Nicht vorhandene Angaben und nicht zutreffende Bereiche werden ausgelassen; es werden keine Platzhalter oder künstlichen Nullwerte angelegt.
+- Jeder regelrelevante Wert enthält direkt an seinem Datensatz eine konkrete Quellenangabe mit Quelldokument und möglichst genauer Fundstelle.
+- Werte werden als bestätigt (`confirmed`) oder vorläufig (`provisional`) gekennzeichnet. Vorläufige Werte müssen in der Darstellung erkennbar bleiben.
+- Ein gemeinsamer Profilrenderer lädt und validiert die JSON-Daten und die Hintergrund-Markdown-Datei und erzeugt die vorhandenen Profilbereiche. Das Rendern der Daten bleibt von den allgemeinen CSS- und Interaktionskomponenten getrennt.
+- Der Renderer stellt die gelieferten Werte dar, berechnet aber keine Charakterwerte und ersetzt keine Prüfung anhand der Regelwerks- und Charakterquellen.
+- Charakterindividuelle Daten gehören in die Inhaltsdateien, nicht in den Renderer oder in allgemeine Interaktionsskripte.
+
+## 5. Datenqualität und offene Punkte
+
+- Jeder angezeigte regelrelevante Wert muss einer konkreten Projektquelle und einer prüfbaren Fundstelle zugeordnet werden können.
 - Endwerte und Rechenwege müssen mit den maßgeblichen Regelwerks- und Charakterquellen übereinstimmen.
 - Vorläufige Werte, offene Entscheidungen und bestätigte Festlegungen müssen unterscheidbar bleiben.
+- Nicht vorhandene Angaben und nicht zutreffende Bereiche werden ausgelassen. Fehlende Daten werden nicht als „keine Angabe“ oder durch leere Felder ausgegeben.
 - Nicht zuordenbare oder widersprüchliche Angaben werden vor Veröffentlichung außerhalb des Profils zur Klärung festgehalten.
 
-## 5. Abschlussprüfung
+## 6. Abschlussprüfung
 
 Vor Veröffentlichung wird jedes Profil gegen den verbindlichen Charakterseitenstandard und seine Quellen geprüft:
 
 1. Aufbau, Reihenfolge, Gestaltung und Bedienung entsprechen dem Standard.
 2. Alle dargestellten Inhalte sind durch freigegebene Quellen gedeckt.
-3. Nicht zutreffende oder unbelegte Angaben werden nicht ausgegeben.
-4. Tabellen, Wertfelder, Tooltips und Akkordeons sind auf Desktop und Mobilgeräten bedienbar.
-5. Die Hintergrundgeschichte entspricht der freigegebenen Quelldatei.
-6. Die Seite enthält keine unbeabsichtigten Testhinweise oder Verweise auf isolierte Testdateien.
+3. Jeder regelrelevante Wert besitzt eine konkrete Quellenangabe mit prüfbarer Fundstelle.
+4. Vorläufige Werte sind sichtbar gekennzeichnet; fehlende Angaben und nicht zutreffende Bereiche werden ausgelassen.
+5. JSON-Datei und Hintergrund-Markdown sind korrekt zugeordnet, geladen und verarbeitet.
+6. Tabellen, Wertfelder, Tooltips und Akkordeons sind auf Desktop und Mobilgeräten bedienbar.
+7. Die Hintergrundgeschichte entspricht der freigegebenen Quelldatei.
+8. Die Seite enthält keine unbeabsichtigten Testhinweise oder Verweise auf isolierte Testdateien.
