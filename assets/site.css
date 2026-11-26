@@ -409,3 +409,31 @@ html[data-dornfels-time="night"] .dornfels-backdrop::after { opacity: 1; }
   .dornfels-backdrop::before,
   .dornfels-backdrop::after { transition: none; }
 }
+
+/* Stabilisiertes Hintergrund-Compositing für die Mainpage.
+   Die Hintergrundebene liegt oberhalb des Body-Hintergrunds, aber unter dem Inhalt. */
+body.dornfels-home {
+  background: var(--bg);
+}
+.dornfels-home > .dornfels-backdrop {
+  z-index: 0;
+  position: fixed;
+  inset: 0;
+  width: 100%;
+  height: 100vh;
+  height: 100dvh;
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+  contain: layout paint size;
+}
+.dornfels-home > header,
+.dornfels-home > main,
+.dornfels-home > footer {
+  position: relative;
+  z-index: 1;
+}
+.dornfels-backdrop::before,
+.dornfels-backdrop::after {
+  transform: translate3d(0, 0, 0);
+  backface-visibility: hidden;
+}
