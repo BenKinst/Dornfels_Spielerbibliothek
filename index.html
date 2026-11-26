@@ -18,6 +18,9 @@
 <script>
 (async function () {
   const cards = Array.from(document.querySelectorAll("a.card[href^='charaktere/']"));
+
+  // Standardmäßig bleiben alle Charaktere gesperrt. Freigabe erfolgt nur
+  // durch den ausdrücklichen Statusmarker am Anfang der Markdown-Datei.
   cards.forEach(card => {
     card.classList.add("is-unavailable");
     card.setAttribute("aria-disabled", "true");
@@ -29,15 +32,20 @@
     const slug = page.slice(0, -5);
     const status = document.createElement("small");
     status.className = "story-status";
-    status.textContent = "Hintergrundgeschichte folgt";
+    status.textContent = "Hintergrundgeschichte noch nicht freigegeben";
     card.querySelector(".card-copy").appendChild(status);
 
     try {
       const response = await fetch("content/" + slug + ".md", {
-        method: "HEAD",
+        method: "GET",
         cache: "no-store"
       });
-      if (response.ok) {
+      if (!response.ok) return;
+
+      const markdown = await response.text();
+      const explicitlyReleased = /^\uFEFF?\s*<!--\s*dornfels-story:\s*freigegeben\s*-->\s*([\s\S]*\S)\s*$/i.test(markdown);
+
+      if (explicitlyReleased) {
         card.classList.remove("is-unavailable");
         card.removeAttribute("aria-disabled");
         card.removeAttribute("tabindex");

@@ -1,3 +1,5 @@
+<!-- dornfels-story: freigegeben -->
+
 # Was Hände bewahren können
 
 Wenn ich an meine Kindheit zurückdenke, sehe ich zuerst Dornfels. Den feuchten Dorfweg nach einem Sommerregen, den Rauch über den Dächern, den Dorfplatz und den Wald hinter den letzten Gärten. Ich erinnere mich an warme Sommertage, schmutzige Hände und aufgeschürfte Knie. Damals war Dornfels für mich die ganze Welt.

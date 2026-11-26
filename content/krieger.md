@@ -1,3 +1,5 @@
+<!-- dornfels-story: freigegeben -->
+
 # Zwischen Esse und Zorn
 
 *Grml.* Was soll ich schon groß erzählen? Ich bin in einer alteingesessenen Zwergenfamilie aufgewachsen. Meine Familie kam aus Gründen, über die niemand gerne sprach, nach Dornfels. Das war allerdings Jahre bevor ich aus dem Stein geformt wurde. Also fragt besser nicht danach!
