@@ -25,51 +25,12 @@
     <p><strong>Rasse:</strong> Zwerge</p>
     <p><strong>Beruf:</strong> Der Krieger setzt seine Stärke und den sicheren Umgang mit Waffen ein, um sich im Kampf zu behaupten und andere zu schützen.</p>
   </section>
-  <section class="content-section" id="background-story" hidden aria-live="polite">
+  <section class="content-section" id="background-story" data-markdown-src="../content/krieger.md" hidden aria-live="polite">
     <div id="background-story-content"></div>
   </section>
-  <script>
-    (async () => {
-      const section = document.getElementById("background-story");
-      const target = document.getElementById("background-story-content");
-      try {
-        const response = await fetch("../content/krieger.md", { cache: "no-store" });
-        if (!response.ok) return;
-        const markdown = await response.text();
-        const lines = markdown.split(/\r?\n/);
-        let paragraph = [];
-        const flushParagraph = () => {
-          if (!paragraph.length) return;
-          const p = document.createElement("p");
-          p.textContent = paragraph.join(" ");
-          target.appendChild(p);
-          paragraph = [];
-        };
-        for (const line of lines) {
-          if (line.startsWith("## ")) {
-            flushParagraph();
-            const heading = document.createElement("h2");
-            heading.textContent = line.slice(3);
-            target.appendChild(heading);
-          } else if (line.startsWith("# ")) {
-            flushParagraph();
-            const heading = document.createElement("h2");
-            heading.textContent = line.slice(2);
-            target.appendChild(heading);
-          } else if (!line.trim()) {
-            flushParagraph();
-          } else {
-            paragraph.push(line.trim());
-          }
-        }
-        flushParagraph();
-        if (target.childElementCount) section.hidden = false;
-      } catch (error) {
-        console.error("Die Krieger-Hintergrundgeschichte konnte nicht geladen werden.", error);
-      }
-    })();
-  </script>
+  
 </main>
 <footer><div class="wrap">Die letzten Schreie von Dornfels · Spielerbibliothek</div></footer>
+<script src="../assets/markdown-renderer.js"></script>
 </body>
 </html>
