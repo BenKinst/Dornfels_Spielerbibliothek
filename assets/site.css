@@ -288,3 +288,51 @@
   max-width: 100%;
   table-layout: auto;
 }
+
+
+/* Tooltip-Portal: Tooltips werden per JavaScript außerhalb aller Tabellen-
+   und Kartenwrapper direkt unter body angezeigt und daher nicht abgeschnitten. */
+.calculated-value::after,
+.dice-tooltip::after,
+.dice-pair[data-dice-tip]::after {
+  content: none !important;
+}
+.tooltip-portal {
+  position: fixed;
+  z-index: 10000;
+  width: max-content;
+  max-width: min(320px, calc(100vw - 16px));
+  padding: 9px 11px;
+  border: 1px solid var(--gold-soft);
+  border-radius: 7px;
+  background: #171613;
+  color: var(--text);
+  box-shadow: 0 8px 24px rgba(0,0,0,.4);
+  font: 12px/1.5 Arial, sans-serif;
+  white-space: normal;
+  text-align: left;
+  pointer-events: none;
+}
+.tooltip-portal[hidden] {
+  display: none;
+}
+
+/* Die W20-Grafik bleibt explizit in derselben Grid-Zeile wie der Wert. */
+.sheet-field:has(> .attribute-scale-value) {
+  grid-template-columns: max-content max-content;
+  justify-content: start;
+}
+.sheet-field:has(> .attribute-scale-value) > .attribute-scale-value {
+  grid-column: 1;
+  grid-row: 2;
+}
+.sheet-field:has(> .attribute-scale-value) > .dice-tooltip {
+  grid-column: 2;
+  grid-row: 2;
+  justify-self: start;
+  align-self: center;
+}
+.sheet-field:has(> .attribute-scale-value) > .attribute-help {
+  grid-column: 1 / -1;
+  grid-row: 3;
+}
