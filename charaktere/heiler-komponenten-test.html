@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#11100e">
+<meta name="description" content="Komponentenstandard-Test: Heilerprofil mit einheitlichen Tabellen, Tooltips und Akkordeons.">
+<title>Heilerprofil – Komponentenstandard-Test</title>
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/charakter-komponenten-test.css">
+</head>
+<body class="character-component-standard">
+<header><div class="wrap topbar"><a class="brand" href="../"><span class="brand-mark">✧</span><span>Das Archiv von Dornfels</span></a></div></header>
+<main class="wrap character-page">
+  <p class="notice" role="note">Komponentenstandard-Test: Tabellen, Wertfelder, Würfel- und Rechenweg-Tooltips sowie Akkordeons verwenden hier einen gemeinsamen, zentralen Darstellungs- und Interaktionsstandard. Die Charakterdaten sind weiterhin eine unveränderte Testkopie.</p>
+  <section class="page-hero">
+    <a class="back" href="../">← Zur Spielerbibliothek</a>
+    <div class="eyebrow">Die letzten Schreie von Dornfels · Spielerakte</div>
+    <h1 data-profile-title>Wird geladen …</h1>
+    <p class="profile-subtitle" data-profile-subtitle>Wird geladen …</p>
+    <img class="profile-art profile-art-responsive" data-profile-image src="../assets/Heiler_Beruf.jpg" alt="Charakterillustration">
+  </section>
+
+  <div class="accordion-controls" aria-label="Bereiche steuern"><button type="button" data-expand-all>Alle öffnen</button><button type="button" data-collapse-all>Alle schließen</button></div>
+  <div class="character-accordion">
+    <section class="accordion-item" data-accordion-item data-markdown-src="../content/heiler-test.md">
+      <h2 class="accordion-heading"><button class="accordion-trigger" type="button" aria-expanded="true" aria-controls="panel-hintergrund"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M8 2h8l4 4v16H8z"/><path d="M16 2v5h5M12 11h5M12 15h5M12 19h3M4 6v14M2 8v10"/></svg><span>Hintergrundgeschichte</span></button></h2>
+      <div class="accordion-panel" id="panel-hintergrund">
+<div id="background-story-content" data-markdown-target></div>
+    </section>
+    <section class="accordion-item" data-accordion-item>
+      <h2 class="accordion-heading"><button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="panel-eigenschaften"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m12 3 1.9 5.8L20 11l-6.1 2.2L12 19l-2-5.8L4 11l6-2.2L12 3Z"/><path d="m19 14 1.2 2.8L23 18l-2.8 1.2L19 22l-1.2-2.8L15 18l2.8-1.2L19 14ZM5 2l.8 2.2L8 5l-2.2.8L5 8l-.8-2.2L2 5l2.2-.8L5 2Z"/></svg><span>Eigenschaften</span></button></h2>
+      <div class="accordion-panel" id="panel-eigenschaften" hidden>
+<div class="nested-accordion">
+<section class="subaccordion-item" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-charakterdaten">Charakterdaten</button>
+<div class="subaccordion-panel" id="sub-charakterdaten" hidden>
+    <div class="sheet-grid sheet-grid-3">
+<div class="sheet-field"><span>Volk</span><strong>Peredhil (Halbelf), sterbliche Linie</strong></div>
+<div class="sheet-field"><span>Beruf</span><strong>Heiler</strong></div>
+<div class="sheet-field"><span>Religion</span><strong>Glaube an Eru und die Valar; besondere Verehrung Estës</strong></div>
+<div class="sheet-field"><span>Alter</span><strong>18 Jahre (erwachsener Heldenzustand)</strong></div>
+<div class="sheet-field"><span>Größe</span><strong>2,06–2,15 m</strong></div>
+<div class="sheet-field"><span>Gewicht</span><strong>100,97–114,79 kg</strong></div>
+<div class="sheet-field"><span>Reichweite</span><strong>112,80 m/Minute</strong></div>
+</div>
+
+</div>
+</section>
+<section class="subaccordion-item" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-eigenschaften">Eigenschaften &amp; abgeleitete Werte</button>
+<div class="subaccordion-panel" id="sub-eigenschaften" hidden>
+    <p class="panel-intro">Angezeigt werden die fertigen Werte. Bewege den Mauszeiger über einen Wert, um seine Berechnung zu sehen.</p>
+    <div class="sheet-grid sheet-grid-2">
+<div class="sheet-field"><span>Stärke</span><strong class="calculated-value attribute-scale-value" data-attribute-scale tabindex="0" data-tip="Grundwert 9; keine Rassenmodifikation ausgewiesen">9</strong><img class="dice-icon w20" src="../assets/wuerfel/w20.png" alt="W20"><small class="attribute-help">Beschreibt deine körperliche Kraft.</small></div>
+<div class="sheet-field"><span>Ausdauer</span><strong class="calculated-value attribute-scale-value" data-attribute-scale tabindex="0" data-tip="Grundwert 10; keine Rassenmodifikation ausgewiesen">10</strong><img class="dice-icon w20" src="../assets/wuerfel/w20.png" alt="W20"><small class="attribute-help">Zeigt, wie belastbar und widerstandsfähig du bist.</small></div>
+<div class="sheet-field"><span>Gewandheit</span><strong class="calculated-value attribute-scale-value" data-attribute-scale tabindex="0" data-tip="Grundwert 14; keine Rassenmodifikation ausgewiesen">14</strong><img class="dice-icon w20" src="../assets/wuerfel/w20.png" alt="W20"><small class="attribute-help">Beschreibt deine Geschicklichkeit und Beweglichkeit.</small></div>
+<div class="sheet-field"><span>Intuition</span><strong class="calculated-value attribute-scale-value" data-attribute-scale tabindex="0" data-tip="Grundwert 16; keine Rassenmodifikation ausgewiesen">16</strong><img class="dice-icon w20" src="../assets/wuerfel/w20.png" alt="W20"><small class="attribute-help">Steht für dein Gespür und deine spontane Einschätzung von Situationen.</small></div>
+<div class="sheet-field"><span>Intelligenz</span><strong class="calculated-value attribute-scale-value" data-attribute-scale tabindex="0" data-tip="Grundwert 16; keine Rassenmodifikation ausgewiesen">16</strong><img class="dice-icon w20" src="../assets/wuerfel/w20.png" alt="W20"><small class="attribute-help">Beschreibt dein Wissen und deine Fähigkeit, Zusammenhänge zu verstehen.</small></div>
+<div class="sheet-field"><span>Erscheinung</span><strong class="calculated-value attribute-scale-value" data-attribute-scale tabindex="0" data-tip="Ausgewürfelt: 12 + W6 (5)">17</strong><small class="attribute-help">Beschreibt deine äußere Erscheinung und deine Wirkung auf andere.</small></div>
+<div class="sheet-field"><span>Größe</span><strong class="calculated-value attribute-scale-value" data-attribute-scale tabindex="0" data-tip="Elbentabelle: 8 + W10 (9)">17</strong><small class="attribute-help">Beschreibt deine körperliche Statur.</small></div>
+<div class="sheet-field"><span>Reaktion</span><strong class="calculated-value" tabindex="0" data-tip="(Intelligenz 16 + Gewandheit 14) / 2 = 15; Talent Schnell wie der Blitz +2">17</strong><small class="attribute-help">Zeigt, wie schnell du in einer Kampfrunde handeln kannst.</small></div>
+<div class="sheet-field"><span>Tragkraft</span><strong class="calculated-value" tabindex="0" data-tip="Stärke 9 × 3">27</strong><small class="attribute-help">Zeigt, wie viel Belastung du tragen kannst.</small></div>
+</div>
+
+</div>
+</section>
+<section class="subaccordion-item" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-lebenswerte">Lebenswerte</button>
+<div class="subaccordion-panel" id="sub-lebenswerte" hidden>
+    <div class="sheet-grid sheet-grid-4">
+<div class="sheet-field"><span>Lebenspunkte (LP)</span><strong class="calculated-value" tabindex="0" data-tip="Grundwert laut bisheriger Charakterdokumentation; keine zusätzlichen LP gekauft">21</strong></div>
+<div class="sheet-field"><span>Astralpunkte (AP)</span><strong class="calculated-value" tabindex="0" data-tip="W10 (7) + Intuition 16 + 12 für Magierberuf">35</strong></div>
+</div>
+
+</div>
+</section>
+</div>  </div>
+    </section>
+    <section class="accordion-item" data-accordion-item>
+      <h2 class="accordion-heading"><button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="panel-fertigkeiten"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m14.5 17.5 3 3L22 16l-3-3M3 7l5 5M14 4l6-2-2 6-8 8-4-4 8-8ZM3 21l6-6M3 3l6 6"/></svg><span>Fertigkeiten</span></button></h2>
+      <div class="accordion-panel" id="panel-fertigkeiten" hidden>
+    <p class="panel-intro">Hier stehen nur die fertigen Fertigkeitswerte. Die Berechnung wird beim Darüberfahren mit der Maus angezeigt.</p>
+    <div class="nested-accordion skill-tabs">
+      <section class="subaccordion-item skill-subitem" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-skill-0">Beweglichkeit <span class="skill-group-bonus">+1</span></button>
+<div class="subaccordion-panel" id="sub-skill-0" hidden>
+<div class="sheet-card skill-card"><div class="table-scroll"><table class="sheet-table" data-ui-component="table"><thead><tr><th>Fertigkeit</th><th>Wert</th></tr></thead><tbody><tr><td>Boot</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">36</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Klettern</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">21</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Springen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">21</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Reiten</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">21</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Schwimmen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">21</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Werfen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">16</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Schleichen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">31</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Verstecken</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">31</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr></tbody></table></div></div>
+</div>
+</section>
+      <section class="subaccordion-item skill-subitem" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-skill-1">Wissen <span class="skill-group-bonus">+6</span></button>
+<div class="subaccordion-panel" id="sub-skill-1" hidden>
+<div class="sheet-card skill-card"><div class="table-scroll"><table class="sheet-table" data-ui-component="table"><thead><tr><th>Fertigkeit</th><th>Wert</th></tr></thead><tbody><tr><td>Pflanzen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">26</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Tiere</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">26</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Menschen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">36</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Welt</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">36</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Handwerk</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">26</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Erste Hilfe</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">36</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr></tbody></table></div></div>
+</div>
+</section>
+      <section class="subaccordion-item skill-subitem" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-skill-2">Beeinflussung <span class="skill-group-bonus">+5</span> <span class="skill-group-extra">(+3 Beruf)</span></button>
+<div class="subaccordion-panel" id="sub-skill-2" hidden>
+<div class="sheet-card skill-card"><div class="table-scroll"><table class="sheet-table" data-ui-component="table"><thead><tr><th>Fertigkeit</th><th>Wert</th></tr></thead><tbody><tr><td>Stehlen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">13</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Spielen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">28</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Überreden</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">18</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Lügen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">13</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Lehren</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">33</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Schätzen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">23</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr></tbody></table></div></div>
+</div>
+</section>
+      <section class="subaccordion-item skill-subitem" data-subaccordion-item>
+<button class="subaccordion-trigger" type="button" aria-expanded="false" aria-controls="sub-skill-3">Wahrnehmung <span class="skill-group-bonus">+3</span></button>
+<div class="subaccordion-panel" id="sub-skill-3" hidden>
+<div class="sheet-card skill-card"><div class="table-scroll"><table class="sheet-table" data-ui-component="table"><thead><tr><th>Fertigkeit</th><th>Wert</th></tr></thead><tbody><tr><td>Hören</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">18</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Riechen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">23</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Spähen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">23</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Geschmack</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">18</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Spurenlesen</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">23</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr><tr><td>Orientierung</td><td><span class="calculated-value" tabindex="0" data-tip="Fertigkeitsendwert laut Heldendatei; Gebiets- und Berufsboni sind dort getrennt dokumentiert">23</span><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td></tr></tbody></table></div></div>
+</div>
+</section>
+
+    </div>
+  </div>
+    </section>
+    <section class="accordion-item" data-accordion-item>
+      <h2 class="accordion-heading"><button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="panel-magie"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="m15 4 5 5M4 20 16 8M3 6l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2ZM19 13l1 2 2 1-2 1-1 2-1-2-2-1 2-1 1-2Z"/></svg><span>Magie</span></button></h2>
+      <div class="accordion-panel" id="panel-magie" hidden>
+    <div class="sheet-grid sheet-grid-2">
+            <div class="sheet-card"><h3>Spruchlisten</h3><ul class="spell-list-overview"><li>Rituelle Reinigung und Oberflächenheilung</li><li>Trankwissen</li></ul></div>
+      <div class="sheet-field"><span>Zaubern</span><strong class="calculated-value" tabindex="0" data-tip="Fertigkeitswert inklusive aller Modifikatoren">75 %</strong><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></div>
+      <div class="sheet-field"><span>Gegenzauber</span><strong class="calculated-value" tabindex="0" data-tip="Fertigkeitswert inklusive aller Modifikatoren">75 %</strong><span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></div>
+    </div>
+    <div class="section-head subhead"><h2>Erlernte Zauber</h2></div>
+    <div class="sheet-card spell-list-block"><h3>Rituelle Reinigung und Oberflächenheilung</h3><div class="table-scroll"><table class="sheet-table" data-ui-component="table" data-table-variant="wide-first"><thead><tr><th>Zauber/Wirkung</th><th>Spruchstufe</th></tr></thead><tbody><tr><td>Wunden, Krankheit oder Sucht übertragen; außerdem W10 Trefferpunkte heilen</td><td>1</td></tr><tr><td>Krankheit/Infektion stoppen; außerdem Hitze- oder Kältewunden 1. Grades heilen</td><td>2</td></tr><tr><td>Gift neutralisieren; außerdem eine Runde Benommenheit aufheben</td><td>3</td></tr><tr><td>Leiche/Körperteil vor Verwesung erhalten; außerdem Regeneration von 1 TP pro Runde, auch bei Bewusstlosigkeit</td><td>4</td></tr><tr><td>Sucht erleichtern 1; außerdem Hitze- oder Kältewunden 2. Grades heilen</td><td>5</td></tr></tbody></table></div></div><div class="sheet-card spell-list-block"><h3>Trankwissen</h3><div class="table-scroll"><table class="sheet-table" data-ui-component="table" data-table-variant="wide-first"><thead><tr><th>Zauber/Wirkung</th><th>Spruchstufe</th></tr></thead><tbody><tr><td>Nichtmagische Flüssigkeiten einen Tag sicher handhaben</td><td>1</td></tr><tr><td>Droge identifizieren: Ursprung, Reinheit, Stufe und Wirkung</td><td>2</td></tr><tr><td>Alkohol brauen; erneutes Anwenden ermöglicht Destillation</td><td>3</td></tr><tr><td>Gift identifizieren</td><td>4</td></tr><tr><td>Stimulierende Substanzen aus geeigneten Rohstoffen extrahieren</td><td>5</td></tr></tbody></table></div></div>
+  </div>
+    </section>
+    <section class="accordion-item" data-accordion-item>
+      <h2 class="accordion-heading"><button class="accordion-trigger" type="button" aria-expanded="false" aria-controls="panel-ausruestung"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 8h14a2 2 0 0 1 2 2v10H3V10a2 2 0 0 1 2-2Z"/><path d="M9 8V5a3 3 0 0 1 6 0v3M3 13h18M8 13v3h8v-3M7 20v2M17 20v2"/></svg><span>Ausrüstung</span></button></h2>
+      <div class="accordion-panel" id="panel-ausruestung" hidden>
+    <div class="section-head"><h2>Waffen und Rüstung</h2><span class="section-note">Heldenbogen · Vorderseite</span></div>
+    <div class="sheet-card"><h3>Waffen</h3><div class="table-scroll"><table class="sheet-table" data-ui-component="table"><thead><tr><th>Waffe</th><th>A %</th><th>P %</th><th>S</th><th>BF</th><th>B</th></tr></thead><tbody><tr><td>Schwert</td><td>55 %<span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td><td>45 % + 5<span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td><td>1<img class="dice-icon w6" src="../assets/wuerfel/w6.png" alt="W6"> + 4</td><td>0</td><td>1</td></tr><tr><td>Zauberstab</td><td>48 %<span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td><td>23 % + 5<span class="dice-pair" aria-label="W10 Zehnerwürfel 90, Einerwürfel 9"><img class="dice-icon w10" src="../assets/wuerfel/w10_90.png" alt="90"><img class="dice-icon w10" src="../assets/wuerfel/w10_9.png" alt="9"></span></td><td>1<img class="dice-icon w6" src="../assets/wuerfel/w6.png" alt="W6"> + 2</td><td>0</td><td>1</td></tr></tbody></table></div></div>
+    <div class="section-head subhead"><h2>Rüstung und Schutz</h2></div>
+    <div class="sheet-card"><div class="table-scroll"><table class="sheet-table" data-ui-component="table"><thead><tr><th>Rüstungsteil</th><th>RS</th><th>Belastung</th><th>Behinderung</th><th>BF</th></tr></thead><tbody><tr><td>Kutte, grobe Wolle (Kleidung)</td><td>1</td><td>2</td><td>Keine</td><td>–</td></tr></tbody></table></div><p>[Rüstungsschutz (RS) und Trefferpunkte (TP) je Trefferzone]</p><p><strong>Titel:</strong> [Titel / Rang – falls vorhanden]</p></div>
+    <div class="section-head subhead"><h2>Besitz</h2></div>
+    <div class="possession-list"><p>Kutte, Zauberstab, Schwert, Schutzamulett.</p><p>17 Goldstücke (GS); 0 SS, 0 BS, 0 KS.</p><p>Rucksack, 4 Fackeln, Seil (15 Schritt), Reiseproviant für eine Woche, Wasserschlauch für zwei Tage, Schuhe, Hose und Hemd.</p></div>
+  </div>
+    </section>
+  </div>
+  <div class="accordion-controls accordion-controls-bottom" aria-label="Bereiche steuern"><button type="button" data-expand-all>Alle öffnen</button><button type="button" data-collapse-all>Alle schließen</button></div>
+</main>
+<footer><div class="wrap">Die letzten Schreie von Dornfels · Spielerbibliothek</div></footer>
+<script src="../assets/heiler-komponenten-test-renderer.js"></script>
+<script src="../assets/eigenschaftsfarben.js"></script>
+
+<script src="../assets/charakter-komponenten-test.js"></script>
+</body>
+</html>
