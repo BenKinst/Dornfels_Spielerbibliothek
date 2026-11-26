@@ -1,0 +1,1352 @@
+{
+  "schemaVersion": 1,
+  "profile": {
+    "id": "zauberer-stadtbewohner",
+    "name": "Der Zauberer",
+    "title": "Der Zauberer",
+    "people": "Stadtbewohner",
+    "profession": "Zauberer (Elementarmagier)",
+    "portrait": "../assets/Zauberer_Beruf.jpg",
+    "portraitAlt": "Ein Zauberer wirkt einen Elementarzauber in einer Bibliothek"
+  },
+  "attributes": {
+    "characterData": [
+      {
+        "label": "Volk",
+        "value": "Stadtbewohner",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 1 – Persönliche Angaben und Stammdaten"
+        }
+      },
+      {
+        "label": "Beruf",
+        "value": "Zauberer (Elementarmagier)",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 1 – Persönliche Angaben und Stammdaten"
+        }
+      },
+      {
+        "label": "Alter",
+        "value": "25 Jahre",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 1 – Persönliche Angaben und Stammdaten"
+        }
+      },
+      {
+        "label": "Erfahrung",
+        "value": 1,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 1 – Persönliche Angaben und Stammdaten"
+        }
+      },
+      {
+        "label": "Stufe",
+        "value": 1,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 1 – Persönliche Angaben und Stammdaten"
+        }
+      },
+      {
+        "label": "Ehre",
+        "value": 1,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 1 – Persönliche Angaben und Stammdaten"
+        }
+      },
+      {
+        "label": "Abenteuerpunkte",
+        "value": 0,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 1 – Persönliche Angaben und Stammdaten"
+        }
+      },
+      {
+        "label": "Erscheinung",
+        "value": 13,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 1 – Persönliche Angaben und Stammdaten"
+        },
+        "tooltip": "6 + W10: 7"
+      },
+      {
+        "label": "Größe",
+        "value": 11,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 1 – Persönliche Angaben und Stammdaten"
+        },
+        "tooltip": "6 + W10: 5"
+      },
+      {
+        "label": "Körpergröße",
+        "value": "1,31–1,40 m",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 1 – Persönliche Angaben und Stammdaten"
+        }
+      },
+      {
+        "label": "Körpergewicht",
+        "value": "34,62–42,26 kg",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 1 – Persönliche Angaben und Stammdaten"
+        },
+        "tooltip": "Aus dem Größenintervall 1,31–1,40 m berechnet; exakter Wert mangels festgelegter Körpergröße innerhalb dieses Intervalls offen."
+      },
+      {
+        "label": "Reichweite (belastet)",
+        "value": "118,80 m/min bzw. 19,72 m je 10-Sekunden-Kampfrunde",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 1 – Weitere Felder des zweitseitigen Heldenbogens"
+        }
+      },
+      {
+        "label": "Reichweite (unbelastet)",
+        "value": "128,04 m/min bzw. 21,34 m je 10-Sekunden-Kampfrunde",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 1 – Weitere Felder des zweitseitigen Heldenbogens"
+        }
+      },
+      {
+        "label": "AP noch",
+        "value": 33,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 1 – Weitere Felder des zweitseitigen Heldenbogens"
+        },
+        "tooltip": "Die erlernten Sprüche verbrauchen Spruchpunkte, nicht den aktuellen AP-Vorrat."
+      },
+      {
+        "label": "Westron",
+        "value": 5,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 3 – Sprache"
+        },
+        "tooltip": "Rassenspezifischer Anfangswert für Stadtbewohner laut Buch der Helden v2.0, Abschnitt 2.5.1"
+      }
+    ],
+    "values": [
+      {
+        "label": "Stärke",
+        "value": 10,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
+        }
+      },
+      {
+        "label": "Ausdauer",
+        "value": 10,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
+        }
+      },
+      {
+        "label": "Geschick (Gewandtheit)",
+        "value": 16,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
+        }
+      },
+      {
+        "label": "Intelligenz",
+        "value": 16,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
+        }
+      },
+      {
+        "label": "Intuition",
+        "value": 16,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
+        }
+      },
+      {
+        "label": "Erscheinung",
+        "value": 13,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
+        }
+      },
+      {
+        "label": "Größe",
+        "value": 11,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
+        }
+      },
+      {
+        "label": "Reaktion (unbelastet)",
+        "value": 16,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
+        },
+        "tooltip": "abgerundet (Intelligenz 16 + Geschick 16) / 2"
+      },
+      {
+        "label": "Initiative (unbelastet)",
+        "value": "2W6 + 17",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
+        },
+        "tooltip": "1W6 + Reaktion 16 + Stufe 1, zusätzlich +1W6 durch Blitzreaktion"
+      },
+      {
+        "label": "Ausweichen (unbelastet)",
+        "value": 9,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
+        },
+        "tooltip": "abgerundet ((Ausdauer 10 + Geschick 16) / 4) + 3"
+      },
+      {
+        "label": "Tragkraft",
+        "value": 30,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
+        }
+      },
+      {
+        "label": "Bewegungsreichweite (unbelastet)",
+        "value": "128,04 m/min bzw. 21,34 m je 10-Sekunden-Kampfrunde",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
+        },
+        "tooltip": "Geschick 16; Größenmodifikator 0"
+      },
+      {
+        "label": "Bewegungsreichweite (belastet)",
+        "value": "118,80 m/min bzw. 19,72 m je 10-Sekunden-Kampfrunde",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.4 – Belastungsrechnung"
+        },
+        "tooltip": "Geschick 15; Größenmodifikator 0"
+      },
+      {
+        "label": "Reaktion (belastet)",
+        "value": 15,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.4 – Belastungsrechnung"
+        },
+        "tooltip": "abgerundet (Intelligenz 16 + Geschick 15) / 2"
+      },
+      {
+        "label": "Initiative (belastet)",
+        "value": "2W6 + 16",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.4 – Belastungsrechnung"
+        }
+      },
+      {
+        "label": "Ausweichen (belastet)",
+        "value": 9,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.4 – Belastungsrechnung"
+        }
+      },
+      {
+        "label": "Geschick (belastet)",
+        "value": 15,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.4 – Belastungsrechnung"
+        },
+        "tooltip": "Geschick 16 − 1 durch Belastung"
+      },
+      {
+        "label": "Beweglichkeit (belastet)",
+        "value": "−8",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.5 – Belastungsabhängige Kampf- und Bewegungswerte"
+        },
+        "tooltip": "Fertigkeitsgebietsbonus +2; Belastungsmalus −10"
+      }
+    ],
+    "lifeValues": [
+      {
+        "label": "Lebenspunkte",
+        "value": 21,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
+        }
+      },
+      {
+        "label": "Astralpunkte",
+        "value": 33,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
+        },
+        "tooltip": "W10: 4 + Intuition 16 + 12 Berufsbonus + 1 gekaufter AP"
+      }
+    ],
+    "specialFeatures": [
+      {
+        "label": "Multiplikator",
+        "value": "Alle Sprüche haben das doppelte Wirkungsgebiet.",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 8 – Talente und Fehler"
+        },
+        "tooltip": "Talentwurf W100: 46"
+      },
+      {
+        "label": "Waise",
+        "value": "Tritt im Laufe des ersten Abenteuers ein.",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 8 – Talente und Fehler"
+        },
+        "tooltip": "Fehlerwurf W100: 50"
+      },
+      {
+        "label": "Rüstungsangst",
+        "value": "Rüstungen aller Art außer einfacher Kleidung und Kutten lösen den beschriebenen täglichen cDepression-Critical aus.",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 8 – Talente und Fehler"
+        },
+        "tooltip": "Fehlerwurf W100: 20"
+      },
+      {
+        "label": "Blitzreaktion",
+        "value": "Die Initiative wird um 1W6 erhöht.",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 8 – Talente und Fehler"
+        },
+        "tooltip": "Talentwurf W100: 17"
+      }
+    ]
+  },
+  "skills": {
+    "groups": [
+      {
+        "name": "Beweglichkeit",
+        "bonus": "+2",
+        "skills": [
+          {
+            "name": "Boot",
+            "value": {
+              "label": "Boot",
+              "value": 7,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Klettern",
+            "value": {
+              "label": "Klettern",
+              "value": 22,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Springen",
+            "value": {
+              "label": "Springen",
+              "value": 17,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Reiten",
+            "value": {
+              "label": "Reiten",
+              "value": 17,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Schwimmen",
+            "value": {
+              "label": "Schwimmen",
+              "value": 17,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Werfen",
+            "value": {
+              "label": "Werfen",
+              "value": 17,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Verstecken",
+            "value": {
+              "label": "Verstecken",
+              "value": 17,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Schleichen",
+            "value": {
+              "label": "Schleichen",
+              "value": 17,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Wissen",
+        "bonus": "+6 · Magierbonus +3",
+        "skills": [
+          {
+            "name": "Pflanzen",
+            "value": {
+              "label": "Pflanzen",
+              "value": 29,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Tier",
+            "value": {
+              "label": "Tier",
+              "value": 19,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Menschen",
+            "value": {
+              "label": "Menschen",
+              "value": 46,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Welt",
+            "value": {
+              "label": "Welt",
+              "value": 44,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Handwerk",
+            "value": {
+              "label": "Handwerk",
+              "value": 44,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Erste Hilfe",
+            "value": {
+              "label": "Erste Hilfe",
+              "value": 39,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Beeinflussung",
+        "bonus": "+5",
+        "skills": [
+          {
+            "name": "Stehlen",
+            "value": {
+              "label": "Stehlen",
+              "value": 25,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Spielen",
+            "value": {
+              "label": "Spielen",
+              "value": 40,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Überreden",
+            "value": {
+              "label": "Überreden",
+              "value": 40,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Lügen",
+            "value": {
+              "label": "Lügen",
+              "value": 20,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Lehren",
+            "value": {
+              "label": "Lehren",
+              "value": 35,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Schätzen",
+            "value": {
+              "label": "Schätzen",
+              "value": 25,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          }
+        ]
+      },
+      {
+        "name": "Wahrnehmung",
+        "bonus": "+3",
+        "skills": [
+          {
+            "name": "Hören",
+            "value": {
+              "label": "Hören",
+              "value": 13,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Riechen",
+            "value": {
+              "label": "Riechen",
+              "value": 13,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Spähen",
+            "value": {
+              "label": "Spähen",
+              "value": 13,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Geschmack",
+            "value": {
+              "label": "Geschmack",
+              "value": 13,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Spurenlesen",
+            "value": {
+              "label": "Spurenlesen",
+              "value": 13,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          },
+          {
+            "name": "Orientierung",
+            "value": {
+              "label": "Orientierung",
+              "value": 13,
+              "status": "provisional",
+              "source": {
+                "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+                "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
+              }
+            }
+          }
+        ]
+      }
+    ]
+  },
+  "magic": {
+    "lists": [
+      "Gesetz des Windes (75 %)",
+      "Gesetz des Feuers (75 %)",
+      "Offene Listen (75 %)"
+    ],
+    "skills": [
+      {
+        "label": "Zaubern",
+        "value": "75 %",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 1 – Weitere Felder des zweitseitigen Heldenbogens"
+        }
+      },
+      {
+        "label": "Gegenzauber",
+        "value": "75 %",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 1 – Weitere Felder des zweitseitigen Heldenbogens"
+        },
+        "tooltip": "Gegen jegliche Magie"
+      }
+    ],
+    "spellGroups": [
+      {
+        "name": "Gesetz des Windes",
+        "spells": [
+          {
+            "name": "Brise",
+            "level": 1,
+            "status": "provisional",
+            "source": {
+              "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+              "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Windes"
+            }
+          },
+          {
+            "name": "Luftwall",
+            "level": 2,
+            "status": "provisional",
+            "source": {
+              "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+              "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Windes"
+            }
+          },
+          {
+            "name": "Wolke der Benommenheit",
+            "level": 4,
+            "status": "provisional",
+            "source": {
+              "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+              "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Windes"
+            }
+          },
+          {
+            "name": "Luftstop",
+            "level": 5,
+            "status": "provisional",
+            "source": {
+              "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+              "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Windes"
+            }
+          }
+        ]
+      },
+      {
+        "name": "Gesetz des Feuers",
+        "spells": [
+          {
+            "name": "Flüssigkeit kochen",
+            "level": 1,
+            "status": "provisional",
+            "source": {
+              "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+              "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Feuers"
+            }
+          },
+          {
+            "name": "Festes Erwärmen",
+            "level": 2,
+            "status": "provisional",
+            "source": {
+              "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+              "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Feuers"
+            }
+          },
+          {
+            "name": "Holzfeuer",
+            "level": 3,
+            "status": "provisional",
+            "source": {
+              "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+              "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Feuers"
+            }
+          },
+          {
+            "name": "Feuerwand",
+            "level": 4,
+            "status": "provisional",
+            "source": {
+              "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+              "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Feuers"
+            }
+          }
+        ]
+      }
+    ],
+    "details": [
+      {
+        "label": "Verfügbare Elemente",
+        "value": "Feuer, Wasser, Erde, Luft, Eis und Licht",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 3 – Beruf und Magie"
+        }
+      },
+      {
+        "label": "Zauberfokus",
+        "value": "Zauberstab",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 3 – Beruf und Magie"
+        }
+      },
+      {
+        "label": "Maximale AP",
+        "value": 100,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 3 – Beruf und Magie"
+        }
+      },
+      {
+        "label": "Rüstungsbeschränkung",
+        "value": "Nur Kutten",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 3 – Beruf und Magie"
+        }
+      },
+      {
+        "label": "Waffenbeschränkung",
+        "value": "Keine Zweihandwaffen außer stabähnlichen Waffen",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 3 – Beruf und Magie"
+        }
+      }
+    ]
+  },
+  "equipment": {
+    "weapons": [
+      {
+        "name": "Zauberstab",
+        "attack": {
+          "label": "Attacke",
+          "value": 44,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.5 – Belastungsabhängige Kampf- und Bewegungswerte"
+          },
+          "tooltip": "Grundwert 48; unbelastet 50; belastet 44"
+        },
+        "parry": {
+          "label": "Parade",
+          "value": 19,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.5 – Belastungsabhängige Kampf- und Bewegungswerte"
+          },
+          "tooltip": "Grundwert 23; unbelastet 25; belastet 19"
+        },
+        "damage": {
+          "label": "Schaden",
+          "value": "1W+2",
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.1 – Berufliche Ausrüstung; Waffenfelder"
+          }
+        },
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.1 – Berufliche Ausrüstung"
+        },
+        "status": "provisional",
+        "breakFactor": {
+          "label": "Bruchfaktor",
+          "value": 0,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.1 – Berufliche Ausrüstung"
+          }
+        },
+        "burden": {
+          "label": "Belastung",
+          "value": 1,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.1 – Berufliche Ausrüstung"
+          }
+        }
+      },
+      {
+        "name": "Schwert",
+        "attack": {
+          "label": "Attacke",
+          "value": 51,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.5 – Belastungsabhängige Kampf- und Bewegungswerte"
+          },
+          "tooltip": "Grundwert 55; unbelastet 57; belastet 51"
+        },
+        "parry": {
+          "label": "Parade",
+          "value": 41,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.5 – Belastungsabhängige Kampf- und Bewegungswerte"
+          },
+          "tooltip": "Grundwert 45; unbelastet 47; belastet 41"
+        },
+        "damage": {
+          "label": "Schaden",
+          "value": "1W+4",
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.1 – Berufliche Ausrüstung; Waffenfelder"
+          }
+        },
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.1 – Berufliche Ausrüstung"
+        },
+        "status": "provisional",
+        "breakFactor": {
+          "label": "Bruchfaktor",
+          "value": 0,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.1 – Berufliche Ausrüstung"
+          }
+        },
+        "burden": {
+          "label": "Belastung",
+          "value": 1,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.1 – Berufliche Ausrüstung"
+          }
+        }
+      }
+    ],
+    "armor": [
+      {
+        "name": "Kutte, grobe Wolle",
+        "protection": {
+          "label": "RS",
+          "value": 1,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.3 – Rüstung und Kleidung"
+          }
+        },
+        "burden": {
+          "label": "Belastung",
+          "value": 2,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.3 – Rüstung und Kleidung"
+          }
+        },
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.3 – Rüstung und Kleidung"
+        },
+        "status": "provisional",
+        "impairment": {
+          "label": "Behinderung",
+          "value": "Keine",
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.3 – Rüstung und Kleidung"
+          }
+        },
+        "breakFactor": {
+          "label": "Bruchfaktor",
+          "value": 0,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.3 – Rüstung und Kleidung"
+          }
+        }
+      },
+      {
+        "name": "Einfache Grundkleidung (Schuhe, Hose, Hemd; im Rucksack)",
+        "protection": {
+          "label": "RS",
+          "value": 1,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.3 – Rüstung und Kleidung"
+          }
+        },
+        "burden": {
+          "label": "Belastung",
+          "value": 0,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.3 – Rüstung und Kleidung"
+          }
+        },
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.3 – Rüstung und Kleidung"
+        },
+        "status": "provisional",
+        "impairment": {
+          "label": "Behinderung",
+          "value": "Keine",
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.3 – Rüstung und Kleidung"
+          }
+        },
+        "breakFactor": {
+          "label": "Bruchfaktor",
+          "value": 0,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.3 – Rüstung und Kleidung"
+          }
+        }
+      }
+    ],
+    "possessions": [
+      {
+        "name": "Kutte, grobe Wolle",
+        "quantity": "1 · getragen",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.1 – Berufliche Ausrüstung"
+        },
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 2,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
+      },
+      {
+        "name": "Zauberstab",
+        "quantity": "1 · Gürtel / Hosentaschen",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.3.1 – Zuordnung der mitgeführten Gegenstände"
+        },
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 1,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
+      },
+      {
+        "name": "Schwert",
+        "quantity": "1 · Gürtel / Hosentaschen",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.3.1 – Zuordnung der mitgeführten Gegenstände"
+        },
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 1,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
+      },
+      {
+        "name": "Fackeln",
+        "quantity": "6 · Rucksack",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung"
+        },
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 0.6,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
+      },
+      {
+        "name": "Hanfseil",
+        "quantity": "15 m · Rucksack",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung"
+        },
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 1.5,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
+      },
+      {
+        "name": "Reiseproviant",
+        "quantity": "7 Personentage · Rucksack",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung"
+        },
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 7,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
+      },
+      {
+        "name": "Wasserschlauch, leer",
+        "quantity": "1 · Rucksack",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung"
+        },
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 0.1,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
+      },
+      {
+        "name": "Wasser",
+        "quantity": "2 Tage · im Wasserschlauch",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung"
+        },
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 1,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
+      },
+      {
+        "name": "Rucksack, Leder",
+        "quantity": "1",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung"
+        },
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 1,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
+      },
+      {
+        "name": "Einfache Kleidung (Schuhe, Hose, Hemd)",
+        "quantity": "1 Satz · Rucksack",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung"
+        },
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 0,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
+      }
+    ],
+    "wealth": [
+      {
+        "label": "Mitgeführtes Vermögen",
+        "value": "13 GS · Belastung 0,26",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.1 – Berufliche Ausrüstung; Abschnitt 10.3.1 – Mitgeführtes Vermögen"
+        }
+      }
+    ],
+    "load": [
+      {
+        "label": "Gesamtbelastung",
+        "value": "15,46",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.4 – Belastungsrechnung"
+        }
+      },
+      {
+        "label": "Tragkraft",
+        "value": 30,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.4 – Belastungsrechnung"
+        }
+      },
+      {
+        "label": "Hälfte der Tragkraft",
+        "value": 15,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.4 – Belastungsrechnung"
+        }
+      },
+      {
+        "label": "Belastungszustand",
+        "value": "Über der halben Tragkraft",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.4 – Belastungsrechnung"
+        }
+      },
+      {
+        "label": "Belastungsmalus Geschick",
+        "value": "−1 (16 auf 15)",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.4 – Belastungsrechnung"
+        }
+      },
+      {
+        "label": "Belastungsmalus Beweglichkeit",
+        "value": "−10",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.4 – Belastungsrechnung"
+        }
+      },
+      {
+        "label": "Belastungsmalus Attacke / Parade",
+        "value": "−5 Prozentpunkte",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.4 – Belastungsrechnung"
+        }
+      }
+    ]
+  }
+}

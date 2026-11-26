@@ -280,3 +280,31 @@
   max-width: 100%;
   overflow-wrap: anywhere;
 }
+
+
+/* Status- und Quellenhinweise aus den strukturierten Profildateien. */
+.character-page-standard .profile-status {
+  display: inline-block;
+  margin: 4px 0 0;
+  color: var(--gold-soft);
+  font-size: var(--font-caption, .78rem);
+}
+.character-page-standard .profile-status.provisional::before {
+  content: "◷ ";
+}
+.character-page-standard .profile-source {
+  margin-top: 5px;
+  font-size: var(--font-caption, .78rem);
+}
+.character-page-standard .profile-source summary {
+  color: var(--muted);
+  cursor: pointer;
+}
+.character-page-standard .profile-source p {
+  margin: 4px 0 0;
+  overflow-wrap: anywhere;
+  font-size: var(--font-caption, .78rem) !important;
+}
+.character-page-standard .profile-skill-group > h3 {
+  margin: 0 0 10px;
+}
