@@ -1,3 +1,5 @@
+<!-- dornfels-story: freigegeben -->
+
 # Wo Karten enden und Fragen beginnen
 
 Schon früh waren Bücher und Karten für mich mehr als bloße Gegenstände. Ich konnte mich stundenlang darin verlieren, fremde Orte betrachten und mir ausmalen, wie das Leben dort wohl aussehen mochte. Mein Vater hatte das Amt des Dorfvorstands inne und war kurz nach meiner Geburt aus der Stadt nach Dornfels versetzt worden. In unserem Haushalt gehörten Schriftstücke, Bücher und Karten ganz selbstverständlich zum Alltag.
