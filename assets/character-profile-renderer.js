@@ -57,6 +57,7 @@
           const span = el("span", v.tooltip ? "calculated-value" : "", v.value);
           if (v.tooltip) { span.dataset.tip = v.tooltip; span.tabIndex = 0; }
           if (v.status === "provisional") span.classList.add("provisional");
+          if (v.source) span.title = [v.source.document, v.source.location].filter(Boolean).join(" · ");
           td.append(span);
         } else td.textContent = v == null ? "" : String(v);
         tr.append(td);
