@@ -2,6 +2,14 @@
   "use strict";
 
   const root = document.documentElement;
+
+  // Einheitlicher Referenzpunkt in der geografischen Mitte Deutschlands.
+  // Damit ist keine Standortfreigabe des Seitenbesuchers erforderlich.
+  const GERMANY_CENTER = Object.freeze({
+    latitude: 51.1657,
+    longitude: 10.4515
+  });
+
   const setPeriod = (period) => root.setAttribute("data-dornfels-time", period);
 
   // NOAA-Näherung für Sonnenaufgang/-untergang; Ergebnis sind UTC-Minuten.
@@ -34,39 +42,34 @@
     };
   };
 
-  const updateFromPosition = (position) => {
+  const updatePeriod = () => {
     const now = new Date();
-    const times = solarTimes(now, position.coords.latitude, position.coords.longitude);
+    const times = solarTimes(
+      now,
+      GERMANY_CENTER.latitude,
+      GERMANY_CENTER.longitude
+    );
+
     if (times.polar) {
       setPeriod(times.polar);
       return;
     }
-    const utcMinutes = now.getUTCHours() * 60 + now.getUTCMinutes() + now.getUTCSeconds() / 60;
-    setPeriod(utcMinutes >= times.sunrise && utcMinutes < times.sunset ? "day" : "night");
-  };
 
-  const fallbackToLocalClock = () => {
-    // Falls Standortzugriff abgelehnt/nicht verfügbar ist: grobe lokale Zeitspanne.
-    const hour = new Date().getHours();
-    setPeriod(hour >= 6 && hour < 18 ? "day" : "night");
-  };
+    const utcMinutes = now.getUTCHours() * 60 +
+      now.getUTCMinutes() + now.getUTCSeconds() / 60;
 
-  const locate = () => {
-    if (!("geolocation" in navigator)) {
-      fallbackToLocalClock();
-      return;
-    }
-    navigator.geolocation.getCurrentPosition(
-      updateFromPosition,
-      fallbackToLocalClock,
-      { enableHighAccuracy: false, maximumAge: 30 * 60 * 1000, timeout: 10000 }
+    setPeriod(
+      utcMinutes >= times.sunrise && utcMinutes < times.sunset
+        ? "day"
+        : "night"
     );
   };
 
-  locate();
+  updatePeriod();
+
   // Bei länger geöffnetem Tab regelmäßig und nach Rückkehr aktualisieren.
-  window.setInterval(locate, 10 * 60 * 1000);
+  window.setInterval(updatePeriod, 10 * 60 * 1000);
   document.addEventListener("visibilitychange", () => {
-    if (!document.hidden) locate();
+    if (!document.hidden) updatePeriod();
   });
 })();
