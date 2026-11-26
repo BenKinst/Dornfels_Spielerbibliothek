@@ -24,6 +24,19 @@
     wrapper.appendChild(die);
   });
 
+
+  // Eigenschaftswert und W20 als kompakte gemeinsame Einheit gruppieren.
+  // So kann das Grid die Würfelgrafik nicht in einer breiten zweiten Spalte verteilen.
+  document.querySelectorAll(".sheet-field:has(> .attribute-scale-value)").forEach((field) => {
+    const value = field.querySelector(":scope > .attribute-scale-value");
+    const die = field.querySelector(":scope > .dice-tooltip");
+    if (!value || !die) return;
+    const group = document.createElement("span");
+    group.className = "attribute-value-group";
+    field.insertBefore(group, value);
+    group.append(value, die);
+  });
+
   // Ein einziges Tooltip-Element direkt unter body verhindert das Abschneiden
   // durch Tabellen-, Karten- oder Scroll-Container.
   const popup = document.createElement("div");
