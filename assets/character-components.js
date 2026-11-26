@@ -1,4 +1,4 @@
-/* Einheitlicher Komponenten-Controller für den isolierten Heiler-Test.
+/* Gemeinsamer Komponenten-Controller für Charakterseiten.
    Tabellen, Tooltips und Akkordeons werden hier zentral initialisiert. */
 (() => {
   "use strict";
