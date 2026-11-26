@@ -1,0 +1,350 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://benkinst.github.io/Dornfels_Spielerbibliothek/schemas/character-profile.schema.json",
+  "title": "Dornfels character profile",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "schemaVersion",
+    "profile"
+  ],
+  "properties": {
+    "schemaVersion": {
+      "const": 1
+    },
+    "profile": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "name"
+      ],
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string",
+          "minLength": 1
+        },
+        "title": {
+          "type": "string"
+        },
+        "people": {
+          "type": "string"
+        },
+        "profession": {
+          "type": "string"
+        },
+        "portrait": {
+          "type": "string"
+        },
+        "portraitAlt": {
+          "type": "string"
+        }
+      }
+    },
+    "attributes": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "characterData": {
+          "$ref": "#/$defs/valueList"
+        },
+        "values": {
+          "$ref": "#/$defs/valueList"
+        },
+        "lifeValues": {
+          "$ref": "#/$defs/valueList"
+        }
+      }
+    },
+    "skills": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "groups"
+      ],
+      "properties": {
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "skills"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "bonus": {
+                "type": "string"
+              },
+              "skills": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "name",
+                    "value"
+                  ],
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "value": {
+                      "$ref": "#/$defs/value"
+                    },
+                    "description": {
+                      "type": "string"
+                    },
+                    "source": {
+                      "$ref": "#/$defs/source"
+                    },
+                    "status": {
+                      "$ref": "#/$defs/status"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "magic": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "lists": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "skills": {
+          "$ref": "#/$defs/valueList"
+        },
+        "spellGroups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "required": [
+              "name",
+              "spells"
+            ],
+            "properties": {
+              "name": {
+                "type": "string"
+              },
+              "spells": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "required": [
+                    "name",
+                    "level"
+                  ],
+                  "properties": {
+                    "name": {
+                      "type": "string"
+                    },
+                    "level": {
+                      "type": [
+                        "string",
+                        "number"
+                      ]
+                    },
+                    "source": {
+                      "$ref": "#/$defs/source"
+                    },
+                    "status": {
+                      "$ref": "#/$defs/status"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "equipment": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "weapons": {
+          "$ref": "#/$defs/weaponList"
+        },
+        "armor": {
+          "$ref": "#/$defs/armorList"
+        },
+        "possessions": {
+          "$ref": "#/$defs/possessionList"
+        },
+        "wealth": {
+          "$ref": "#/$defs/valueList"
+        }
+      }
+    }
+  },
+  "$defs": {
+    "status": {
+      "enum": [
+        "confirmed",
+        "provisional"
+      ]
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "document",
+        "location"
+      ],
+      "properties": {
+        "document": {
+          "type": "string",
+          "minLength": 1
+        },
+        "location": {
+          "type": "string",
+          "minLength": 1
+        }
+      }
+    },
+    "value": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "value",
+        "status",
+        "source"
+      ],
+      "properties": {
+        "value": {
+          "type": [
+            "string",
+            "number",
+            "boolean"
+          ]
+        },
+        "label": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "key": {
+          "type": "string"
+        },
+        "description": {
+          "type": "string"
+        },
+        "tooltip": {
+          "type": "string"
+        },
+        "status": {
+          "$ref": "#/$defs/status"
+        },
+        "source": {
+          "$ref": "#/$defs/source"
+        }
+      }
+    },
+    "valueList": {
+      "type": "array",
+      "items": {
+        "$ref": "#/$defs/value"
+      }
+    },
+    "weaponList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "attack": {
+            "$ref": "#/$defs/value"
+          },
+          "parry": {
+            "$ref": "#/$defs/value"
+          },
+          "damage": {
+            "$ref": "#/$defs/value"
+          },
+          "source": {
+            "$ref": "#/$defs/source"
+          },
+          "status": {
+            "$ref": "#/$defs/status"
+          }
+        }
+      }
+    },
+    "armorList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "protection": {
+            "$ref": "#/$defs/value"
+          },
+          "burden": {
+            "$ref": "#/$defs/value"
+          },
+          "source": {
+            "$ref": "#/$defs/source"
+          },
+          "status": {
+            "$ref": "#/$defs/status"
+          }
+        }
+      }
+    },
+    "possessionList": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": [
+          "name"
+        ],
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "quantity": {
+            "type": [
+              "string",
+              "number"
+            ]
+          },
+          "source": {
+            "$ref": "#/$defs/source"
+          },
+          "status": {
+            "$ref": "#/$defs/status"
+          }
+        }
+      }
+    }
+  }
+}
