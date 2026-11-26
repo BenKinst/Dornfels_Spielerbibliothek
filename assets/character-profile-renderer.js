@@ -116,7 +116,7 @@
   }
   function attributes(a) {
     const root = el("div", "profile-section-content");
-    [["Charakterdaten",a.characterData],["Eigenschaften & abgeleitete Werte",a.values],["Lebenswerte",a.lifeValues]]
+    [["Charakterdaten",a.characterData],["Eigenschaften & abgeleitete Werte",a.values],["Lebenswerte",a.lifeValues],["Talente und Fehler",a.specialFeatures]]
       .forEach(([t,v]) => { const g=valueGroup(t,v); if(g) root.append(g); });
     return root;
   }
@@ -152,17 +152,19 @@
       const ul=document.createElement("ul"); m.lists.forEach(x=>ul.append(el("li","",x))); card.append(ul); root.append(card);
     }
     const g=valueGroup("Magische Fertigkeiten",m.skills,"sheet-grid sheet-grid-2"); if(g) root.append(g);
+    const details=valueGroup("Berufliche Magiemerkmale",m.details,"sheet-grid sheet-grid-2"); if(details) root.append(details);
     (m.spellGroups || []).forEach(x=>{ const t=table(x.name,x.spells,[{key:"name",label:"Zauber / Wirkung"},{key:"level",label:"Stufe"}]); if(t) root.append(t); });
     return root;
   }
   function equipment(e) {
     const root=el("div","profile-section-content");
     [
-      ["Waffen",e.weapons,[["name","Waffe"],["attack","Attacke"],["parry","Parade"],["damage","Schaden"]]],
-      ["Rüstung und Schutz",e.armor,[["name","Rüstungsteil"],["protection","Schutz"],["burden","Belastung"]]],
-      ["Besitz",e.possessions,[["name","Gegenstand"],["quantity","Anzahl"]]]
+      ["Waffen",e.weapons,[["name","Waffe"],["attack","Attacke"],["parry","Parade"],["damage","Schaden"],["breakFactor","BF"],["burden","Belastung"]]],
+      ["Rüstung und Schutz",e.armor,[["name","Rüstungsteil"],["protection","RS"],["burden","Belastung"],["impairment","Behinderung"],["breakFactor","BF"]]],
+      ["Besitz",e.possessions,[["name","Gegenstand"],["quantity","Anzahl / Mitführung"],["burden","Belastung"]]]
     ].forEach(([title,rows,cols])=>{ const t=table(title,rows,cols.map(([key,label])=>({key,label}))); if(t) root.append(t); });
     const wealth=valueGroup("Vermögen",e.wealth); if(wealth) root.append(wealth);
+    const load=valueGroup("Belastung",e.load,"sheet-grid sheet-grid-2"); if(load) root.append(load);
     return root;
   }
   async function run() {
