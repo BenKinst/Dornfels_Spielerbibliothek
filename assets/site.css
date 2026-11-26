@@ -336,3 +336,15 @@
   grid-column: 1 / -1;
   grid-row: 3;
 }
+
+
+/* Eigenschaftswert nicht auf die Breite der Grid-Spalte strecken:
+   der unterstrichene Wert richtet sich nach seinem tatsächlichen Inhalt. */
+.sheet-field:has(> .attribute-scale-value) > .attribute-scale-value {
+  display: inline-block;
+  width: max-content;
+  min-width: 0;
+  max-width: 100%;
+  justify-self: start;
+  align-self: center;
+}
