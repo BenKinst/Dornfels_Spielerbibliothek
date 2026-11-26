@@ -267,3 +267,16 @@
     padding-left: 10px;
   }
 }
+
+
+/* Eigenschaftskarten ohne Würfelgrafik (z. B. Erscheinung und Größe):
+   Die leere zweite Grid-Spalte darf die Beschreibungszeile nicht einengen. */
+.character-component-standard .sheet-field:has(> .attribute-scale-value):not(:has(> .dice-icon)) {
+  grid-template-columns: minmax(0, 1fr);
+  width: 100%;
+}
+.character-component-standard .sheet-field:has(> .attribute-scale-value) > .attribute-help {
+  min-width: 0;
+  max-width: 100%;
+  overflow-wrap: anywhere;
+}
