@@ -43,7 +43,7 @@
       if (!response.ok) return;
 
       const markdown = await response.text();
-      const explicitlyReleased = /^\\uFEFF?\\s*<!--\\s*dornfels-story:\\s*freigegeben\\s*-->\\s*([\\s\\S]*\\S)\\s*$/i.test(markdown);
+      const explicitlyReleased = /^\uFEFF?\s*<!--\s*dornfels-story:\s*freigegeben\s*-->\s*([\s\S]*\S)\s*$/i.test(markdown);
 
       if (explicitlyReleased) {
         card.classList.remove("is-unavailable");
