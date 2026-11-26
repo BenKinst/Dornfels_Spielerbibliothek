@@ -182,7 +182,7 @@
       ["Magie",d.magic && magic(d.magic),"profile-magic"],
       ["Ausrüstung",d.equipment && equipment(d.equipment),"profile-equipment"]
     ].forEach(([t,c,id])=>{ const a=accordion(t,c,id); if(a) target.append(a); });
-    document.querySelectorAll("[data-expand-all]").forEach(b=>b.addEventListener("click",()=>target.querySelectorAll(".profile-accordion-item").forEach(i=>{i.querySelector("button").setAttribute("aria-expanded","true");i.querySelector(".accordion-panel").hidden=false;})));
+    document.querySelectorAll("[data-expand-all]").forEach(b=>b.addEventListener("click",()=>target.querySelectorAll(".profile-accordion-item,.profile-subaccordion-item").forEach(i=>{const button=i.querySelector("button");const panel=i.querySelector(".accordion-panel,.subaccordion-panel");if(button&&panel){button.setAttribute("aria-expanded","true");panel.hidden=false;}})));
     document.querySelectorAll("[data-collapse-all]").forEach(b=>b.addEventListener("click",()=>target.querySelectorAll(".profile-accordion-item,.profile-subaccordion-item").forEach(i=>{const button=i.querySelector("button");const panel=i.querySelector(".accordion-panel,.subaccordion-panel");if(button&&panel){button.setAttribute("aria-expanded","false");panel.hidden=true;}})));
     target.querySelectorAll("table.sheet-table").forEach(t=>t.querySelectorAll("thead th").forEach(th=>th.scope="col"));
     const popup=document.createElement("div"); popup.className="tooltip-portal"; popup.id="profile-tooltip-portal"; popup.setAttribute("role","tooltip"); popup.hidden=true; document.body.append(popup);
