@@ -1,0 +1,166 @@
+/* Isolierter Komponentenstandard für den Heiler-Test.
+   Diese Datei wird ausschließlich von heiler-komponenten-test-v2.html geladen. */
+.character-component-standard {
+  --component-gap: 12px;
+  --component-radius: 8px;
+}
+
+/* Einheitliche Wertfelder und Karten */
+.character-component-standard .sheet-field,
+.character-component-standard .sheet-card {
+  box-sizing: border-box;
+  min-width: 0;
+  border: 1px solid var(--line);
+  border-radius: var(--component-radius);
+  background: rgba(255,255,255,.018);
+}
+.character-component-standard .sheet-field { padding: 12px 14px; }
+.character-component-standard .sheet-card { padding: 12px; }
+.character-component-standard .sheet-field > span:first-child {
+  display: block;
+  color: var(--muted);
+  font: 12px/1.4 Arial, sans-serif;
+  margin-bottom: 5px;
+}
+.character-component-standard .sheet-field strong { color: var(--text); }
+
+/* Ein Tabellenstandard für Fertigkeiten, Zauber, Waffen und Rüstung. */
+.character-component-standard .table-scroll {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: auto;
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
+}
+.character-component-standard table.sheet-table {
+  width: 100%;
+  min-width: 100%;
+  border-collapse: collapse;
+  border-spacing: 0;
+  table-layout: auto;
+  font: 13px/1.55 Arial, sans-serif;
+}
+.character-component-standard .sheet-table th,
+.character-component-standard .sheet-table td {
+  padding: 9px 11px;
+  border-bottom: 1px solid var(--line);
+  text-align: left;
+  vertical-align: top;
+}
+.character-component-standard .sheet-table th {
+  color: var(--gold-soft);
+  font-weight: 600;
+  background: rgba(213,189,141,.055);
+}
+.character-component-standard .sheet-table td { color: var(--muted); }
+.character-component-standard .sheet-table tbody tr:last-child td { border-bottom: 0; }
+.character-component-standard .sheet-table tbody tr:hover { background: rgba(213,189,141,.035); }
+.character-component-standard .sheet-table[data-table-variant="wide-first"] th:first-child,
+.character-component-standard .sheet-table[data-table-variant="wide-first"] td:first-child {
+  min-width: 260px;
+  white-space: normal;
+}
+.character-component-standard .sheet-table[data-table-variant="compact"] th,
+.character-component-standard .sheet-table[data-table-variant="compact"] td {
+  padding: 6px 8px;
+}
+@media (max-width: 560px) {
+  .character-component-standard .sheet-table th,
+  .character-component-standard .sheet-table td { padding: 8px; }
+}
+
+/* Einheitliche Akkordeon-Hierarchie und Fokusdarstellung. */
+.character-component-standard .accordion-item,
+.character-component-standard .subaccordion-item { min-width: 0; }
+.character-component-standard .accordion-trigger,
+.character-component-standard .subaccordion-trigger {
+  width: 100%;
+  text-align: left;
+}
+.character-component-standard .accordion-trigger:focus-visible,
+.character-component-standard .subaccordion-trigger:focus-visible,
+.character-component-standard .accordion-controls button:focus-visible {
+  outline: 2px solid var(--gold-soft);
+  outline-offset: 3px;
+}
+.character-component-standard .accordion-panel,
+.character-component-standard .subaccordion-panel { min-width: 0; }
+
+/* Ein zentraler Tooltip-Layer, unabhängig von Tabellen- und Kartencontainern. */
+.character-component-standard .calculated-value,
+.character-component-standard .dice-tooltip,
+.character-component-standard .dice-pair[data-dice-tip] { cursor: help; }
+.character-component-standard .calculated-value:focus-visible,
+.character-component-standard .dice-tooltip:focus-visible,
+.character-component-standard .dice-pair:focus-visible {
+  outline: 1px solid var(--gold-soft);
+  outline-offset: 3px;
+  border-radius: 3px;
+}
+.character-component-standard .tooltip-portal {
+  position: fixed;
+  z-index: 10000;
+  width: max-content;
+  max-width: min(320px, calc(100vw - 16px));
+  padding: 9px 11px;
+  border: 1px solid var(--gold-soft);
+  border-radius: 7px;
+  background: #171613;
+  color: var(--text);
+  box-shadow: 0 8px 24px rgba(0,0,0,.4);
+  font: 12px/1.5 Arial, sans-serif;
+  white-space: normal;
+  text-align: left;
+  pointer-events: none;
+}
+.character-component-standard .tooltip-portal[hidden] { display: none; }
+@media (prefers-reduced-motion: reduce) {
+  .character-component-standard * { scroll-behavior: auto !important; }
+}
+
+
+/* Fluid Typography: Schrift skaliert sanft mit der Viewport-Breite.
+   clamp() begrenzt die Größe nach unten und oben; kleine Displays bleiben kompakt,
+   große Displays erhalten etwas mehr Lesekomfort ohne übergroße Zeilen. */
+.character-component-standard {
+  --type-body: clamp(0.94rem, 0.90rem + 0.16vw, 1.08rem);
+  --type-small: clamp(0.78rem, 0.75rem + 0.10vw, 0.88rem);
+  --type-table: clamp(0.80rem, 0.76rem + 0.14vw, 0.94rem);
+  --type-section: clamp(1.20rem, 1.08rem + 0.42vw, 1.55rem);
+  --type-subsection: clamp(1.02rem, 0.96rem + 0.24vw, 1.22rem);
+  --type-value: clamp(0.98rem, 0.94rem + 0.16vw, 1.10rem);
+  font-size: var(--type-body);
+}
+.character-component-standard .panel-intro,
+.character-component-standard .section-note,
+.character-component-standard .possession-list,
+.character-component-standard .sheet-field > span:first-child {
+  font-size: var(--type-small);
+}
+.character-component-standard .sheet-table {
+  font-size: var(--type-table) !important;
+}
+.character-component-standard .accordion-trigger {
+  font-size: var(--type-section);
+}
+.character-component-standard .subaccordion-trigger {
+  font-size: var(--type-subsection);
+}
+.character-component-standard .sheet-field strong,
+.character-component-standard .calculated-value {
+  font-size: var(--type-value);
+}
+.character-component-standard .attribute-help {
+  font-size: clamp(0.74rem, 0.72rem + 0.08vw, 0.82rem);
+}
+@media (min-width: 1600px) {
+  .character-component-standard {
+    --component-gap: 14px;
+  }
+  .character-component-standard .sheet-field { padding: 14px 16px; }
+}
+@media (max-width: 480px) {
+  .character-component-standard {
+    --component-gap: 10px;
+  }
+}
