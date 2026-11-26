@@ -328,3 +328,40 @@
   justify-self: start;
   align-self: center;
 }
+
+
+/* Eigenschaftswert und W20 bilden eine kompakte Einheit direkt nebeneinander.
+   Die Beschreibung darunter nutzt weiterhin die volle Kartenbreite. */
+.sheet-field:has(> .attribute-value-group) {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: start;
+  align-items: start;
+  row-gap: 4px;
+}
+.sheet-field:has(> .attribute-value-group) > span:not(.attribute-value-group) {
+  grid-column: 1;
+}
+.sheet-field > .attribute-value-group {
+  display: inline-flex;
+  width: max-content;
+  max-width: 100%;
+  align-items: center;
+  justify-self: start;
+  gap: 8px;
+}
+.sheet-field > .attribute-value-group > .attribute-scale-value {
+  display: inline-block;
+  width: max-content;
+  min-width: 0;
+  white-space: nowrap;
+}
+.sheet-field > .attribute-value-group > .dice-tooltip {
+  display: inline-flex;
+  flex: 0 0 auto;
+  align-items: center;
+}
+.sheet-field:has(> .attribute-value-group) > .attribute-help {
+  grid-column: 1;
+  width: 100%;
+}
