@@ -163,3 +163,140 @@
     --component-gap: 10px;
   }
 }
+
+
+/* ---------------------------------------------------------------
+   Zentrale Fluid Typography für das gesamte Heiler-Testprofil
+   Alle Textbereiche beziehen ihre Größe aus einer gemeinsamen Skala.
+   clamp(min, fluid, max) verhindert zu kleine/große Schrift.
+   --------------------------------------------------------------- */
+.character-component-standard {
+  --font-display: clamp(2rem, 1.55rem + 1.8vw, 3.1rem);
+  --font-h1: clamp(1.75rem, 1.42rem + 1.25vw, 2.5rem);
+  --font-h2: clamp(1.28rem, 1.12rem + 0.62vw, 1.68rem);
+  --font-h3: clamp(1.08rem, 0.98rem + 0.38vw, 1.32rem);
+  --font-h4: clamp(1rem, 0.94rem + 0.22vw, 1.14rem);
+  --font-body: clamp(0.94rem, 0.88rem + 0.22vw, 1.06rem);
+  --font-body-large: clamp(1rem, 0.94rem + 0.25vw, 1.14rem);
+  --font-small: clamp(0.82rem, 0.78rem + 0.14vw, 0.91rem);
+  --font-caption: clamp(0.74rem, 0.71rem + 0.10vw, 0.82rem);
+  --font-table: clamp(0.82rem, 0.78rem + 0.16vw, 0.92rem);
+  --font-value: clamp(0.98rem, 0.93rem + 0.18vw, 1.08rem);
+  font-size: var(--font-body);
+}
+
+/* Profilkopf */
+.character-component-standard h1,
+.character-component-standard .page-hero h1 {
+  font-size: var(--font-display) !important;
+  line-height: 1.12;
+}
+.character-component-standard .profile-subtitle,
+.character-component-standard .race-label {
+  font-size: var(--font-body-large) !important;
+}
+.character-component-standard .eyebrow,
+.character-component-standard .notice {
+  font-size: var(--font-small) !important;
+}
+
+/* Semantische Überschriften – unabhängig davon, wo sie stehen */
+.character-component-standard h2,
+.character-component-standard .section-head h2,
+.character-component-standard .subhead h2 {
+  font-size: var(--font-h2) !important;
+  line-height: 1.3;
+}
+.character-component-standard h3,
+.character-component-standard .sheet-card h3,
+.character-component-standard .story-block h3 {
+  font-size: var(--font-h3) !important;
+  line-height: 1.35;
+}
+.character-component-standard h4,
+.character-component-standard h5,
+.character-component-standard h6 {
+  font-size: var(--font-h4) !important;
+}
+
+/* Akkordeon-Titel bleiben hierarchisch, verwenden aber dieselbe Skala. */
+.character-component-standard .accordion-trigger {
+  font-size: var(--font-h2) !important;
+  line-height: 1.35;
+}
+.character-component-standard .subaccordion-trigger {
+  font-size: var(--font-h3) !important;
+  line-height: 1.4;
+}
+.character-component-standard .accordion-controls button {
+  font-size: var(--font-small) !important;
+}
+
+/* Fließtext, Hintergrundgeschichte, Karten, Listen und Hinweise */
+.character-component-standard p,
+.character-component-standard .story-block p,
+.character-component-standard .sheet-card p,
+.character-component-standard .possession-list,
+.character-component-standard .possession-list p,
+.character-component-standard .spell-list-overview,
+.character-component-standard .spell-list-overview li {
+  font-size: var(--font-body) !important;
+  line-height: 1.7;
+}
+.character-component-standard .panel-intro {
+  font-size: var(--font-small) !important;
+  line-height: 1.65;
+}
+.character-component-standard .section-note,
+.character-component-standard .skill-group-extra {
+  font-size: var(--font-caption) !important;
+}
+.character-component-standard .skill-group-bonus {
+  font-size: var(--font-small) !important;
+}
+
+/* Charakterfelder: Bezeichnung, Wert und erläuternder Zusatz */
+.character-component-standard .sheet-field > span:first-child,
+.character-component-standard .sheet-field > span:not(.dice-pair) {
+  font-size: var(--font-caption) !important;
+  line-height: 1.45;
+}
+.character-component-standard .sheet-field > strong,
+.character-component-standard .calculated-value {
+  font-size: var(--font-value) !important;
+  line-height: 1.45;
+}
+.character-component-standard .attribute-help {
+  font-size: var(--font-caption) !important;
+  line-height: 1.5;
+}
+
+/* Tabellen und ihre Zellen */
+.character-component-standard table.sheet-table,
+.character-component-standard .sheet-table th,
+.character-component-standard .sheet-table td {
+  font-size: var(--font-table) !important;
+  line-height: 1.55;
+}
+
+/* Tooltip, Würfelbeschriftungen und kleine technische Metadaten */
+.character-component-standard .tooltip-portal,
+.character-component-standard .dice-tooltip,
+.character-component-standard .dice-pair,
+.character-component-standard .dice-icon {
+  font-size: var(--font-caption) !important;
+}
+.character-component-standard footer,
+.character-component-standard footer * {
+  font-size: var(--font-caption) !important;
+}
+
+/* Auf sehr schmalen Viewports bleiben Lesbarkeit und Zeilenlänge erhalten. */
+@media (max-width: 480px) {
+  .character-component-standard .accordion-panel {
+    margin-left: 18px;
+  }
+  .character-component-standard .subaccordion-panel {
+    padding-left: 10px;
+  }
+}
