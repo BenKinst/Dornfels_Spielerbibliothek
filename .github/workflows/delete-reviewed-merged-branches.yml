@@ -1,0 +1,254 @@
+name: Delete reviewed merged branches
+
+on:
+  push:
+    branches:
+      - main
+    paths:
+      - '.github/workflows/delete-reviewed-merged-branches.yml'
+
+permissions:
+  contents: write
+
+jobs:
+  delete-reviewed-branches:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Delete only branches whose heads are unchanged
+        uses: actions/github-script@v7
+        with:
+          script: |
+            const candidates = [
+  {
+    "name": "feature/wuerfel-tooltips",
+    "sha": "b66c3fc1d9f036ea9074947d69236ae7ac078207"
+  },
+  {
+    "name": "BenKinst-patch-3_Mainpage",
+    "sha": "9c42d1e1d8bdf638d4e7be45707bd0b4d2183d6d"
+  },
+  {
+    "name": "feat/fertigkeiten-farbskala",
+    "sha": "9cff07d1c4981170e3dd194d3f81dcd913e6e425"
+  },
+  {
+    "name": "fix/farbskala-nur-gewuerfelte-eigenschaften",
+    "sha": "64876ba4cee4dd0ce1486507bb0ef19538faade7"
+  },
+  {
+    "name": "feature/eigenschafts-farbskala",
+    "sha": "f128f9604974a271558be985a413d68d8bf832b8"
+  },
+  {
+    "name": "fix/zauber-wuerfel-inline",
+    "sha": "3c675ce07236034ae45cef8d0df87c1a820fb564"
+  },
+  {
+    "name": "fix/wuerfelbilder-layout-und-w10-pfade",
+    "sha": "e6a239903d127d4cfa158f2456d6b3a4e0fbc08b"
+  },
+  {
+    "name": "fix/w10-neue-dateinamen-in-profilen",
+    "sha": "09688230aa7971ac0b928a2b68b57181d277e9ee"
+  },
+  {
+    "name": "BenKinst-patch-2",
+    "sha": "3451f63255ac8f961e8a0b5d57a1680231458e49"
+  },
+  {
+    "name": "BenKinst-patch-1",
+    "sha": "fecaa3d92781d70a5f5348de6976dec34d62fec9"
+  },
+  {
+    "name": "assets/w10-zehner-einer-png",
+    "sha": "abd92e75124de6df3e1a23d50b154ff8797089b8"
+  },
+  {
+    "name": "assets/original-wuerfelbilder-png",
+    "sha": "0084807f1c46d51f61a69768f87ea754cfad73c7"
+  },
+  {
+    "name": "style/wuerfel-nach-vorlage",
+    "sha": "18f20c89aa92171592a67e4a58432ba20a2ba362"
+  },
+  {
+    "name": "content/reorder-character-attributes",
+    "sha": "8c51ed44ffcb83f50d051f92abb75f283641db55"
+  },
+  {
+    "name": "style/wuerfel-icons-ueberarbeiten",
+    "sha": "8a24eb1d19aae41fae77f21feac7c8c465b4e158"
+  },
+  {
+    "name": "feature/anfaenger-wuerfelhinweise",
+    "sha": "e950cae3b21f00b6ddbd2ebc3c76da6cfc743e81"
+  },
+  {
+    "name": "style/fertigkeiten-container-vollbreite",
+    "sha": "86ef2368c757beb28527913db456577604153924"
+  },
+  {
+    "name": "fix/tooltips-alle-tabellen",
+    "sha": "20e654f9d7cb96b04513c77f243792f8df85b51a"
+  },
+  {
+    "name": "fix/fertigkeitstabellen-mobile-overflow",
+    "sha": "f5655f59bc465ce5ea5dbc8ecd0e9f5b07abb51d"
+  },
+  {
+    "name": "style/kompakte-fertigkeitstabellen",
+    "sha": "5f52f4022e26a2e892b637f8ba0985e449ad958c"
+  },
+  {
+    "name": "fix/tabellen-intrinsische-breite",
+    "sha": "aac6666eff82b7e3da68c8429a9d48948125d49d"
+  },
+  {
+    "name": "fix/fertigkeitstabellen-scrollbar",
+    "sha": "3760a6b6aca0d57cef13f6d9091a2dcb49f93f07"
+  },
+  {
+    "name": "titel/unterhaltung-am-lagerfeuer",
+    "sha": "f73d3a1ec624f1ec1bb2cc715f2c4b3ce7fdd2c3"
+  },
+  {
+    "name": "improve/profile-reading-layout",
+    "sha": "b616844f4167e3e83b1088288a8b978c0b414ea9"
+  },
+  {
+    "name": "fix/responsive-character-art",
+    "sha": "534154627a5c28b8eb65ec2bc0f1065adff388d5"
+  },
+  {
+    "name": "arbeitsstand/charakterbild-ohne-rahmen",
+    "sha": "672f7115dc8593f15311f319b830cb649fde33ef"
+  },
+  {
+    "name": "arbeitsstand/heiler-an-musterseite",
+    "sha": "de2ca48019461b20f06d08faa58a42f41090db2c"
+  },
+  {
+    "name": "fix/musterseite-accordion-formatierung",
+    "sha": "f7663223ae97752f9de1dd471af846e1985c2228"
+  },
+  {
+    "name": "update/character-profession-images-v2",
+    "sha": "a82f32753921698188922ff98e0015c71e489af6"
+  },
+  {
+    "name": "feature/charakterseite-verschachtelte-tabs",
+    "sha": "e47c4b03e03bb1c8a8d8d91a1d27df7cbd33fe2a"
+  },
+  {
+    "name": "feature/charakterseite-hel-denbogen-layout",
+    "sha": "5599c6907120b3f052685bb221a34bc6ea21e120"
+  },
+  {
+    "name": "feature/musterseite-direktlink",
+    "sha": "db51a8b62bd3230b9bf27800b1e5be45b2992029"
+  },
+  {
+    "name": "align-character-pages-with-healer",
+    "sha": "13d41336128383b850a9593d82a7f1176ff3672e"
+  },
+  {
+    "name": "fix/mobile-healer-image",
+    "sha": "fb7f6ec34f7f4d4164a83d5e9e918c49ccfe84af"
+  },
+  {
+    "name": "feature/charakterbuttons-ohne-story-deaktivieren",
+    "sha": "1cdf8d7a87017bbed8659ece7083cd62a9c73a3d"
+  },
+  {
+    "name": "fix/heiler-erste-ueberschrift-anzeigen",
+    "sha": "9ff3c482c23997a5ef74e8202e2442e9e0d6b634"
+  },
+  {
+    "name": "fix/heiler-markdown-zeilenumbruch",
+    "sha": "a5907e793c68ae99a0b80b36bff0c59e79d68bcb"
+  },
+  {
+    "name": "feature/heiler-hintergrundgeschichte-automatisch-anzeigen",
+    "sha": "5f86ba9fdc27e314111f98029072ff46b8c2f007"
+  },
+  {
+    "name": "feature/dieb-vorhaengeschloss",
+    "sha": "7e9779bab2d5b31036bcdfd90c40568878fbf2d6"
+  },
+  {
+    "name": "fix/heiler-beruf-bezeichnung",
+    "sha": "cc7092c53a40054e0f2fcdd88c5e469f708d4387"
+  },
+  {
+    "name": "feature/dieb-vier-fussspuren",
+    "sha": "7bb8e890dae9e6bf4bd182a3a610ba4b6f118815"
+  },
+  {
+    "name": "feature/duellist-gekreuzte-saebel-gold",
+    "sha": "82d3dc691dd3520b4fc0739a184ce3122df3723b"
+  },
+  {
+    "name": "feature/kampfmagier-flammenschwert-piktogramm",
+    "sha": "06e829b9b4f344a91a74cd428ac6d10764f93035"
+  },
+  {
+    "name": "feature/duellist-gekreuzte-degen",
+    "sha": "cd556c32f975244d091ce84a3a3d578d9860dbc7"
+  },
+  {
+    "name": "feature/kampfmagier-schwert-funken",
+    "sha": "0ee72d69b4c767ec9c65cf92cd21f6d6ed219dea"
+  },
+  {
+    "name": "feature/piktogramme-krieger-kopfgeldjaeger-kampfmagier",
+    "sha": "f1f709a1a89ab03a6e0cc4ec92c7deb485bbc418"
+  },
+  {
+    "name": "feature/piktogramme-runde-2",
+    "sha": "1d78c680cd0f826d7bb4a8e8bb223e1b73f6519d"
+  },
+  {
+    "name": "feature/berufspiktogramme-ueberarbeitung",
+    "sha": "bfac22ed3e33082e5ee2e497e128408e61515c4b"
+  },
+  {
+    "name": "feature/heiler-hintergrundgeschichte",
+    "sha": "58579d3792b9ca46f811ed5dc67e7c47e22e1c6f"
+  },
+  {
+    "name": "feature/website-grundgeruest",
+    "sha": "a7c24673e2c845acdbf25097f392ba756caa49ef"
+  }
+];
+            const deleted = [];
+            const skipped = [];
+            for (const branch of candidates) {
+              try {
+                const ref = await github.rest.git.getRef({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  ref: `heads/${branch.name}`
+                });
+                if (ref.data.object.sha !== branch.sha) {
+                  skipped.push({ name: branch.name, reason: "head SHA changed" });
+                  continue;
+                }
+                await github.rest.git.deleteRef({
+                  owner: context.repo.owner,
+                  repo: context.repo.repo,
+                  ref: `heads/${branch.name}`
+                });
+                deleted.push(branch.name);
+              } catch (error) {
+                if (error.status === 404) {
+                  skipped.push({ name: branch.name, reason: "branch no longer exists" });
+                } else {
+                  throw error;
+                }
+              }
+            }
+            core.info(`Deleted ${deleted.length} branches; skipped ${skipped.length}.`);
+            core.summary.addHeading("Branch cleanup result");
+            core.summary.addRaw(`Deleted: ${deleted.length}; skipped: ${skipped.length}`);
+            if (skipped.length) core.summary.addCodeBlock(JSON.stringify(skipped, null, 2), "json");
+            await core.summary.write();
