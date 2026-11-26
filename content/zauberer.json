@@ -344,6 +344,48 @@
         },
         "tooltip": "W10: 4 + Intuition 16 + 12 Berufsbonus + 1 gekaufter AP"
       }
+    ],
+    "specialFeatures": [
+      {
+        "label": "Multiplikator",
+        "value": "Alle Sprüche haben das doppelte Wirkungsgebiet.",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 8 – Talente und Fehler"
+        },
+        "tooltip": "Talentwurf W100: 46"
+      },
+      {
+        "label": "Waise",
+        "value": "Tritt im Laufe des ersten Abenteuers ein.",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 8 – Talente und Fehler"
+        },
+        "tooltip": "Fehlerwurf W100: 50"
+      },
+      {
+        "label": "Rüstungsangst",
+        "value": "Rüstungen aller Art außer einfacher Kleidung und Kutten lösen den beschriebenen täglichen cDepression-Critical aus.",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 8 – Talente und Fehler"
+        },
+        "tooltip": "Fehlerwurf W100: 20"
+      },
+      {
+        "label": "Blitzreaktion",
+        "value": "Die Initiative wird um 1W6 erhöht.",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 8 – Talente und Fehler"
+        },
+        "tooltip": "Talentwurf W100: 17"
+      }
     ]
   },
   "skills": {
@@ -796,6 +838,53 @@
           }
         ]
       }
+    ],
+    "details": [
+      {
+        "label": "Verfügbare Elemente",
+        "value": "Feuer, Wasser, Erde, Luft, Eis und Licht",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 3 – Beruf und Magie"
+        }
+      },
+      {
+        "label": "Zauberfokus",
+        "value": "Zauberstab",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 3 – Beruf und Magie"
+        }
+      },
+      {
+        "label": "Maximale AP",
+        "value": 100,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 3 – Beruf und Magie"
+        }
+      },
+      {
+        "label": "Rüstungsbeschränkung",
+        "value": "Nur Kutten",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 3 – Beruf und Magie"
+        }
+      },
+      {
+        "label": "Waffenbeschränkung",
+        "value": "Keine Zweihandwaffen außer stabähnlichen Waffen",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 3 – Beruf und Magie"
+        }
+      }
     ]
   },
   "equipment": {
@@ -804,21 +893,23 @@
         "name": "Zauberstab",
         "attack": {
           "label": "Attacke",
-          "value": 48,
+          "value": 44,
           "status": "provisional",
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
-            "location": "Abschnitt 10.1 – Berufliche Ausrüstung; Waffenfelder"
-          }
+            "location": "Abschnitt 10.5 – Belastungsabhängige Kampf- und Bewegungswerte"
+          },
+          "tooltip": "Grundwert 48; unbelastet 50; belastet 44"
         },
         "parry": {
           "label": "Parade",
-          "value": 23,
+          "value": 19,
           "status": "provisional",
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
-            "location": "Abschnitt 10.1 – Berufliche Ausrüstung; Waffenfelder"
-          }
+            "location": "Abschnitt 10.5 – Belastungsabhängige Kampf- und Bewegungswerte"
+          },
+          "tooltip": "Grundwert 23; unbelastet 25; belastet 19"
         },
         "damage": {
           "label": "Schaden",
@@ -833,27 +924,47 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 10.1 – Berufliche Ausrüstung"
         },
-        "status": "provisional"
+        "status": "provisional",
+        "breakFactor": {
+          "label": "Bruchfaktor",
+          "value": 0,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.1 – Berufliche Ausrüstung"
+          }
+        },
+        "burden": {
+          "label": "Belastung",
+          "value": 1,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.1 – Berufliche Ausrüstung"
+          }
+        }
       },
       {
         "name": "Schwert",
         "attack": {
           "label": "Attacke",
-          "value": 55,
+          "value": 51,
           "status": "provisional",
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
-            "location": "Abschnitt 10.1 – Berufliche Ausrüstung; Waffenfelder"
-          }
+            "location": "Abschnitt 10.5 – Belastungsabhängige Kampf- und Bewegungswerte"
+          },
+          "tooltip": "Grundwert 55; unbelastet 57; belastet 51"
         },
         "parry": {
           "label": "Parade",
-          "value": 45,
+          "value": 41,
           "status": "provisional",
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
-            "location": "Abschnitt 10.1 – Berufliche Ausrüstung; Waffenfelder"
-          }
+            "location": "Abschnitt 10.5 – Belastungsabhängige Kampf- und Bewegungswerte"
+          },
+          "tooltip": "Grundwert 45; unbelastet 47; belastet 41"
         },
         "damage": {
           "label": "Schaden",
@@ -868,7 +979,25 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 10.1 – Berufliche Ausrüstung"
         },
-        "status": "provisional"
+        "status": "provisional",
+        "breakFactor": {
+          "label": "Bruchfaktor",
+          "value": 0,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.1 – Berufliche Ausrüstung"
+          }
+        },
+        "burden": {
+          "label": "Belastung",
+          "value": 1,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.1 – Berufliche Ausrüstung"
+          }
+        }
       }
     ],
     "armor": [
@@ -896,7 +1025,25 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 10.3 – Rüstung und Kleidung"
         },
-        "status": "provisional"
+        "status": "provisional",
+        "impairment": {
+          "label": "Behinderung",
+          "value": "Keine",
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.3 – Rüstung und Kleidung"
+          }
+        },
+        "breakFactor": {
+          "label": "Bruchfaktor",
+          "value": 0,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.3 – Rüstung und Kleidung"
+          }
+        }
       },
       {
         "name": "Einfache Grundkleidung (Schuhe, Hose, Hemd; im Rucksack)",
@@ -922,7 +1069,25 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 10.3 – Rüstung und Kleidung"
         },
-        "status": "provisional"
+        "status": "provisional",
+        "impairment": {
+          "label": "Behinderung",
+          "value": "Keine",
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.3 – Rüstung und Kleidung"
+          }
+        },
+        "breakFactor": {
+          "label": "Bruchfaktor",
+          "value": 0,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.3 – Rüstung und Kleidung"
+          }
+        }
       }
     ],
     "possessions": [
@@ -933,7 +1098,16 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 10.1 – Berufliche Ausrüstung"
         },
-        "status": "provisional"
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 2,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
       },
       {
         "name": "Zauberstab",
@@ -942,7 +1116,16 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 10.3.1 – Zuordnung der mitgeführten Gegenstände"
         },
-        "status": "provisional"
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 1,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
       },
       {
         "name": "Schwert",
@@ -951,7 +1134,16 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 10.3.1 – Zuordnung der mitgeführten Gegenstände"
         },
-        "status": "provisional"
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 1,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
       },
       {
         "name": "Fackeln",
@@ -960,7 +1152,16 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung"
         },
-        "status": "provisional"
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 0.6,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
       },
       {
         "name": "Hanfseil",
@@ -969,7 +1170,16 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung"
         },
-        "status": "provisional"
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 1.5,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
       },
       {
         "name": "Reiseproviant",
@@ -978,7 +1188,16 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung"
         },
-        "status": "provisional"
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 7,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
       },
       {
         "name": "Wasserschlauch, leer",
@@ -987,7 +1206,16 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung"
         },
-        "status": "provisional"
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 0.1,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
       },
       {
         "name": "Wasser",
@@ -996,7 +1224,16 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung"
         },
-        "status": "provisional"
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 1,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
       },
       {
         "name": "Rucksack, Leder",
@@ -1005,7 +1242,16 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung"
         },
-        "status": "provisional"
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 1,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
       },
       {
         "name": "Einfache Kleidung (Schuhe, Hose, Hemd)",
@@ -1014,7 +1260,16 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung"
         },
-        "status": "provisional"
+        "status": "provisional",
+        "burden": {
+          "label": "Belastung",
+          "value": 0,
+          "status": "provisional",
+          "source": {
+            "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+            "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
+          }
+        }
       }
     ],
     "wealth": [
@@ -1025,6 +1280,71 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 10.1 – Berufliche Ausrüstung; Abschnitt 10.3.1 – Mitgeführtes Vermögen"
+        }
+      }
+    ],
+    "load": [
+      {
+        "label": "Gesamtbelastung",
+        "value": "15,46",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.4 – Belastungsrechnung"
+        }
+      },
+      {
+        "label": "Tragkraft",
+        "value": 30,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.4 – Belastungsrechnung"
+        }
+      },
+      {
+        "label": "Hälfte der Tragkraft",
+        "value": 15,
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.4 – Belastungsrechnung"
+        }
+      },
+      {
+        "label": "Belastungszustand",
+        "value": "Über der halben Tragkraft",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.4 – Belastungsrechnung"
+        }
+      },
+      {
+        "label": "Belastungsmalus Geschick",
+        "value": "−1 (16 auf 15)",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.4 – Belastungsrechnung"
+        }
+      },
+      {
+        "label": "Belastungsmalus Beweglichkeit",
+        "value": "−10",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.4 – Belastungsrechnung"
+        }
+      },
+      {
+        "label": "Belastungsmalus Attacke / Parade",
+        "value": "−5 Prozentpunkte",
+        "status": "provisional",
+        "source": {
+          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+          "location": "Abschnitt 10.4 – Belastungsrechnung"
         }
       }
     ]
