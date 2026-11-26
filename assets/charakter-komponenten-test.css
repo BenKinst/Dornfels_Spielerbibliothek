@@ -117,3 +117,49 @@
 @media (prefers-reduced-motion: reduce) {
   .character-component-standard * { scroll-behavior: auto !important; }
 }
+
+/* Fluid Typography: Schrift skaliert sanft mit der Viewport-Breite.
+   clamp() begrenzt die Größe nach unten und oben; kleine Displays bleiben kompakt,
+   große Displays erhalten etwas mehr Lesekomfort ohne übergroße Zeilen. */
+.character-component-standard {
+  --type-body: clamp(0.94rem, 0.90rem + 0.16vw, 1.08rem);
+  --type-small: clamp(0.78rem, 0.75rem + 0.10vw, 0.88rem);
+  --type-table: clamp(0.80rem, 0.76rem + 0.14vw, 0.94rem);
+  --type-section: clamp(1.20rem, 1.08rem + 0.42vw, 1.55rem);
+  --type-subsection: clamp(1.02rem, 0.96rem + 0.24vw, 1.22rem);
+  --type-value: clamp(0.98rem, 0.94rem + 0.16vw, 1.10rem);
+  font-size: var(--type-body);
+}
+.character-component-standard .panel-intro,
+.character-component-standard .section-note,
+.character-component-standard .possession-list,
+.character-component-standard .sheet-field > span:first-child {
+  font-size: var(--type-small);
+}
+.character-component-standard .sheet-table {
+  font-size: var(--type-table) !important;
+}
+.character-component-standard .accordion-trigger {
+  font-size: var(--type-section);
+}
+.character-component-standard .subaccordion-trigger {
+  font-size: var(--type-subsection);
+}
+.character-component-standard .sheet-field strong,
+.character-component-standard .calculated-value {
+  font-size: var(--type-value);
+}
+.character-component-standard .attribute-help {
+  font-size: clamp(0.74rem, 0.72rem + 0.08vw, 0.82rem);
+}
+@media (min-width: 1600px) {
+  .character-component-standard {
+    --component-gap: 14px;
+  }
+  .character-component-standard .sheet-field { padding: 14px 16px; }
+}
+@media (max-width: 480px) {
+  .character-component-standard {
+    --component-gap: 10px;
+  }
+}
