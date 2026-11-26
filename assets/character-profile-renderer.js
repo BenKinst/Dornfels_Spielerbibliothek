@@ -58,7 +58,7 @@
     const body = document.createElement("tbody");
     rows.forEach(row => {
       const tr = document.createElement("tr");
-      columns.forEach(c => {
+      columns.forEach((c,index) => {
         const td = document.createElement("td"), v = row[c.key];
         if (v && typeof v === "object" && "value" in v) {
           const span = el("span", v.tooltip ? "calculated-value" : "", v.value);
@@ -68,12 +68,10 @@
           if (v.status === "provisional") td.append(el("small","profile-status provisional","Vorläufig"));
           sourceDetails(td,v.source);
         } else td.textContent = v == null ? "" : String(v);
+        if (index===0 && row.status==="provisional") td.append(el("small","profile-status provisional","Vorläufig"));
+        if (index===0 && row.source) sourceDetails(td,row.source);
         tr.append(td);
       });
-      if (row.status === "provisional") tr.append(el("td","profile-status provisional","Vorläufig"));
-      if (row.source) {
-        const td=el("td","profile-source-cell"); sourceDetails(td,row.source); tr.append(td);
-      }
       body.append(tr);
     });
     table.append(body); wrap.append(table); card.append(wrap); return card;
