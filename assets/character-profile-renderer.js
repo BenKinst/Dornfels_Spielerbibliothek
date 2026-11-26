@@ -40,13 +40,20 @@
     group.append(grid);
     return group;
   }
+  function sourceDetails(parent, source) {
+    if (!source) return;
+    const details = el("details", "profile-source");
+    details.append(el("summary", "", "Quelle"));
+    details.append(el("p", "", [source.document, source.location].filter(Boolean).join(" · ")));
+    parent.append(details);
+  }
   function table(title, rows, columns) {
     if (!Array.isArray(rows) || !rows.length) return null;
     const card = el("div", "sheet-card");
     if (title) card.append(el("h3", "", title));
     const wrap = el("div", "table-scroll"), table = el("table", "sheet-table");
     const head = document.createElement("thead"), hr = document.createElement("tr");
-    columns.forEach(c => hr.append(el("th", "", c.label)));
+    columns.forEach(c => { const th=el("th","",c.label); th.scope="col"; hr.append(th); });
     head.append(hr); table.append(head);
     const body = document.createElement("tbody");
     rows.forEach(row => {
@@ -57,11 +64,16 @@
           const span = el("span", v.tooltip ? "calculated-value" : "", v.value);
           if (v.tooltip) { span.dataset.tip = v.tooltip; span.tabIndex = 0; }
           if (v.status === "provisional") span.classList.add("provisional");
-          if (v.source) span.title = [v.source.document, v.source.location].filter(Boolean).join(" · ");
           td.append(span);
+          if (v.status === "provisional") td.append(el("small","profile-status provisional","Vorläufig"));
+          sourceDetails(td,v.source);
         } else td.textContent = v == null ? "" : String(v);
         tr.append(td);
       });
+      if (row.status === "provisional") tr.append(el("td","profile-status provisional","Vorläufig"));
+      if (row.source) {
+        const td=el("td","profile-source-cell"); sourceDetails(td,row.source); tr.append(td);
+      }
       body.append(tr);
     });
     table.append(body); wrap.append(table); card.append(wrap); return card;
@@ -110,13 +122,30 @@
       .forEach(([t,v]) => { const g=valueGroup(t,v); if(g) root.append(g); });
     return root;
   }
+  function subAccordion(title, content, id) {
+    if (!content || !content.childNodes.length) return null;
+    const section=el("section","subaccordion-item profile-subaccordion-item");
+    const button=el("button","subaccordion-trigger",title);
+    button.type="button"; button.setAttribute("aria-expanded","false"); button.setAttribute("aria-controls",id);
+    const panel=el("div","subaccordion-panel"); panel.id=id; panel.hidden=true; panel.append(content);
+    button.addEventListener("click",()=>{const open=button.getAttribute("aria-expanded")!=="true";button.setAttribute("aria-expanded",String(open));panel.hidden=!open;});
+    section.append(button,panel); return section;
+  }
   function skills(s) {
     const root=el("div","profile-section-content");
-    (s.groups || []).forEach(g => {
-      const t=table(g.name,g.skills,[{key:"name",label:"Fertigkeit"},{key:"value",label:"Endwert"}]);
-      if(t) { const h=t.querySelector("h3"); if(h && g.bonus) h.append(" ",el("span","skill-group-bonus",g.bonus)); root.append(t); }
+    const nested=el("div","nested-accordion skill-tabs");
+    (s.groups || []).forEach((g,i) => {
+      const t=table(null,g.skills,[{key:"name",label:"Fertigkeit"},{key:"value",label:"Endwert"}]);
+      if(t) {
+        const content=el("div","profile-skill-group");
+        const heading=el("h3","",g.name);
+        if(g.bonus) heading.append(" ",el("span","skill-group-bonus",g.bonus));
+        content.append(heading,t);
+        const a=subAccordion(g.name+(g.bonus?" · "+g.bonus:""),content,"profile-skill-"+i);
+        if(a) nested.append(a);
+      }
     });
-    return root;
+    root.append(nested); return root;
   }
   function magic(m) {
     const root=el("div","profile-section-content");
@@ -156,7 +185,13 @@
       ["Ausrüstung",d.equipment && equipment(d.equipment),"profile-equipment"]
     ].forEach(([t,c,id])=>{ const a=accordion(t,c,id); if(a) target.append(a); });
     document.querySelectorAll("[data-expand-all]").forEach(b=>b.addEventListener("click",()=>target.querySelectorAll(".profile-accordion-item").forEach(i=>{i.querySelector("button").setAttribute("aria-expanded","true");i.querySelector(".accordion-panel").hidden=false;})));
-    document.querySelectorAll("[data-collapse-all]").forEach(b=>b.addEventListener("click",()=>target.querySelectorAll(".profile-accordion-item").forEach(i=>{i.querySelector("button").setAttribute("aria-expanded","false");i.querySelector(".accordion-panel").hidden=true;})));
+    document.querySelectorAll("[data-collapse-all]").forEach(b=>b.addEventListener("click",()=>target.querySelectorAll(".profile-accordion-item,.profile-subaccordion-item").forEach(i=>{const button=i.querySelector("button");const panel=i.querySelector(".accordion-panel,.subaccordion-panel");if(button&&panel){button.setAttribute("aria-expanded","false");panel.hidden=true;}})));
+    target.querySelectorAll("table.sheet-table").forEach(t=>t.querySelectorAll("thead th").forEach(th=>th.scope="col"));
+    const popup=document.createElement("div"); popup.className="tooltip-portal"; popup.id="profile-tooltip-portal"; popup.setAttribute("role","tooltip"); popup.hidden=true; document.body.append(popup);
+    let active=null;
+    const hide=()=>{if(active)active.removeAttribute("aria-describedby");active=null;popup.hidden=true;};
+    const show=node=>{if(!node.dataset.tip)return;active=node;popup.textContent=node.dataset.tip;popup.hidden=false;node.setAttribute("aria-describedby",popup.id);const r=node.getBoundingClientRect();const left=Math.max(8,Math.min(r.left+r.width/2-popup.offsetWidth/2,window.innerWidth-popup.offsetWidth-8));let top=r.top-popup.offsetHeight-9;if(top<8)top=Math.min(window.innerHeight-popup.offsetHeight-8,r.bottom+9);popup.style.left=left+"px";popup.style.top=Math.max(8,top)+"px";};
+    target.querySelectorAll(".calculated-value[data-tip]").forEach(node=>{if(!node.hasAttribute("tabindex"))node.tabIndex=0;node.addEventListener("mouseenter",()=>show(node));node.addEventListener("mouseleave",hide);node.addEventListener("focus",()=>show(node));node.addEventListener("blur",hide);});
   }
   run().catch(error=>{ console.error(error); const t=page.querySelector("[data-profile-content]"); if(t) t.textContent="Das Charakterprofil konnte nicht geladen werden: "+error.message; });
 })();
