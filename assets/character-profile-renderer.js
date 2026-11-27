@@ -23,12 +23,6 @@
     card.append(value);
     if (v.description) card.append(el("small", "attribute-help", v.description));
     if (v.status === "provisional") card.append(el("small", "profile-status provisional", "Vorläufig"));
-    if (v.source) {
-      const details = el("details", "profile-source");
-      details.append(el("summary", "", "Quelle"));
-      details.append(el("p", "", [v.source.document, v.source.location].filter(Boolean).join(" · ")));
-      card.append(details);
-    }
     return card;
   }
   function valueGroup(title, values, gridClass = "sheet-grid sheet-grid-3") {
@@ -39,13 +33,6 @@
     values.forEach(v => grid.append(valueCard(v)));
     group.append(grid);
     return group;
-  }
-  function sourceDetails(parent, source) {
-    if (!source) return;
-    const details = el("details", "profile-source");
-    details.append(el("summary", "", "Quelle"));
-    details.append(el("p", "", [source.document, source.location].filter(Boolean).join(" · ")));
-    parent.append(details);
   }
   function table(title, rows, columns) {
     if (!Array.isArray(rows) || !rows.length) return null;
@@ -66,23 +53,21 @@
           if (v.status === "provisional") span.classList.add("provisional");
           td.append(span);
           if (v.status === "provisional") td.append(el("small","profile-status provisional","Vorläufig"));
-          sourceDetails(td,v.source);
         } else td.textContent = v == null ? "" : String(v);
         if (index===0 && row.status==="provisional") td.append(el("small","profile-status provisional","Vorläufig"));
-        if (index===0 && row.source) sourceDetails(td,row.source);
         tr.append(td);
       });
       body.append(tr);
     });
     table.append(body); wrap.append(table); card.append(wrap); return card;
   }
-  function accordion(title, content, id) {
+  function accordion(title, content, id, initiallyOpen = false) {
     if (!content || !content.childNodes.length) return null;
     const section = el("section", "accordion-item profile-accordion-item");
     const heading = el("h2", "accordion-heading");
     const button = el("button", "accordion-trigger", title);
-    button.type = "button"; button.setAttribute("aria-expanded", "false"); button.setAttribute("aria-controls", id);
-    const panel = el("div", "accordion-panel"); panel.id = id; panel.hidden = true; panel.append(content);
+    button.type = "button"; button.setAttribute("aria-expanded", String(initiallyOpen)); button.setAttribute("aria-controls", id);
+    const panel = el("div", "accordion-panel"); panel.id = id; panel.hidden = !initiallyOpen; panel.append(content);
     button.addEventListener("click", () => {
       const open = button.getAttribute("aria-expanded") !== "true";
       button.setAttribute("aria-expanded", String(open)); panel.hidden = !open;
@@ -94,7 +79,7 @@
     const flush = () => { if (p.length) { target.append(el("p", "", p.join(" "))); p = []; } };
     source.replace(/^\uFEFF/, "").split(/\r?\n/).forEach(line => {
       const h = /^(#{1,3})\s+(.+)$/.exec(line);
-      if (h) { flush(); target.append(el(h[1].length === 1 ? "h2" : "h3", "", h[2])); }
+      if (h) { flush(); target.append(el("h3", "background-heading", h[2])); }
       else if (!line.trim() || /^<!--/.test(line.trim())) flush();
       else p.push(line.trim());
     });
@@ -136,9 +121,7 @@
       const t=table(null,g.skills,[{key:"name",label:"Fertigkeit"},{key:"value",label:"Endwert"}]);
       if(t) {
         const content=el("div","profile-skill-group");
-        const heading=el("h3","",g.name);
-        if(g.bonus) heading.append(" ",el("span","skill-group-bonus",g.bonus));
-        content.append(heading,t);
+        content.append(t);
         const a=subAccordion(g.name+(g.bonus?" · "+g.bonus:""),content,"profile-skill-"+i);
         if(a) nested.append(a);
       }
@@ -176,7 +159,7 @@
       const sr=await fetch(page.dataset.backgroundSrc,{cache:"no-store"});
       if(!sr.ok) throw Error("Hintergrund-Markdown konnte nicht geladen werden.");
       const story=el("div","profile-section-content"); markdown(await sr.text(),story);
-      const a=accordion("Hintergrundgeschichte",story,"profile-background"); if(a) target.append(a);
+      const a=accordion("Hintergrundgeschichte",story,"profile-background",true); if(a) target.append(a);
     }
     [
       ["Eigenschaften",d.attributes && attributes(d.attributes),"profile-attributes"],
