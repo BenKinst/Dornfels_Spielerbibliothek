@@ -30,12 +30,13 @@
   function valueCard(v) {
     const card = el("div", "sheet-field");
     card.append(el("span", "", v.label || v.name || v.key || ""));
-    const value = el("strong", v.tooltip ? "calculated-value" : "", v.value);
+    const propertyName = v.label || v.name;
+    const isPrimaryAttribute = ["Stärke","Ausdauer","Gewandtheit","Intelligenz","Intuition"].includes(propertyName);
+    const value = el("strong", [v.tooltip ? "calculated-value" : "", isPrimaryAttribute ? "attribute-scale-value" : ""].filter(Boolean).join(" "), v.value);
+    if (isPrimaryAttribute) value.dataset.attributeScale = "";
     if (v.tooltip) { value.dataset.tip = v.tooltip; value.tabIndex = 0; }
     card.append(value);
-    if (["Stärke","Ausdauer","Gewandtheit","Intelligenz","Intuition"].includes(v.label || v.name)) {
-      card.append(diceImage("w20.png", "w20", "W20"));
-    }
+    if (isPrimaryAttribute) card.append(diceImage("w20.png", "w20", "W20"));
     if (v.description) card.append(el("small", "attribute-help", v.description));
     if (v.status === "provisional") card.append(el("small", "profile-status provisional", "Vorläufig"));
     return card;
@@ -67,7 +68,8 @@
       columns.forEach((c,index) => {
         const td = document.createElement("td"), v = row[c.key];
         if (v && typeof v === "object" && "value" in v) {
-          const span = el("span", v.tooltip ? "calculated-value" : "", v.value);
+          const isNumericSkill = options.scaleValues && typeof v.value === "number" && Number.isFinite(v.value);
+          const span = el("span", [v.tooltip ? "calculated-value" : "", isNumericSkill ? "skill-scale-candidate" : ""].filter(Boolean).join(" "), v.value);
           if (v.tooltip) { span.dataset.tip = v.tooltip; span.tabIndex = 0; }
           if (v.status === "provisional") span.classList.add("provisional");
           td.append(span);
@@ -156,8 +158,9 @@
     const root=el("div","profile-section-content");
     const nested=el("div","nested-accordion skill-tabs");
     (s.groups || []).forEach((g,i) => {
-      const t=table(null,g.skills,[{key:"name",label:"Fertigkeit"},{key:"value",label:"Endwert"}],{dicePairOnValue:true});
+      const t=table(null,g.skills,[{key:"name",label:"Fertigkeit"},{key:"value",label:"Endwert"}],{dicePairOnValue:true,scaleValues:true});
       if(t) {
+        t.classList.add("skill-card");
         const content=el("div","profile-skill-group");
         content.append(t);
         const a=subAccordion(g.name+(g.bonus?" · "+g.bonus:""),content,"profile-skill-"+i);
@@ -215,6 +218,9 @@
       ["Magie",d.magic && magic(d.magic),"profile-magic"],
       ["Ausrüstung",d.equipment && equipment(d.equipment),"profile-equipment"]
     ].forEach(([t,c,id])=>{ const a=accordion(t,c,id); if(a) target.append(a); });
+    if (typeof window.applyCharacterValueColors === "function") {
+      window.applyCharacterValueColors(target);
+    }
     document.querySelectorAll("[data-expand-all]").forEach(b=>b.addEventListener("click",()=>target.querySelectorAll(".profile-accordion-item,.profile-subaccordion-item").forEach(i=>{const button=i.querySelector("button");const panel=i.querySelector(".accordion-panel,.subaccordion-panel");if(button&&panel){button.setAttribute("aria-expanded","true");panel.hidden=false;}})));
     document.querySelectorAll("[data-collapse-all]").forEach(b=>b.addEventListener("click",()=>target.querySelectorAll(".profile-accordion-item,.profile-subaccordion-item").forEach(i=>{const button=i.querySelector("button");const panel=i.querySelector(".accordion-panel,.subaccordion-panel");if(button&&panel){button.setAttribute("aria-expanded","false");panel.hidden=true;}})));
     target.querySelectorAll("table.sheet-table").forEach(t=>t.querySelectorAll("thead th").forEach(th=>th.scope="col"));
