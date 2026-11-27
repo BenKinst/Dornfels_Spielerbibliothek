@@ -25,12 +25,14 @@
     if (v.status === "provisional") card.append(el("small", "profile-status provisional", "Vorläufig"));
     return card;
   }
-  function valueGroup(title, values, gridClass = "sheet-grid sheet-grid-3") {
+  function valueGroup(title, values, gridClass = "sheet-grid sheet-grid-3", hiddenLabels = []) {
     if (!Array.isArray(values) || !values.length) return null;
+    const visibleValues = values.filter(v => !hiddenLabels.includes(v.label || v.name || v.key));
+    if (!visibleValues.length) return null;
     const group = el("section", "profile-data-group");
     group.append(el("h3", "", title));
     const grid = el("div", gridClass);
-    values.forEach(v => grid.append(valueCard(v)));
+    visibleValues.forEach(v => grid.append(valueCard(v)));
     group.append(grid);
     return group;
   }
@@ -105,8 +107,10 @@
   }
   function attributes(a) {
     const root = el("div", "profile-section-content");
-    [["Charakterdaten",a.characterData],["Eigenschaften",a.values],["Lebenswerte",a.lifeValues]]
-      .forEach(([t,v]) => { const g=valueGroup(t,v); if(g) root.append(g); });
+    const hiddenCharacterData = ["Erfahrung","Stufe","Ehre","Abenteuerpunkte","Reichweite (belastet)","AP noch"];
+    const hiddenAttributes = ["Reaktion (belastet)","Initiative (belastet)","Ausweichen (belastet)","Geschick (belastet)","Beweglichkeit (belastet)"];
+    [["Charakterdaten",a.characterData,hiddenCharacterData],["Eigenschaften",a.values,hiddenAttributes],["Lebenswerte",a.lifeValues,[]]]
+      .forEach(([t,v,hidden]) => { const g=valueGroup(t,v,"sheet-grid sheet-grid-3",hidden); if(g) root.append(g); });
     return root;
   }
   function subAccordion(title, content, id) {
@@ -139,7 +143,7 @@
       const ul=document.createElement("ul"); m.lists.forEach(x=>ul.append(el("li","",x))); card.append(ul); root.append(card);
     }
     const g=valueGroup("Magische Fertigkeiten",m.skills,"sheet-grid sheet-grid-2"); if(g) root.append(g);
-    const details=valueGroup("Berufliche Magiemerkmale",m.details,"sheet-grid sheet-grid-2"); if(details) root.append(details);
+    const details=valueGroup("Berufliche Magiemerkmale",m.details,"sheet-grid sheet-grid-2",["Verfügbare Elemente","Zauberfokus","Maximale AP","Rüstungsbeschränkung","Waffenbeschränkung"]); if(details) root.append(details);
     (m.spellGroups || []).forEach(x=>{ const t=table(x.name,x.spells,[{key:"name",label:"Zauber / Wirkung"},{key:"level",label:"Stufe"}]); if(t) root.append(t); });
     return root;
   }
