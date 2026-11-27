@@ -1,0 +1,46 @@
+name: PR Seitencheck
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [infra/pr-browser-preview-checks]
+
+permissions:
+  contents: read
+
+jobs:
+  seitencheck:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Zauberer-Testseite und Datenquellen prüfen
+        run: |
+          python3 - <<'PY'
+          import json
+          from pathlib import Path
+
+          page = Path("charaktere/zauberer-json-test.html")
+          profile = Path("content/zauberer.json")
+          background = Path("content/zauberer.md")
+
+          for path in (page, profile, background):
+              if not path.is_file():
+                  raise SystemExit(f"Datei fehlt: {path}")
+
+          html = page.read_text(encoding="utf-8")
+          for expected in (
+              'data-profile-src="../content/zauberer.json"',
+              'data-background-src="../content/zauberer.md"',
+          ):
+              if expected not in html:
+                  raise SystemExit(f"Verknüpfung fehlt auf der Zauberer-Testseite: {expected}")
+
+          data = json.loads(profile.read_text(encoding="utf-8"))
+          if data.get("schemaVersion") != 1 or data.get("profile", {}).get("name") != "Der Zauberer":
+              raise SystemExit("Die JSON-Profilquelle hat nicht die erwartete Grundstruktur für den Zauberer.")
+
+          print("OK: Zauberer-Testseite, JSON-Profil und Markdown-Hintergrund sind vorhanden und korrekt verknüpft.")
+          PY
