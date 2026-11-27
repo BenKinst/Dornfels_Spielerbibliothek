@@ -32,10 +32,27 @@
     card.append(el("span", "", v.label || v.name || v.key || ""));
     const propertyName = v.label || v.name;
     const isPrimaryAttribute = ["Stärke","Ausdauer","Gewandtheit","Intelligenz","Intuition"].includes(propertyName);
-    const value = el("strong", [v.tooltip ? "calculated-value" : "", isPrimaryAttribute ? "attribute-scale-value" : ""].filter(Boolean).join(" "), v.value);
-    if (isPrimaryAttribute) value.dataset.attributeScale = "";
-    if (v.tooltip) { value.dataset.tip = v.tooltip; value.tabIndex = 0; }
-    card.append(value);
+    const label = el("span", "", propertyName || "");
+    if (v.tooltip) { label.dataset.tip = v.tooltip; label.tabIndex = 0; }
+    card.append(label);
+    if (Array.isArray(v.value)) {
+      const languageList = el("ul", "profile-language-list");
+      v.value.forEach(language => {
+        const item = el("li", "", "");
+        const name = el("strong", "", language.name);
+        const level = el("span", "calculated-value", String(language.value));
+        item.append(name, document.createTextNode(" – "), level);
+        if (language.status === "provisional") item.append(el("small","profile-status provisional","Vorläufig"));
+        if (language.source) sourceDetails(item,language.source);
+        languageList.append(item);
+      });
+      card.append(languageList);
+    } else {
+      const value = el("strong", [v.tooltip ? "calculated-value" : "", isPrimaryAttribute ? "attribute-scale-value" : ""].filter(Boolean).join(" "), v.value);
+      if (isPrimaryAttribute) value.dataset.attributeScale = "";
+      if (v.tooltip) { value.dataset.tip = v.tooltip; value.tabIndex = 0; }
+      card.append(value);
+    }
     if (isPrimaryAttribute) card.append(diceImage("w20.png", "w20", "W20"));
     if (v.description) card.append(el("small", "attribute-help", v.description));
     if (v.status === "provisional") card.append(el("small", "profile-status provisional", "Vorläufig"));
