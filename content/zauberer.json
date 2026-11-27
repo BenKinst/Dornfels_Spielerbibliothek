@@ -101,7 +101,8 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 1 – Persönliche Angaben und Stammdaten"
-        }
+        },
+        "tooltip": "Der Größenwert 11 entspricht laut Größentabelle einer Körpergröße von 1,31–1,40 m."
       },
       {
         "label": "Körpergewicht",
@@ -138,8 +139,7 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 1 – Weitere Felder des zweitseitigen Heldenbogens"
-        },
-        "tooltip": "Die erlernten Sprüche verbrauchen Spruchpunkte, nicht den aktuellen AP-Vorrat."
+        }
       },
       {
         "label": "Westron",
@@ -160,7 +160,8 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
-        }
+        },
+        "tooltip": "W20-Probe auf diese Eigenschaft."
       },
       {
         "label": "Ausdauer",
@@ -169,7 +170,8 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
-        }
+        },
+        "tooltip": "W20-Probe auf diese Eigenschaft."
       },
       {
         "label": "Gewandtheit",
@@ -178,7 +180,8 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
-        }
+        },
+        "tooltip": "W20-Probe auf diese Eigenschaft."
       },
       {
         "label": "Intelligenz",
@@ -187,7 +190,8 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
-        }
+        },
+        "tooltip": "W20-Probe auf diese Eigenschaft."
       },
       {
         "label": "Intuition",
@@ -196,7 +200,8 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
-        }
+        },
+        "tooltip": "W20-Probe auf diese Eigenschaft."
       },
       {
         "label": "Erscheinung",
@@ -224,7 +229,7 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "abgerundet (Intelligenz 16 + Gewandtheit 16) / 2"
+        "tooltip": "Abgerundet: (Intelligenz 16 + Gewandtheit 16) ÷ 2 = 16."
       },
       {
         "label": "Initiative (unbelastet)",
@@ -234,7 +239,7 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "1W6 + Reaktion 16 + Stufe 1, zusätzlich +1W6 durch Blitzreaktion"
+        "tooltip": "Grundwurf 1W6 + Reaktion 16 + Stufe 1; Blitzreaktion erhöht die Initiative zusätzlich um 1W6."
       },
       {
         "label": "Ausweichen (unbelastet)",
@@ -244,7 +249,7 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "abgerundet ((Ausdauer 10 + Gewandtheit 16) / 4) + 3"
+        "tooltip": "Abgerundet: (Ausdauer 10 + Gewandtheit 16) ÷ 4 + 3 = 9."
       },
       {
         "label": "Tragkraft",
@@ -253,7 +258,8 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
-        }
+        },
+        "tooltip": "Stärke 10 × 3 = 30 Belastungspunkte."
       },
       {
         "label": "Bewegungsreichweite (unbelastet)",
@@ -263,7 +269,7 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "Gewandtheit 16; Größenmodifikator 0"
+        "tooltip": "Gewandtheit 16 ergibt 128,04 m/min bzw. 21,34 m je 10-Sekunden-Kampfrunde; Größenmodifikator 0."
       },
       {
         "label": "Bewegungsreichweite (belastet)",
@@ -332,7 +338,8 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
-        }
+        },
+        "tooltip": "Alle Völker beginnen mit 21 Lebenspunkten; Zwerge erhalten 10 zusätzliche Lebenspunkte."
       },
       {
         "label": "Astralpunkte",
@@ -342,7 +349,7 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "W10: 4 + Intuition 16 + 12 Berufsbonus + 1 gekaufter AP"
+        "tooltip": "W10 (4) + Intuition 16 + 12 Berufsbonus + 1 gekaufter AP = 33."
       }
     ],
     "specialFeatures": [
@@ -403,7 +410,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 5 + Gebietsbonus 2 = 7"
             }
           },
           {
@@ -415,7 +423,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 20 + Gebietsbonus 2 = 22"
             }
           },
           {
@@ -427,7 +436,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 15 + Gebietsbonus 2 = 17"
             }
           },
           {
@@ -439,7 +449,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 15 + Gebietsbonus 2 = 17"
             }
           },
           {
@@ -451,7 +462,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 15 + Gebietsbonus 2 = 17"
             }
           },
           {
@@ -463,7 +475,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 15 + Gebietsbonus 2 = 17"
             }
           },
           {
@@ -475,7 +488,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 15 + Gebietsbonus 2 = 17"
             }
           },
           {
@@ -487,7 +501,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 15 + Gebietsbonus 2 = 17"
             }
           }
         ]
@@ -505,7 +520,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 20 + Gebietsbonus 6 + Magierbonus 3 = 29"
             }
           },
           {
@@ -517,7 +533,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 10 + Gebietsbonus 6 + Magierbonus 3 = 19"
             }
           },
           {
@@ -529,7 +546,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 35 + Gebietsbonus 6 + Magierbonus 3 + 2 gekaufte Steigerungen = 46"
             }
           },
           {
@@ -541,7 +559,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 35 + Gebietsbonus 6 + Magierbonus 3 = 44"
             }
           },
           {
@@ -553,7 +572,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 35 + Gebietsbonus 6 + Magierbonus 3 = 44"
             }
           },
           {
@@ -565,7 +585,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 30 + Gebietsbonus 6 + Magierbonus 3 = 39"
             }
           }
         ]
@@ -583,7 +604,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 20 + Gebietsbonus 5 = 25"
             }
           },
           {
@@ -595,7 +617,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 35 + Gebietsbonus 5 = 40"
             }
           },
           {
@@ -607,7 +630,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 35 + Gebietsbonus 5 = 40"
             }
           },
           {
@@ -619,7 +643,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 15 + Gebietsbonus 5 = 20"
             }
           },
           {
@@ -631,7 +656,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 30 + Gebietsbonus 5 = 35"
             }
           },
           {
@@ -643,7 +669,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 20 + Gebietsbonus 5 = 25"
             }
           }
         ]
@@ -661,7 +688,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 10 + Gebietsbonus 3 = 13"
             }
           },
           {
@@ -673,7 +701,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 10 + Gebietsbonus 3 = 13"
             }
           },
           {
@@ -685,7 +714,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 10 + Gebietsbonus 3 = 13"
             }
           },
           {
@@ -697,7 +727,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 10 + Gebietsbonus 3 = 13"
             }
           },
           {
@@ -709,7 +740,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 10 + Gebietsbonus 3 = 13"
             }
           },
           {
@@ -721,7 +753,8 @@
               "source": {
                 "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
                 "location": "Abschnitt 9 – Fertigkeiten, aktueller berechneter Stand"
-              }
+              },
+              "tooltip": "Grundwert 10 + Gebietsbonus 3 = 13"
             }
           }
         ]
@@ -742,7 +775,8 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 1 – Weitere Felder des zweitseitigen Heldenbogens"
-        }
+        },
+        "tooltip": "Der Wert gibt die Erfolgschance für eigene Zauberwürfe an."
       },
       {
         "label": "Gegenzauber",
@@ -752,7 +786,7 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 1 – Weitere Felder des zweitseitigen Heldenbogens"
         },
-        "tooltip": "Gegen jegliche Magie"
+        "tooltip": "Der Wert gibt die Chance an, gegnerische Zauber abzuwehren."
       }
     ],
     "spellGroups": [
@@ -766,7 +800,8 @@
             "source": {
               "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Windes"
-            }
+            },
+            "tooltip": "Spruchstufe 1: Der Zauber kostet 1 Astralpunkte je Anwendung."
           },
           {
             "name": "Luftwall",
@@ -775,7 +810,8 @@
             "source": {
               "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Windes"
-            }
+            },
+            "tooltip": "Spruchstufe 2: Der Zauber kostet 2 Astralpunkte je Anwendung."
           },
           {
             "name": "Wolke der Benommenheit",
@@ -784,7 +820,8 @@
             "source": {
               "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Windes"
-            }
+            },
+            "tooltip": "Spruchstufe 4: Der Zauber kostet 4 Astralpunkte je Anwendung."
           },
           {
             "name": "Luftstop",
@@ -793,7 +830,8 @@
             "source": {
               "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Windes"
-            }
+            },
+            "tooltip": "Spruchstufe 5: Der Zauber kostet 5 Astralpunkte je Anwendung."
           }
         ]
       },
@@ -807,7 +845,8 @@
             "source": {
               "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Feuers"
-            }
+            },
+            "tooltip": "Spruchstufe 1: Der Zauber kostet 1 Astralpunkte je Anwendung."
           },
           {
             "name": "Festes Erwärmen",
@@ -816,7 +855,8 @@
             "source": {
               "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Feuers"
-            }
+            },
+            "tooltip": "Spruchstufe 2: Der Zauber kostet 2 Astralpunkte je Anwendung."
           },
           {
             "name": "Holzfeuer",
@@ -825,7 +865,8 @@
             "source": {
               "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Feuers"
-            }
+            },
+            "tooltip": "Spruchstufe 3: Der Zauber kostet 3 Astralpunkte je Anwendung."
           },
           {
             "name": "Feuerwand",
@@ -834,7 +875,8 @@
             "source": {
               "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Feuers"
-            }
+            },
+            "tooltip": "Spruchstufe 4: Der Zauber kostet 4 Astralpunkte je Anwendung."
           }
         ]
       }
@@ -918,7 +960,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.1 – Berufliche Ausrüstung; Waffenfelder"
-          }
+          },
+          "tooltip": "Schadenswurf: 1W6+2 (W6 plus den angegebenen Schadenszuschlag)."
         },
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
@@ -932,7 +975,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.1 – Berufliche Ausrüstung"
-          }
+          },
+          "tooltip": "Bruchfaktor: Steigt er, muss bei einer Erhöhung mit W20 über den neuen BF gewürfelt werden; andernfalls zerbricht die Waffe."
         },
         "burden": {
           "label": "Belastung",
@@ -941,7 +985,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.1 – Berufliche Ausrüstung"
-          }
+          },
+          "tooltip": "Belastung: 1 Punkte; zählt zur Gesamtbelastung, wenn die Waffe mitgeführt wird."
         }
       },
       {
@@ -973,7 +1018,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.1 – Berufliche Ausrüstung; Waffenfelder"
-          }
+          },
+          "tooltip": "Schadenswurf: 1W6+4 (W6 plus den angegebenen Schadenszuschlag)."
         },
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
@@ -987,7 +1033,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.1 – Berufliche Ausrüstung"
-          }
+          },
+          "tooltip": "Bruchfaktor: Steigt er, muss bei einer Erhöhung mit W20 über den neuen BF gewürfelt werden; andernfalls zerbricht die Waffe."
         },
         "burden": {
           "label": "Belastung",
@@ -996,7 +1043,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.1 – Berufliche Ausrüstung"
-          }
+          },
+          "tooltip": "Belastung: 1 Punkte; zählt zur Gesamtbelastung, wenn die Waffe mitgeführt wird."
         }
       }
     ],
@@ -1010,7 +1058,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.3 – Rüstung und Kleidung"
-          }
+          },
+          "tooltip": "Rüstungsschutz (RS) des jeweiligen Körperteils."
         },
         "burden": {
           "label": "Belastung",
@@ -1019,7 +1068,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.3 – Rüstung und Kleidung"
-          }
+          },
+          "tooltip": "Belastung: 2 Punkte; zählt zur Gesamtbelastung, wenn das Rüstungsteil mitgeführt wird."
         },
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
@@ -1033,7 +1083,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.3 – Rüstung und Kleidung"
-          }
+          },
+          "tooltip": "Die durch die Rüstung verursachten Abzüge auf Beweglichkeit und/oder Gewandtheit."
         },
         "breakFactor": {
           "label": "Bruchfaktor",
@@ -1042,7 +1093,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.3 – Rüstung und Kleidung"
-          }
+          },
+          "tooltip": "Bruchfaktor: Steigt er, muss bei einer Erhöhung mit W20 über den neuen BF gewürfelt werden; andernfalls zerbricht das Rüstungsteil."
         }
       },
       {
@@ -1054,7 +1106,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.3 – Rüstung und Kleidung"
-          }
+          },
+          "tooltip": "Rüstungsschutz (RS) des jeweiligen Körperteils."
         },
         "burden": {
           "label": "Belastung",
@@ -1063,7 +1116,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.3 – Rüstung und Kleidung"
-          }
+          },
+          "tooltip": "Belastung: 0 Punkte; zählt zur Gesamtbelastung, wenn das Rüstungsteil mitgeführt wird."
         },
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
@@ -1077,7 +1131,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.3 – Rüstung und Kleidung"
-          }
+          },
+          "tooltip": "Die durch die Rüstung verursachten Abzüge auf Beweglichkeit und/oder Gewandtheit."
         },
         "breakFactor": {
           "label": "Bruchfaktor",
@@ -1086,7 +1141,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.3 – Rüstung und Kleidung"
-          }
+          },
+          "tooltip": "Bruchfaktor: Steigt er, muss bei einer Erhöhung mit W20 über den neuen BF gewürfelt werden; andernfalls zerbricht das Rüstungsteil."
         }
       }
     ],
@@ -1106,7 +1162,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
-          }
+          },
+          "tooltip": "Dieser Gegenstand trägt 2 Belastungspunkte zur Gesamtbelastung bei."
         }
       },
       {
@@ -1124,7 +1181,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
-          }
+          },
+          "tooltip": "Dieser Gegenstand trägt 1 Belastungspunkte zur Gesamtbelastung bei."
         }
       },
       {
@@ -1142,7 +1200,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
-          }
+          },
+          "tooltip": "Dieser Gegenstand trägt 1 Belastungspunkte zur Gesamtbelastung bei."
         }
       },
       {
@@ -1160,7 +1219,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
-          }
+          },
+          "tooltip": "Dieser Gegenstand trägt 0.6 Belastungspunkte zur Gesamtbelastung bei."
         }
       },
       {
@@ -1178,7 +1238,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
-          }
+          },
+          "tooltip": "Dieser Gegenstand trägt 1.5 Belastungspunkte zur Gesamtbelastung bei."
         }
       },
       {
@@ -1196,7 +1257,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
-          }
+          },
+          "tooltip": "Dieser Gegenstand trägt 7 Belastungspunkte zur Gesamtbelastung bei."
         }
       },
       {
@@ -1214,7 +1276,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
-          }
+          },
+          "tooltip": "Dieser Gegenstand trägt 0.1 Belastungspunkte zur Gesamtbelastung bei."
         }
       },
       {
@@ -1232,7 +1295,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
-          }
+          },
+          "tooltip": "Dieser Gegenstand trägt 1 Belastungspunkte zur Gesamtbelastung bei."
         }
       },
       {
@@ -1250,7 +1314,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
-          }
+          },
+          "tooltip": "Dieser Gegenstand trägt 1 Belastungspunkte zur Gesamtbelastung bei."
         }
       },
       {
@@ -1268,7 +1333,8 @@
           "source": {
             "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
             "location": "Abschnitt 10.2 – Allgemeine Grundausrüstung; Abschnitt 10.4 – Belastungsrechnung"
-          }
+          },
+          "tooltip": "Dieser Gegenstand trägt 0 Belastungspunkte zur Gesamtbelastung bei."
         }
       }
     ],
