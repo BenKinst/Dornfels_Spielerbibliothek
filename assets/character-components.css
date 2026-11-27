@@ -308,3 +308,12 @@
 .character-page-standard .profile-skill-group > h3 {
   margin: 0 0 10px;
 }
+
+
+/* Zwischenüberschriften der Hintergrundgeschichte: einheitliche Darstellung
+   unabhängig davon, ob sie im Markdown als # oder ## markiert sind. */
+.character-page-standard .story-heading {
+  font-size: var(--font-h2) !important;
+  line-height: 1.3;
+  margin: 1.35em 0 .55em;
+}
