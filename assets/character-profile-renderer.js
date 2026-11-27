@@ -158,7 +158,7 @@
     const root=el("div","profile-section-content");
     const nested=el("div","nested-accordion skill-tabs");
     (s.groups || []).forEach((g,i) => {
-      const t=table(null,g.skills,[{key:"name",label:"Fertigkeit"},{key:"value",label:"Endwert"}],{dicePairOnValue:true,scaleValues:true});
+      const t=table(null,g.skills,[{key:"name",label:"Fertigkeit"},{key:"value",label:"Endwert",tooltip:"Fertigkeitswert in Prozent; die W10-Zehner- und Einerwürfel bilden den Prozentwurf."}],{dicePairOnValue:true,scaleValues:true});
       if(t) {
         t.classList.add("skill-card");
         const content=el("div","profile-skill-group");
@@ -188,7 +188,7 @@
       root.append(g);
     }
     const details=valueGroup("Berufliche Magiemerkmale",m.details,"sheet-grid sheet-grid-2",["Verfügbare Elemente","Zauberfokus","Maximale AP","Rüstungsbeschränkung","Waffenbeschränkung"]); if(details) root.append(details);
-    (m.spellGroups || []).forEach(x=>{ const t=table(x.name,x.spells,[{key:"name",label:"Zauber / Wirkung"},{key:"level",label:"Stufe"}]); if(t) root.append(t); });
+    (m.spellGroups || []).forEach(x=>{ const t=table(x.name,x.spells,[{key:"name",label:"Zauber / Wirkung"},{key:"level",label:"Stufe",tooltip:"Die Spruchstufe entspricht den Astralpunktkosten je Anwendung."}]); if(t) root.append(t); });
     return root;
   }
   function equipment(e) {
@@ -197,7 +197,7 @@
       ["Waffen",e.weapons,[["name","Waffe"],["attack","Attacke","Angriffswert der Waffe in Prozent."],["parry","Parade","Wert der Waffe zur Abwehr eines Angriffs in Prozent."],["damage","Schaden","Schadenswurf mit W6; ein angegebener Zuschlag wird addiert."],["breakFactor","BF","Bruchfaktor: Bei einer Erhöhung W20 über den neuen Wert würfeln, sonst zerbricht die Waffe."],["burden","Belastung","Belastungspunkte des Gegenstands; zählen zur Gesamtbelastung, wenn mitgeführt."]]],
       ["Rüstung und Schutz",e.armor,[["name","Rüstungsteil"],["protection","RS","Rüstungsschutz des jeweiligen Körperteils."],["burden","Belastung","Belastungspunkte des Rüstungsteils; zählen zur Gesamtbelastung, wenn mitgeführt."],["impairment","Behinderung","Abzüge der Rüstung auf Beweglichkeit und/oder Gewandtheit."],["breakFactor","BF","Bruchfaktor: Bei einer Erhöhung W20 über den neuen Wert würfeln, sonst zerbricht das Rüstungsteil."]]],
       ["Besitz",(e.possessions || []).map(item => ({...item, quantity: typeof item.quantity === "string" ? item.quantity.split(" · ")[0] : item.quantity})),[["name","Gegenstand"],["quantity","Anzahl"],["burden","Belastung","Belastungspunkte des jeweiligen Gegenstands."]]]
-    ].forEach(([title,rows,cols])=>{ const t=table(title,rows,cols.map(([key,label])=>({key,label}))); if(t) root.append(t); });
+    ].forEach(([title,rows,cols])=>{ const t=table(title,rows,cols.map(([key,label,tooltip])=>({key,label,tooltip}))); if(t) root.append(t); });
     const wealth=valueGroup("Vermögen",e.wealth,"sheet-grid sheet-grid-4"); if(wealth) root.append(wealth);
     return root;
   }
