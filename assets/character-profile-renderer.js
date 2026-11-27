@@ -60,7 +60,7 @@
     if (title) card.append(el("h3", "", title));
     const wrap = el("div", "table-scroll"), table = el("table", "sheet-table");
     const head = document.createElement("thead"), hr = document.createElement("tr");
-    columns.forEach(c => { const th=el("th","",c.label); th.scope="col"; hr.append(th); });
+    columns.forEach(c => { const th=el("th","",c.label); th.scope="col"; if(c.tooltip){th.dataset.tip=c.tooltip;th.tabIndex=0;} hr.append(th); });
     head.append(hr); table.append(head);
     const body = document.createElement("tbody");
     rows.forEach(row => {
@@ -194,9 +194,9 @@
   function equipment(e) {
     const root=el("div","profile-section-content");
     [
-      ["Waffen",e.weapons,[["name","Waffe"],["attack","Attacke"],["parry","Parade"],["damage","Schaden"],["breakFactor","BF"],["burden","Belastung"]]],
-      ["Rüstung und Schutz",e.armor,[["name","Rüstungsteil"],["protection","RS"],["burden","Belastung"],["impairment","Behinderung"],["breakFactor","BF"]]],
-      ["Besitz",(e.possessions || []).map(item => ({...item, quantity: typeof item.quantity === "string" ? item.quantity.split(" · ")[0] : item.quantity})),[["name","Gegenstand"],["quantity","Anzahl"],["burden","Belastung"]]]
+      ["Waffen",e.weapons,[["name","Waffe"],["attack","Attacke","Angriffswert der Waffe in Prozent."],["parry","Parade","Wert der Waffe zur Abwehr eines Angriffs in Prozent."],["damage","Schaden","Schadenswurf mit W6; ein angegebener Zuschlag wird addiert."],["breakFactor","BF","Bruchfaktor: Bei einer Erhöhung W20 über den neuen Wert würfeln, sonst zerbricht die Waffe."],["burden","Belastung","Belastungspunkte des Gegenstands; zählen zur Gesamtbelastung, wenn mitgeführt."]]],
+      ["Rüstung und Schutz",e.armor,[["name","Rüstungsteil"],["protection","RS","Rüstungsschutz des jeweiligen Körperteils."],["burden","Belastung","Belastungspunkte des Rüstungsteils; zählen zur Gesamtbelastung, wenn mitgeführt."],["impairment","Behinderung","Abzüge der Rüstung auf Beweglichkeit und/oder Gewandtheit."],["breakFactor","BF","Bruchfaktor: Bei einer Erhöhung W20 über den neuen Wert würfeln, sonst zerbricht das Rüstungsteil."]]],
+      ["Besitz",(e.possessions || []).map(item => ({...item, quantity: typeof item.quantity === "string" ? item.quantity.split(" · ")[0] : item.quantity})),[["name","Gegenstand"],["quantity","Anzahl"],["burden","Belastung","Belastungspunkte des jeweiligen Gegenstands."]]]
     ].forEach(([title,rows,cols])=>{ const t=table(title,rows,cols.map(([key,label])=>({key,label}))); if(t) root.append(t); });
     const wealth=valueGroup("Vermögen",e.wealth,"sheet-grid sheet-grid-4"); if(wealth) root.append(wealth);
     return root;
@@ -228,7 +228,7 @@
     let active=null;
     const hide=()=>{if(active)active.removeAttribute("aria-describedby");active=null;popup.hidden=true;};
     const show=node=>{if(!node.dataset.tip)return;active=node;popup.textContent=node.dataset.tip;popup.hidden=false;node.setAttribute("aria-describedby",popup.id);const r=node.getBoundingClientRect();const left=Math.max(8,Math.min(r.left+r.width/2-popup.offsetWidth/2,window.innerWidth-popup.offsetWidth-8));let top=r.top-popup.offsetHeight-9;if(top<8)top=Math.min(window.innerHeight-popup.offsetHeight-8,r.bottom+9);popup.style.left=left+"px";popup.style.top=Math.max(8,top)+"px";};
-    target.querySelectorAll(".calculated-value[data-tip]").forEach(node=>{if(!node.hasAttribute("tabindex"))node.tabIndex=0;node.addEventListener("mouseenter",()=>show(node));node.addEventListener("mouseleave",hide);node.addEventListener("focus",()=>show(node));node.addEventListener("blur",hide);});
+    target.querySelectorAll("[data-tip]").forEach(node=>{if(!node.hasAttribute("tabindex"))node.tabIndex=0;node.addEventListener("mouseenter",()=>show(node));node.addEventListener("mouseleave",hide);node.addEventListener("focus",()=>show(node));node.addEventListener("blur",hide);});
   }
   run().catch(error=>{ console.error(error); const t=page.querySelector("[data-profile-content]"); if(t) t.textContent="Das Charakterprofil konnte nicht geladen werden: "+error.message; });
 })();
