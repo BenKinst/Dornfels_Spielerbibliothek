@@ -75,11 +75,17 @@
           if (v.status === "provisional") td.append(el("small","profile-status provisional","Vorläufig"));
           sourceDetails(td,v.source);
         } else td.textContent = v == null ? "" : String(v);
-        if (c.key === "damage" && typeof v === "string") {
-          const match = /^(\\d+)W([+-]\\s*\\d+)?$/i.exec(v.trim());
+        if (c.key === "damage") {
+          const damageValue = v && typeof v === "object" && "value" in v ? String(v.value) : (v == null ? "" : String(v));
+          const match = /^(\\d+)W([+-]\\s*\\d+)?$/i.exec(damageValue.trim());
           if (match) {
-            td.replaceChildren(document.createTextNode(match[1]));
-            td.append(diceImage("w6.png", "w6", "W6"));
+            const valueNode = td.querySelector("span") || td.firstChild;
+            if (valueNode && valueNode.nodeType === Node.ELEMENT_NODE) valueNode.textContent = match[1];
+            else if (valueNode) valueNode.textContent = match[1];
+            else td.append(document.createTextNode(match[1]));
+            const dice = diceImage("w6.png", "w6", "W6");
+            if (valueNode && valueNode.nodeType === Node.ELEMENT_NODE) valueNode.after(dice);
+            else td.append(dice);
             if (match[2]) td.append(document.createTextNode(" " + match[2].replace(/\\s+/g," ")));
           }
         }
@@ -167,7 +173,15 @@
       const ul=document.createElement("ul"); m.lists.forEach(x=>ul.append(el("li","",x))); card.append(ul); root.append(card);
     }
     const g=valueGroup("Magische Fertigkeiten",m.skills,"sheet-grid sheet-grid-2"); if(g) {
-      g.querySelectorAll(".sheet-field").forEach(card => appendW10Pair(card));
+      g.querySelectorAll(".sheet-field").forEach(card => {
+        const value = card.querySelector("strong");
+        if (value) {
+          const pair = el("span", "dice-pair");
+          pair.setAttribute("aria-label", "W10-Zehnerwürfel und W10-Einerwürfel");
+          pair.append(diceImage("w10_90.png", "w10", "Zehnerwürfel"), diceImage("w10_9.png", "w10", "Einerwürfel"));
+          value.after(pair);
+        }
+      });
       root.append(g);
     }
     const details=valueGroup("Berufliche Magiemerkmale",m.details,"sheet-grid sheet-grid-2",["Verfügbare Elemente","Zauberfokus","Maximale AP","Rüstungsbeschränkung","Waffenbeschränkung"]); if(details) root.append(details);
