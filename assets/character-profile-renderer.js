@@ -108,7 +108,7 @@
   function attributes(a) {
     const root = el("div", "profile-section-content");
     const hiddenCharacterData = ["Erfahrung","Stufe","Ehre","Abenteuerpunkte","Reichweite (belastet)","AP noch"];
-    const hiddenAttributes = ["Reaktion (belastet)","Initiative (belastet)","Ausweichen (belastet)","Geschick (belastet)","Beweglichkeit (belastet)"];
+    const hiddenAttributes = ["Reaktion (belastet)","Initiative (belastet)","Ausweichen (belastet)","Geschick (belastet)","Beweglichkeit (belastet)","Bewegungsreichweite (unbelastet)","Bewegungsreichweite (belastet)"];
     [["Charakterdaten",a.characterData,hiddenCharacterData],["Eigenschaften",a.values,hiddenAttributes],["Lebenswerte",a.lifeValues,[]]]
       .forEach(([t,v,hidden]) => { const g=valueGroup(t,v,"sheet-grid sheet-grid-3",hidden); if(g) root.append(g); });
     return root;
