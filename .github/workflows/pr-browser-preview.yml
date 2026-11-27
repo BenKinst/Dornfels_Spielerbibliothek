@@ -1,6 +1,8 @@
 name: PR Browser Preview
 
 on:
+  push:
+    branches: [infra/pr-browser-preview-checks]
   pull_request:
     branches: [main]
   workflow_dispatch:
