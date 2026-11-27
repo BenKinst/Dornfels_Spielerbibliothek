@@ -1,8 +1,8 @@
 /* JSON/Markdown-Profilrenderer. Keine Regelwerte berechnen oder ergänzen. */
 (() => {
   "use strict";
-  const page = document.querySelector("[data-profile-src][data-profile-content]");
-  if (!page) return;
+  const page = document.querySelector("[data-profile-src]");
+  if (!page || !page.querySelector("[data-profile-content]")) return;
   const el = (tag, cls, value) => {
     const n = document.createElement(tag);
     if (cls) n.className = cls;
