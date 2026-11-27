@@ -15,12 +15,27 @@
     if (!d.profile || typeof d.profile !== "object") throw Error("Profilkopf fehlt.");
     return d;
   };
+  function diceImage(file, cls, alt) {
+    const img = el("img", "dice-icon " + cls);
+    img.src = "../assets/wuerfel/" + file;
+    img.alt = alt;
+    return img;
+  }
+  function appendW10Pair(parent) {
+    const pair = el("span", "dice-pair");
+    pair.setAttribute("aria-label", "W10-Zehnerwürfel und W10-Einerwürfel");
+    pair.append(diceImage("w10_90.png", "w10", "Zehnerwürfel"), diceImage("w10_9.png", "w10", "Einerwürfel"));
+    parent.append(pair);
+  }
   function valueCard(v) {
     const card = el("div", "sheet-field");
     card.append(el("span", "", v.label || v.name || v.key || ""));
     const value = el("strong", v.tooltip ? "calculated-value" : "", v.value);
     if (v.tooltip) { value.dataset.tip = v.tooltip; value.tabIndex = 0; }
     card.append(value);
+    if (["Stärke","Ausdauer","Gewandtheit","Intelligenz","Intuition"].includes(v.label || v.name)) {
+      card.append(diceImage("w20.png", "w20", "W20"));
+    }
     if (v.description) card.append(el("small", "attribute-help", v.description));
     if (v.status === "provisional") card.append(el("small", "profile-status provisional", "Vorläufig"));
     return card;
@@ -38,7 +53,7 @@
   }
   // Quellen bleiben für Prüfung und Pflege in den Daten, werden Spielern aber nicht angezeigt.
   function sourceDetails() {}
-  function table(title, rows, columns) {
+  function table(title, rows, columns, options = {}) {
     if (!Array.isArray(rows) || !rows.length) return null;
     const card = el("div", "sheet-card");
     if (title) card.append(el("h3", "", title));
@@ -56,9 +71,24 @@
           if (v.tooltip) { span.dataset.tip = v.tooltip; span.tabIndex = 0; }
           if (v.status === "provisional") span.classList.add("provisional");
           td.append(span);
+          if (options.dicePairOnValue && c.key === "value") appendW10Pair(td);
           if (v.status === "provisional") td.append(el("small","profile-status provisional","Vorläufig"));
           sourceDetails(td,v.source);
         } else td.textContent = v == null ? "" : String(v);
+        if (c.key === "damage") {
+          const damageValue = v && typeof v === "object" && "value" in v ? String(v.value) : (v == null ? "" : String(v));
+          const match = /^(\\d+)W([+-]\\s*\\d+)?$/i.exec(damageValue.trim());
+          if (match) {
+            const valueNode = td.querySelector("span") || td.firstChild;
+            if (valueNode && valueNode.nodeType === Node.ELEMENT_NODE) valueNode.textContent = match[1];
+            else if (valueNode) valueNode.textContent = match[1];
+            else td.append(document.createTextNode(match[1]));
+            const dice = diceImage("w6.png", "w6", "W6");
+            if (valueNode && valueNode.nodeType === Node.ELEMENT_NODE) valueNode.after(dice);
+            else td.append(dice);
+            if (match[2]) td.append(document.createTextNode(" " + match[2].replace(/\\s+/g," ")));
+          }
+        }
         if (index===0 && row.status==="provisional") td.append(el("small","profile-status provisional","Vorläufig"));
         if (index===0 && row.source) sourceDetails(td,row.source);
         tr.append(td);
@@ -108,7 +138,7 @@
   function attributes(a) {
     const root = el("div", "profile-section-content");
     const hiddenCharacterData = ["Erfahrung","Stufe","Ehre","Abenteuerpunkte","Reichweite (belastet)","AP noch"];
-    const hiddenAttributes = ["Reaktion (belastet)","Initiative (belastet)","Ausweichen (belastet)","Geschick (belastet)","Beweglichkeit (belastet)","Bewegungsreichweite (unbelastet)","Bewegungsreichweite (belastet)"];
+    const hiddenAttributes = ["Reaktion (belastet)","Initiative (belastet)","Ausweichen (belastet)","Gewandtheit (belastet)","Beweglichkeit (belastet)","Bewegungsreichweite (unbelastet)","Bewegungsreichweite (belastet)"];
     [["Charakterdaten",a.characterData,hiddenCharacterData],["Eigenschaften",a.values,hiddenAttributes],["Lebenswerte",a.lifeValues,[]]]
       .forEach(([t,v,hidden]) => { const g=valueGroup(t,v,"sheet-grid sheet-grid-3",hidden); if(g) root.append(g); });
     return root;
@@ -126,7 +156,7 @@
     const root=el("div","profile-section-content");
     const nested=el("div","nested-accordion skill-tabs");
     (s.groups || []).forEach((g,i) => {
-      const t=table(null,g.skills,[{key:"name",label:"Fertigkeit"},{key:"value",label:"Endwert"}]);
+      const t=table(null,g.skills,[{key:"name",label:"Fertigkeit"},{key:"value",label:"Endwert"}],{dicePairOnValue:true});
       if(t) {
         const content=el("div","profile-skill-group");
         content.append(t);
@@ -142,7 +172,18 @@
       const card=el("div","sheet-card"); card.append(el("h3","","Spruchlisten"));
       const ul=document.createElement("ul"); m.lists.forEach(x=>ul.append(el("li","",x))); card.append(ul); root.append(card);
     }
-    const g=valueGroup("Magische Fertigkeiten",m.skills,"sheet-grid sheet-grid-2"); if(g) root.append(g);
+    const g=valueGroup("Magische Fertigkeiten",m.skills,"sheet-grid sheet-grid-2"); if(g) {
+      g.querySelectorAll(".sheet-field").forEach(card => {
+        const value = card.querySelector("strong");
+        if (value) {
+          const pair = el("span", "dice-pair");
+          pair.setAttribute("aria-label", "W10-Zehnerwürfel und W10-Einerwürfel");
+          pair.append(diceImage("w10_90.png", "w10", "Zehnerwürfel"), diceImage("w10_9.png", "w10", "Einerwürfel"));
+          value.after(pair);
+        }
+      });
+      root.append(g);
+    }
     const details=valueGroup("Berufliche Magiemerkmale",m.details,"sheet-grid sheet-grid-2",["Verfügbare Elemente","Zauberfokus","Maximale AP","Rüstungsbeschränkung","Waffenbeschränkung"]); if(details) root.append(details);
     (m.spellGroups || []).forEach(x=>{ const t=table(x.name,x.spells,[{key:"name",label:"Zauber / Wirkung"},{key:"level",label:"Stufe"}]); if(t) root.append(t); });
     return root;
