@@ -21,7 +21,7 @@
     entries.forEach(({ element, value }) => {
       const position = max === min ? 6 : Math.round(((value - min) / (max - min)) * 12);
       element.style.setProperty(variable, colors[position]);
-      element.classList.add(className);
+      element.classList.add(...className.split(" "));
       element.dataset[datasetName] = String(position + 1);
     });
   }
@@ -36,6 +36,6 @@
 
     // Nur ausdrücklich markierte numerische Fertigkeitsendwerte einfärben.
     applyScale(root, ".skill-scale-candidate", "--skill-value-color",
-      "skill-scale-applied", "skillScalePosition");
+      "skill-scale-value skill-scale-applied", "skillScalePosition");
   };
 })();
