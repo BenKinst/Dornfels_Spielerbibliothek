@@ -1,0 +1,88 @@
+name: PR Browser Preview
+
+on:
+  pull_request:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: pr-preview-${{ github.event.pull_request.number || github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  browser-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Repository auschecken
+        uses: actions/checkout@v4
+
+      - name: Node.js einrichten
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+
+      - name: Playwright installieren
+        run: |
+          mkdir -p /tmp/pr-preview
+          npm install --prefix /tmp/pr-preview playwright
+          /tmp/pr-preview/node_modules/.bin/playwright install --with-deps chromium
+
+      - name: Lokalen Vorschau-Server starten
+        run: |
+          python3 -m http.server 4173 --bind 127.0.0.1 >/tmp/pr-preview-server.log 2>&1 &
+          echo $! >/tmp/pr-preview-server.pid
+          for i in $(seq 1 30); do
+            if curl --silent --fail http://127.0.0.1:4173/ >/dev/null; then exit 0; fi
+            sleep 1
+          done
+          cat /tmp/pr-preview-server.log
+          exit 1
+
+      - name: Charakterseite im Browser prüfen
+        run: |
+          mkdir -p preview-output
+          node --input-type=module <<'NODE'
+          import { chromium } from '/tmp/pr-preview/node_modules/playwright/index.mjs';
+          const browser = await chromium.launch({ headless: true });
+          const errors = [];
+          const page = await browser.newPage({ viewport: { width: 1440, height: 1100 }, deviceScaleFactor: 1 });
+          page.on('pageerror', error => errors.push(error.message));
+          page.on('console', message => { if (message.type() === 'error') errors.push(message.text()); });
+          const response = await page.goto('http://127.0.0.1:4173/charaktere/zauberer-json-test.html', { waitUntil: 'networkidle' });
+          if (!response?.ok()) throw new Error('Die Zauberer-Testseite antwortet nicht erfolgreich.');
+          await page.locator('.profile-accordion-item').first().waitFor({ state: 'attached', timeout: 15000 });
+          const headings = await page.locator('.profile-accordion-item .accordion-trigger').allTextContents();
+          for (const expected of ['Hintergrundgeschichte', 'Eigenschaften', 'Fertigkeiten', 'Magie', 'Ausrüstung']) {
+            if (!headings.some(value => value.trim() === expected)) throw new Error('Profilbereich fehlt: ' + expected);
+          }
+          await page.screenshot({ path: 'preview-output/zauberer-desktop.png', fullPage: true });
+          await page.locator('[data-expand-all]').first().click();
+          await page.waitForTimeout(250);
+          await page.screenshot({ path: 'preview-output/zauberer-desktop-offen.png', fullPage: true });
+          const mobile = await browser.newPage({ viewport: { width: 390, height: 844 }, deviceScaleFactor: 1 });
+          mobile.on('pageerror', error => errors.push(error.message));
+          await mobile.goto('http://127.0.0.1:4173/charaktere/zauberer-json-test.html', { waitUntil: 'networkidle' });
+          await mobile.locator('.profile-accordion-item').first().waitFor({ state: 'attached', timeout: 15000 });
+          await mobile.screenshot({ path: 'preview-output/zauberer-mobil.png', fullPage: true });
+          const overflow = await mobile.evaluate(() => document.documentElement.scrollWidth > window.innerWidth + 1);
+          if (overflow) throw new Error('Horizontales Overflow auf der mobilen Ansicht.');
+          if (errors.length) throw new Error('Browserfehler: ' + errors.join(' | '));
+          await browser.close();
+          console.log('Browserprüfung erfolgreich. Profilbereiche:', headings.join(', '));
+          NODE
+
+      - name: Vorschauseite als Paket bereitstellen
+        if: always()
+        run: |
+          zip -qr preview-output/spielerbibliothek-vorschau.zip index.html assets charaktere content
+
+      - name: Vorschau und Screenshots als PR-Artefakt hochladen
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: browser-vorschau-${{ github.event.pull_request.number || 'manuell' }}
+          path: preview-output/
+          retention-days: 14
