@@ -172,7 +172,7 @@
         }
       },
       {
-        "label": "Geschick (Gewandtheit)",
+        "label": "Gewandtheit",
         "value": 16,
         "status": "provisional",
         "source": {
@@ -224,7 +224,7 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "abgerundet (Intelligenz 16 + Geschick 16) / 2"
+        "tooltip": "abgerundet (Intelligenz 16 + Gewandtheit 16) / 2"
       },
       {
         "label": "Initiative (unbelastet)",
@@ -244,7 +244,7 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "abgerundet ((Ausdauer 10 + Geschick 16) / 4) + 3"
+        "tooltip": "abgerundet ((Ausdauer 10 + Gewandtheit 16) / 4) + 3"
       },
       {
         "label": "Tragkraft",
@@ -263,7 +263,7 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "Geschick 16; Größenmodifikator 0"
+        "tooltip": "Gewandtheit 16; Größenmodifikator 0"
       },
       {
         "label": "Bewegungsreichweite (belastet)",
@@ -273,7 +273,7 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 10.4 – Belastungsrechnung"
         },
-        "tooltip": "Geschick 15; Größenmodifikator 0"
+        "tooltip": "Gewandtheit 15; Größenmodifikator 0"
       },
       {
         "label": "Reaktion (belastet)",
@@ -283,7 +283,7 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 10.4 – Belastungsrechnung"
         },
-        "tooltip": "abgerundet (Intelligenz 16 + Geschick 15) / 2"
+        "tooltip": "abgerundet (Intelligenz 16 + Gewandtheit 15) / 2"
       },
       {
         "label": "Initiative (belastet)",
@@ -304,14 +304,14 @@
         }
       },
       {
-        "label": "Geschick (belastet)",
+        "label": "Gewandtheit (belastet)",
         "value": 15,
         "status": "provisional",
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 10.4 – Belastungsrechnung"
         },
-        "tooltip": "Geschick 16 − 1 durch Belastung"
+        "tooltip": "Gewandtheit 16 − 1 durch Belastung"
       },
       {
         "label": "Beweglichkeit (belastet)",
@@ -1348,7 +1348,7 @@
         }
       },
       {
-        "label": "Belastungsmalus Geschick",
+        "label": "Belastungsmalus Gewandtheit",
         "value": "−1 (16 auf 15)",
         "status": "provisional",
         "source": {
