@@ -33,7 +33,7 @@
     const value = el("strong", v.tooltip ? "calculated-value" : "", v.value);
     if (v.tooltip) { value.dataset.tip = v.tooltip; value.tabIndex = 0; }
     card.append(value);
-    if (["Stärke","Ausdauer","Geschick (Gewandtheit)","Intelligenz","Intuition"].includes(v.label || v.name)) {
+    if (["Stärke","Ausdauer","Gewandtheit","Intelligenz","Intuition"].includes(v.label || v.name)) {
       card.append(diceImage("w20.png", "w20", "W20"));
     }
     if (v.description) card.append(el("small", "attribute-help", v.description));
@@ -138,7 +138,7 @@
   function attributes(a) {
     const root = el("div", "profile-section-content");
     const hiddenCharacterData = ["Erfahrung","Stufe","Ehre","Abenteuerpunkte","Reichweite (belastet)","AP noch"];
-    const hiddenAttributes = ["Reaktion (belastet)","Initiative (belastet)","Ausweichen (belastet)","Geschick (belastet)","Beweglichkeit (belastet)","Bewegungsreichweite (unbelastet)","Bewegungsreichweite (belastet)"];
+    const hiddenAttributes = ["Reaktion (belastet)","Initiative (belastet)","Ausweichen (belastet)","Gewandtheit (belastet)","Beweglichkeit (belastet)","Bewegungsreichweite (unbelastet)","Bewegungsreichweite (belastet)"];
     [["Charakterdaten",a.characterData,hiddenCharacterData],["Eigenschaften",a.values,hiddenAttributes],["Lebenswerte",a.lifeValues,[]]]
       .forEach(([t,v,hidden]) => { const g=valueGroup(t,v,"sheet-grid sheet-grid-3",hidden); if(g) root.append(g); });
     return root;
