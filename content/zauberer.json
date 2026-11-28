@@ -908,7 +908,8 @@
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Feuers"
             },
             "tooltip": "Spruchstufe 3: Der Zauber kostet 3 Astralpunkte je Anwendung.",
-            "lexiconId": "holzfeuer"
+            "lexiconId": "holzfeuer",
+            "effect": "Entzündet berührtes trockenes Holz."
           },
           {
             "name": "Feuerwand",
