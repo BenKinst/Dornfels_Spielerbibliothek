@@ -28,6 +28,9 @@ Die Datei `charaktere/musterseite.html` bleibt eine technische und inhaltliche M
 - Jeder regelrelevante Wert enthält direkt an seinem Datensatz eine konkrete Quellenangabe mit Quelldokument und möglichst genauer Fundstelle.
 - Werte werden als bestätigt (`confirmed`) oder vorläufig (`provisional`) gekennzeichnet. Vorläufige Werte müssen in der Darstellung erkennbar bleiben.
 - Ein gemeinsamer Profilrenderer lädt und validiert die JSON-Daten und die Hintergrund-Markdown-Datei und erzeugt die vorhandenen Profilbereiche. Das Rendern der Daten bleibt von den allgemeinen CSS- und Interaktionskomponenten getrennt.
+- Zauberwirkungen werden ausschließlich in `content/zauberlexikon.json` gepflegt. Charakterprofile enthalten bei jedem Zauber nur die `lexiconId` als Referenz; ein `effect`-Feld im Charakterprofil ist unzulässig.
+- Der Profilrenderer lädt das zentrale Zauberlexikon und löst die `lexiconId` eines Zaubers dort auf. Wirkungsbeschreibungen werden nicht aus Charakterprofilen übernommen oder in ihnen gespeichert.
+- Das Synchronisierungsskript darf Zauber-IDs zuordnen und wirkungsfreie Lexikoneinträge als offene Stubs anlegen. Es darf Wirkungsbeschreibungen weder aus Profilen ins Lexikon kopieren noch anderweitig automatisch erzeugen oder verändern.
 - Der Renderer stellt die gelieferten Werte dar, berechnet aber keine Charakterwerte und ersetzt keine Prüfung anhand der Regelwerks- und Charakterquellen.
 - Charakterindividuelle Daten gehören in die Inhaltsdateien, nicht in den Renderer oder in allgemeine Interaktionsskripte.
 
