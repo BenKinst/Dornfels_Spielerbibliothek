@@ -26,8 +26,9 @@ jobs:
           profile = Path("content/zauberer.json")
           background = Path("content/zauberer.md")
           color_script = Path("assets/eigenschaftsfarben.js")
+          spell_lexicon = Path("content/zauberlexikon.json")
 
-          for path in (page, profile, background, color_script):
+          for path in (page, profile, background, color_script, spell_lexicon):
               if not path.is_file():
                   raise SystemExit(f"Datei fehlt: {path}")
 
@@ -36,6 +37,7 @@ jobs:
               'data-profile-src="../content/zauberer.json"',
               'data-background-src="../content/zauberer.md"',
               '<script src="../assets/eigenschaftsfarben.js"></script>',
+              'data-spell-lexicon-src="../content/zauberlexikon.json"',
           ):
               if expected not in html:
                   raise SystemExit(f"Verknüpfung fehlt auf der Zauberer-Testseite: {expected}")
@@ -44,5 +46,12 @@ jobs:
           if data.get("schemaVersion") != 1 or data.get("profile", {}).get("name") != "Der Zauberer":
               raise SystemExit("Die JSON-Profilquelle hat nicht die erwartete Grundstruktur für den Zauberer.")
 
-          print("OK: Zauberer-Testseite, JSON-Profil und Markdown-Hintergrund sind vorhanden und korrekt verknüpft.")
+          lexicon = json.loads(spell_lexicon.read_text(encoding="utf-8"))
+          if lexicon.get("schemaVersion") != 1 or not isinstance(lexicon.get("spells"), list):
+              raise SystemExit("Das zentrale Zauberlexikon hat nicht die erwartete Struktur.")
+          for group in data.get("magic", {}).get("spellGroups", []):
+              for spell in group.get("spells", []):
+                  if not spell.get("lexiconId"):
+                      raise SystemExit("Zauber ohne lexiconId: " + str(spell.get("name")))
+          print("OK: Zauberer-Testseite, Profil, Hintergrund und zentrales Zauberlexikon sind korrekt verknüpft.")
           PY
