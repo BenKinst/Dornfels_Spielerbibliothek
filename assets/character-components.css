@@ -333,3 +333,10 @@
   align-items: baseline;
   gap: 4px;
 }
+
+
+/* Leere Spruchstufen bleiben als bewusst sichtbare Tabellenzeilen erhalten. */
+.character-page-standard .spell-level-empty td {
+  min-height: 2.4rem;
+  background: rgba(255, 255, 255, 0.015);
+}
