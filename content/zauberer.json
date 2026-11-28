@@ -831,7 +831,8 @@
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Windes"
             },
             "tooltip": "Spruchstufe 1: Der Zauber kostet 1 Astralpunkte je Anwendung.",
-            "lexiconId": "brise"
+            "lexiconId": "brise",
+            "effect": "Konzentration; Wirkungsdurchmesser: 3 m je Stufe."
           },
           {
             "name": "Luftwall",
@@ -842,7 +843,8 @@
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Windes"
             },
             "tooltip": "Spruchstufe 2: Der Zauber kostet 2 Astralpunkte je Anwendung.",
-            "lexiconId": "luftwall"
+            "lexiconId": "luftwall",
+            "effect": "Konzentration; Reichweite: 30 m; Wirkungsfeld: 3 × 3 × 0,9 m; −50 % auf alles."
           },
           {
             "name": "Wolke der Benommenheit",
@@ -853,7 +855,8 @@
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Windes"
             },
             "tooltip": "Spruchstufe 4: Der Zauber kostet 4 Astralpunkte je Anwendung.",
-            "lexiconId": "wolke-der-benommenheit"
+            "lexiconId": "wolke-der-benommenheit",
+            "effect": "Wirkungsdauer: 6 Runden; Wirkungsdurchmesser: 3 m; Reichweite: 6 m. Runden 1–2: C-Stun; Runden 3–4: B-Stun; Runden 5–6: A-Stun."
           },
           {
             "name": "Luftstop",
@@ -864,7 +867,8 @@
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Windes"
             },
             "tooltip": "Spruchstufe 5: Der Zauber kostet 5 Astralpunkte je Anwendung.",
-            "lexiconId": "luftstop"
+            "lexiconId": "luftstop",
+            "effect": "Konzentration; Reichweite: 30 m; Wirkungsdurchmesser: 3 m; senkt die Windgeschwindigkeit um 48 km/h."
           }
         ]
       },
@@ -880,7 +884,8 @@
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Feuers"
             },
             "tooltip": "Spruchstufe 1: Der Zauber kostet 1 Astralpunkte je Anwendung.",
-            "lexiconId": "fluessigkeit-kochen"
+            "lexiconId": "fluessigkeit-kochen",
+            "effect": "Erfasst 2 Liter je Stufe; wirkt nur auf unbelebte Flüssigkeit."
           },
           {
             "name": "Festes Erwärmen",
@@ -891,7 +896,8 @@
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Feuers"
             },
             "tooltip": "Spruchstufe 2: Der Zauber kostet 2 Astralpunkte je Anwendung.",
-            "lexiconId": "festes-erwaermen"
+            "lexiconId": "festes-erwaermen",
+            "effect": "Erwärmt unbelebte, nichtmetallische feste Materie auf bis zu 40 °C; Wirkungsdauer: 24 Stunden; Wirkungsvolumen: 0,028 m³; Reichweite: 3 m."
           },
           {
             "name": "Holzfeuer",
@@ -902,7 +908,8 @@
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Feuers"
             },
             "tooltip": "Spruchstufe 3: Der Zauber kostet 3 Astralpunkte je Anwendung.",
-            "lexiconId": "holzfeuer"
+            "lexiconId": "holzfeuer",
+            "effect": "Entzündet berührtes trockenes Holz."
           },
           {
             "name": "Feuerwand",
@@ -913,7 +920,8 @@
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Feuers"
             },
             "tooltip": "Spruchstufe 4: Der Zauber kostet 4 Astralpunkte je Anwendung.",
-            "lexiconId": "feuerwand"
+            "lexiconId": "feuerwand",
+            "effect": "Wirkungsdauer: 1 Minute je Stufe; Reichweite: 30 m; Wirkungsfeld: 3 × 3 × 1,8 m; verursacht A-Heat."
           }
         ]
       }
