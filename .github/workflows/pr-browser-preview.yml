@@ -63,11 +63,17 @@ jobs:
           lexicon = json.loads(spell_lexicon.read_text(encoding="utf-8"))
           if lexicon.get("schemaVersion") != 1 or not isinstance(lexicon.get("spells"), list):
               raise SystemExit("Das zentrale Zauberlexikon hat nicht die erwartete Struktur.")
+          lexicon_by_id = {entry.get("id"): entry for entry in lexicon["spells"] if isinstance(entry, dict)}
           for group in data.get("magic", {}).get("spellGroups", []):
               for spell in group.get("spells", []):
                   if not spell.get("lexiconId"):
                       raise SystemExit("Zauber ohne lexiconId: " + str(spell.get("name")))
-          print("OK: Zauberer-Testseite, Profil, Hintergrund und zentrales Zauberlexikon sind korrekt verknüpft.")
+                  if "effect" in spell:
+                      raise SystemExit("Wirkung darf nicht im Charakterprofil stehen: " + str(spell.get("name")))
+                  entry = lexicon_by_id.get(spell["lexiconId"])
+                  if not entry or entry.get("name") != spell.get("name"):
+                      raise SystemExit("Ungültige Zauberlexikon-Referenz: " + str(spell.get("name")))
+          print("OK: Charakterprofile referenzieren Zauberwirkungen ausschließlich über das zentrale Lexikon.")
           PY
 
       - name: Zauber-IDs und Lexikoneinträge synchron prüfen
