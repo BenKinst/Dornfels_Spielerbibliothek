@@ -133,7 +133,7 @@ for (const profile of profiles) {
           if (pendingEntries.length === 1) {
             entry = pendingEntries[0];
           } else {
-            const pendingIdentity = pendingKey + "\\u0000__effect_pending__";
+            const pendingIdentity = pendingKey + "\u0000__effect_pending__";
             const base = slugify(spell.name);
             let pendingId = base + "-" + hash(pendingIdentity);
             let suffix = 2;
