@@ -16,6 +16,18 @@ jobs:
       - name: Repository auschecken
         uses: actions/checkout@v4
 
+      - name: Zauber-IDs und Lexikoneinträge automatisch synchronisieren
+        if: github.event.pull_request.head.repo.full_name == github.repository
+        run: |
+          node scripts/sync-spell-lexicon.mjs
+          if ! git diff --quiet -- content; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add content
+            git commit -m "chore: Zauberlexikon automatisch synchronisieren"
+            git push origin "HEAD:${{ github.event.pull_request.head.ref }}"
+          fi
+
       - name: Zauberer-Testseite und Datenquellen prüfen
         run: |
           python3 - <<'PY'
