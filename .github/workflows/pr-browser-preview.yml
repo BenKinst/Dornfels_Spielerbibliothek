@@ -55,3 +55,6 @@ jobs:
                       raise SystemExit("Zauber ohne lexiconId: " + str(spell.get("name")))
           print("OK: Zauberer-Testseite, Profil, Hintergrund und zentrales Zauberlexikon sind korrekt verknüpft.")
           PY
+
+      - name: Zauber-IDs und Lexikoneinträge synchron prüfen
+        run: node scripts/sync-spell-lexicon.mjs --check
