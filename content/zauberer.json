@@ -219,7 +219,8 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
-        }
+        },
+        "tooltip": "Grundwert 6 + W10-Wurf 7 = 13."
       },
       {
         "label": "Größe",
@@ -228,7 +229,8 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
-        }
+        },
+        "tooltip": "Grundwert 6 + W10-Wurf 5 = 11."
       },
       {
         "label": "Reaktion (unbelastet)",
