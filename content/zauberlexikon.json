@@ -22,6 +22,96 @@
       "effect": "Erfasst 2 Liter je Stufe; wirkt nur auf unbelebte Flüssigkeit."
     },
     {
+      "id": "heiler-rituelle-reinigung-stufe-1",
+      "name": "Wunden / Krankheit / Sucht übertragen oder W10 TP heilen",
+      "effect": "Überträgt Wunden, Krankheit oder Sucht auf den Heiler. Übertragene Wunden können sofort geheilt werden; Heilsprüche können mit dem Transfer gesprochen werden. Alternative Wirkung: W10 Trefferpunkte heilen.",
+      "source": {
+        "document": "RuneQuest – Buch der Magie",
+        "location": "S. 57 – Heiler-Zauberliste"
+      }
+    },
+    {
+      "id": "heiler-rituelle-reinigung-stufe-2",
+      "name": "Krankheit / Infektion stoppen oder Hitze-/Kältewunden 1. Grades heilen",
+      "effect": "Stoppt die Ausbreitung einer Krankheit oder Infektion dauerhaft. Alternative Wirkung: Hitze- oder Kältewunden 1. Grades mit Trefferpunkten heilen.",
+      "source": {
+        "document": "RuneQuest – Buch der Magie",
+        "location": "S. 57 – Heiler-Zauberliste"
+      }
+    },
+    {
+      "id": "heiler-rituelle-reinigung-stufe-3",
+      "name": "Gift neutralisieren oder Benommenheit aufheben",
+      "effect": "Neutralisiert Gift. Alternative Wirkung: Eine Runde Benommenheit aufheben.",
+      "source": {
+        "document": "RuneQuest – Buch der Magie",
+        "location": "S. 57 – Heiler-Zauberliste"
+      }
+    },
+    {
+      "id": "heiler-rituelle-reinigung-stufe-4",
+      "name": "Leiche / Körperteil erhalten oder Regeneration 1 TP/Runde",
+      "effect": "Erhält eine Leiche oder ein Körperteil vor Verwesung (auch den eigenen Körper); Wiederbelebung ist laut Regelwerk nur sehr wenigen mächtigen Heilern möglich. Alternative Wirkung: Regeneration von 1 Trefferpunkt pro Runde, auch bei Bewusstlosigkeit.",
+      "source": {
+        "document": "RuneQuest – Buch der Magie",
+        "location": "S. 57 – Heiler-Zauberliste"
+      }
+    },
+    {
+      "id": "heiler-rituelle-reinigung-stufe-5",
+      "name": "Sucht erleichtern 1 oder Hitze-/Kältewunden 2. Grades heilen",
+      "effect": "Erleichtert Sucht 1: Eine Ausdauerprobe ist einmal in zwei Wochen statt einmal pro Woche erforderlich. Alternative Wirkung: Hitze- oder Kältewunden 2. Grades mit Trefferpunkten heilen.",
+      "source": {
+        "document": "RuneQuest – Buch der Magie",
+        "location": "S. 57 – Heiler-Zauberliste"
+      }
+    },
+    {
+      "id": "heiler-trankwissen-stufe-1",
+      "name": "Flüssigkeiten handhaben",
+      "effect": "Nichtmagische Flüssigkeiten wie Alkohol, Säuren oder Gifte können einen Tag lang sicher gehandhabt werden.",
+      "source": {
+        "document": "RuneQuest – Buch der Magie",
+        "location": "S. 58 – Heiler-Zauberliste"
+      }
+    },
+    {
+      "id": "heiler-trankwissen-stufe-2",
+      "name": "Droge identifizieren",
+      "effect": "Identifiziert Ursprung (alchemisch, magisch oder göttlich), Reinheit, Stufe und Wirkung einer Droge.",
+      "source": {
+        "document": "RuneQuest – Buch der Magie",
+        "location": "S. 58 – Heiler-Zauberliste"
+      }
+    },
+    {
+      "id": "heiler-trankwissen-stufe-3",
+      "name": "Alkohol brauen",
+      "effect": "Bewirkt eine schnelle Fermentation, etwa von Früchten zu Wein oder Bier, innerhalb einer Woche (0,1 l je Stufe). Durch erneutes Anwenden kann der Alkohol innerhalb einer Stunde destilliert werden. Durch Desinfektion gibt er bei Erste Hilfe +5.",
+      "source": {
+        "document": "RuneQuest – Buch der Magie",
+        "location": "S. 58 – Heiler-Zauberliste"
+      }
+    },
+    {
+      "id": "heiler-trankwissen-stufe-4",
+      "name": "Gift identifizieren",
+      "effect": "Wie „Droge identifizieren“, jedoch auf ein Gift angewendet.",
+      "source": {
+        "document": "RuneQuest – Buch der Magie",
+        "location": "S. 58 – Heiler-Zauberliste"
+      }
+    },
+    {
+      "id": "heiler-trankwissen-stufe-5",
+      "name": "Stimulierende Substanzen brauen",
+      "effect": "Extrahiert stimulierende Substanzen aus geeigneten Rohstoffen (beispielsweise Koffein aus Kaffeebohnen); Dauer: eine Stunde.",
+      "source": {
+        "document": "RuneQuest – Buch der Magie",
+        "location": "S. 58 – Heiler-Zauberliste"
+      }
+    },
+    {
       "id": "holzfeuer",
       "name": "Holzfeuer",
       "effect": "Entzündet berührtes trockenes Holz."
