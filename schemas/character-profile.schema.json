@@ -160,10 +160,6 @@
                       "type": "string",
                       "minLength": 1
                     },
-                    "effect": {
-                      "type": "string",
-                      "minLength": 1
-                    },
                     "level": {
                       "type": [
                         "string",
