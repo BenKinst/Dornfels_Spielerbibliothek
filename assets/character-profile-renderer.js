@@ -19,13 +19,15 @@
     const img = el("img", "dice-icon " + cls);
     img.src = "../assets/wuerfel/" + file;
     img.alt = alt;
-    if (tooltip) { img.dataset.tip = tooltip; img.tabIndex = 0; }
+    const diceTooltip = tooltip || (cls === "w10" ? "Für einen Prozentwurf verwendest du zwei W10: Der Zehnerwürfel bestimmt die Zehnerstelle, der Einerwürfel die Einerstelle. Zusammen ergeben sie deinen Prozentwurf. Er ist erfolgreich, wenn das Ergebnis höchstens deinem Fertigkeits- bzw. Angriffs-/Paradewert entspricht." : cls === "w6" ? "Würfle mit einem W6 und addiere anschließend den angegebenen Schadenszuschlag." : "");
+    if (diceTooltip) { img.dataset.tip = diceTooltip; img.tabIndex = 0; }
     return img;
   }
   function appendW10Pair(parent, tooltip) {
     const pair = el("span", "dice-pair");
     pair.setAttribute("aria-label", "W10-Zehnerwürfel und W10-Einerwürfel");
-    if (tooltip) { pair.dataset.tip = tooltip; pair.tabIndex = 0; }
+    const pairTooltip = tooltip || "Für einen Prozentwurf verwendest du zwei W10: Der Zehnerwürfel bestimmt die Zehnerstelle, der Einerwürfel die Einerstelle. Zusammen ergeben sie deinen Prozentwurf. Er ist erfolgreich, wenn das Ergebnis höchstens deinem Fertigkeits- bzw. Angriffs-/Paradewert entspricht.";
+    pair.dataset.tip = pairTooltip; pair.tabIndex = 0;
     pair.append(diceImage("w10_90.png", "w10", "Zehnerwürfel"), diceImage("w10_9.png", "w10", "Einerwürfel"));
     parent.append(pair);
   }
@@ -42,6 +44,7 @@
         const item = el("li", "", "");
         const name = el("strong", "", language.name);
         const level = el("span", "calculated-value", String(language.value));
+        if (language.tooltip) { level.dataset.tip = language.tooltip; level.tabIndex = 0; }
         item.append(name, document.createTextNode(" – "), level);
         if (language.status === "provisional") item.append(el("small","profile-status provisional","Vorläufig"));
         if (language.source) sourceDetails(item,language.source);
@@ -51,7 +54,21 @@
     } else {
       const value = el("strong", [v.tooltip ? "calculated-value" : "", isPrimaryAttribute ? "attribute-scale-value" : ""].filter(Boolean).join(" "), v.value);
       if (isPrimaryAttribute) value.dataset.attributeScale = "";
-      if (v.tooltip && !isPrimaryAttribute && !Array.isArray(v.value)) { value.dataset.tip = v.tooltip; value.tabIndex = 0; }
+      if (isPrimaryAttribute) {
+        const attributes = window.__profileData?.attributes || {};
+        const race = (attributes.characterData || []).find(item => item.label === "Volk")?.value || "";
+        const rules = attributes.attributeRules || {};
+        const modifier = rules.racialModifiers?.[race]?.[propertyName] || 0;
+        const cap = rules.effectiveCaps?.[race]?.[propertyName];
+        const baseMin = Number.isFinite(rules.baseMinimum) ? rules.baseMinimum : 7;
+        const baseMax = Number.isFinite(rules.baseMaximum) ? rules.baseMaximum : 16;
+        const effectiveMin = baseMin + modifier;
+        const effectiveMax = Math.min(baseMax + modifier, Number.isFinite(cap) ? cap : Infinity);
+        const modifierText = modifier === 0 ? "kein Rassenmodifikator" : "Rassenmodifikator " + (modifier > 0 ? "+" : "") + modifier;
+        const rangeText = "Kaufbereich " + baseMin + "–" + baseMax + "; " + modifierText + "; effektiver Wertebereich für " + race + ": " + effectiveMin + "–" + effectiveMax + (Number.isFinite(cap) ? " (Obergrenze " + cap + ")" : "") + ".";
+        value.dataset.tip = rangeText;
+        value.tabIndex = 0;
+      } else if (v.tooltip && !Array.isArray(v.value)) { value.dataset.tip = v.tooltip; value.tabIndex = 0; }
       card.append(value);
     }
     if (isPrimaryAttribute) card.append(diceImage("w20.png", "w20", "W20", "Für eine Eigenschaftsprobe würfelst du mit einem W20. Das Ergebnis muss kleiner oder gleich deinem Eigenschaftswert sein, damit die Probe gelingt."));
@@ -99,6 +116,7 @@
           if (v.status === "provisional") span.classList.add("provisional");
           td.append(span);
           if (options.dicePairOnValue && c.key === "value") appendW10Pair(td, options.dicePairTooltip);
+          if (c.key === "attack" || c.key === "parry") appendW10Pair(td);
           if (v.status === "provisional") td.append(el("small","profile-status provisional","Vorläufig"));
           sourceDetails(td,v.source);
         } else {
@@ -212,6 +230,7 @@
         if (value) {
           const pair = el("span", "dice-pair");
           pair.setAttribute("aria-label", "W10-Zehnerwürfel und W10-Einerwürfel");
+          pair.dataset.tip = "Für einen Prozentwurf verwendest du zwei W10: Der Zehnerwürfel bestimmt die Zehnerstelle, der Einerwürfel die Einerstelle. Zusammen ergeben sie deinen Prozentwurf. Er ist erfolgreich, wenn das Ergebnis höchstens deinem Fertigkeits- bzw. Angriffs-/Paradewert entspricht."; pair.tabIndex = 0;
           pair.append(diceImage("w10_90.png", "w10", "Zehnerwürfel"), diceImage("w10_9.png", "w10", "Einerwürfel"));
           value.after(pair);
         }

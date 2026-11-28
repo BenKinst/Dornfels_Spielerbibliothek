@@ -151,10 +151,10 @@
             "source": {
               "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
               "location": "Abschnitt 3 – Sprache"
-            }
+            },
+            "tooltip": "vollständige, akzentfreie Beherrschung in Wort und Schrift"
           }
         ],
-        "tooltip": "Sprachwerte nach Buch der Helden v2.0, Abschnitt 2.5.2 (S. 16): 1 = einfache mündliche Verständigung, ohne Lesen/Schreiben; 2 = einfache Gespräche und grobes Textverständnis, kein Schreiben; 3 = durchschnittliche Sprachbeherrschung mit deutlichem Akzent, einfache Texte lesen und schreiben; 4 = wie Stufe 3, Lesen und Schreiben wie ein gebildeter Durchschnittseinheimischer; 5 = vollständige, akzentfreie Beherrschung in Wort und Schrift.",
         "source": {
           "document": "RuneQuest – Buch der Helden v2.0",
           "location": "Abschnitt 2.5.1–2.5.2, S. 16; Charakterquelle: 02_Charaktere/02.01_Stadtbewohner_Zauberer.md, Abschnitt 3 – Sprache"
@@ -169,8 +169,7 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
-        },
-        "tooltip": "Gekaufter Wert 10; kein Rassenmodifikator = 10."
+        }
       },
       {
         "label": "Ausdauer",
@@ -179,8 +178,7 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
-        },
-        "tooltip": "Gekaufter Wert 10; kein Rassenmodifikator = 10."
+        }
       },
       {
         "label": "Gewandtheit",
@@ -189,8 +187,7 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
-        },
-        "tooltip": "Gekaufter Wert 16; kein Rassenmodifikator = 16."
+        }
       },
       {
         "label": "Intelligenz",
@@ -199,8 +196,7 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
-        },
-        "tooltip": "Gekaufter Wert 16; kein Rassenmodifikator = 16."
+        }
       },
       {
         "label": "Intuition",
@@ -209,8 +205,7 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
-        },
-        "tooltip": "Gekaufter Wert 16; kein Rassenmodifikator = 16."
+        }
       },
       {
         "label": "Erscheinung",
@@ -219,7 +214,8 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
-        }
+        },
+        "tooltip": "6 + W10: 7"
       },
       {
         "label": "Größe",
@@ -228,7 +224,8 @@
         "source": {
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
-        }
+        },
+        "tooltip": "6 + W10: 5"
       },
       {
         "label": "Reaktion (unbelastet)",
@@ -410,7 +407,42 @@
         },
         "tooltip": "Talentwurf W100: 17"
       }
-    ]
+    ],
+    "attributeRules": {
+      "source": "RuneQuest – Buch der Helden v2.0, Abschnitt 2.1.1, S. 14",
+      "baseMinimum": 7,
+      "baseMaximum": 16,
+      "racialModifiers": {
+        "Noldo": {
+          "Intelligenz": 1
+        },
+        "Hochelben": {
+          "Intelligenz": 1
+        },
+        "Zwerge": {
+          "Stärke": 2,
+          "Ausdauer": 2
+        },
+        "Zwerg": {
+          "Stärke": 2,
+          "Ausdauer": 2
+        },
+        "Hobbits": {
+          "Ausdauer": 2
+        },
+        "Hobbit": {
+          "Ausdauer": 2
+        }
+      },
+      "effectiveCaps": {
+        "Noldo": {
+          "Intelligenz": 16
+        },
+        "Hochelben": {
+          "Intelligenz": 16
+        }
+      }
+    }
   },
   "skills": {
     "groups": [
