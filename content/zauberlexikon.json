@@ -3,19 +3,23 @@
   "spells": [
     {
       "id": "brise",
-      "name": "Brise"
+      "name": "Brise",
+      "effect": "Konzentration; Wirkungsdurchmesser: 3 m je Stufe."
     },
     {
       "id": "festes-erwaermen",
-      "name": "Festes Erwärmen"
+      "name": "Festes Erwärmen",
+      "effect": "Erwärmt unbelebte, nichtmetallische feste Materie auf bis zu 40 °C; Wirkungsdauer: 24 Stunden; Wirkungsvolumen: 0,028 m³; Reichweite: 3 m."
     },
     {
       "id": "feuerwand",
-      "name": "Feuerwand"
+      "name": "Feuerwand",
+      "effect": "Wirkungsdauer: 1 Minute je Stufe; Reichweite: 30 m; Wirkungsfeld: 3 × 3 × 1,8 m; verursacht A-Heat."
     },
     {
       "id": "fluessigkeit-kochen",
-      "name": "Flüssigkeit kochen"
+      "name": "Flüssigkeit kochen",
+      "effect": "Erfasst 2 Liter je Stufe; wirkt nur auf unbelebte Flüssigkeit."
     },
     {
       "id": "holzfeuer",
@@ -23,15 +27,18 @@
     },
     {
       "id": "luftstop",
-      "name": "Luftstop"
+      "name": "Luftstop",
+      "effect": "Konzentration; Reichweite: 30 m; Wirkungsdurchmesser: 3 m; senkt die Windgeschwindigkeit um 48 km/h."
     },
     {
       "id": "luftwall",
-      "name": "Luftwall"
+      "name": "Luftwall",
+      "effect": "Konzentration; Reichweite: 30 m; Wirkungsfeld: 3 × 3 × 0,9 m; −50 % auf alles."
     },
     {
       "id": "wolke-der-benommenheit",
-      "name": "Wolke der Benommenheit"
+      "name": "Wolke der Benommenheit",
+      "effect": "Wirkungsdauer: 6 Runden; Wirkungsdurchmesser: 3 m; Reichweite: 6 m. Runden 1–2: C-Stun; Runden 3–4: B-Stun; Runden 5–6: A-Stun."
     }
   ]
 }
