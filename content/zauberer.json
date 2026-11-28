@@ -142,14 +142,23 @@
         }
       },
       {
-        "label": "Westron",
-        "value": 5,
-        "status": "provisional",
+        "label": "Sprachen",
+        "value": [
+          {
+            "name": "Westron",
+            "value": 5,
+            "status": "provisional",
+            "source": {
+              "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
+              "location": "Abschnitt 3 – Sprache"
+            }
+          }
+        ],
+        "tooltip": "Sprachwerte nach Buch der Helden v2.0, Abschnitt 2.5.2 (S. 16): 1 = einfache mündliche Verständigung, ohne Lesen/Schreiben; 2 = einfache Gespräche und grobes Textverständnis, kein Schreiben; 3 = durchschnittliche Sprachbeherrschung mit deutlichem Akzent, einfache Texte lesen und schreiben; 4 = wie Stufe 3, Lesen und Schreiben wie ein gebildeter Durchschnittseinheimischer; 5 = vollständige, akzentfreie Beherrschung in Wort und Schrift.",
         "source": {
-          "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
-          "location": "Abschnitt 3 – Sprache"
-        },
-        "tooltip": "Rassenspezifischer Anfangswert für Stadtbewohner laut Buch der Helden v2.0, Abschnitt 2.5.1"
+          "document": "RuneQuest – Buch der Helden v2.0",
+          "location": "Abschnitt 2.5.1–2.5.2, S. 16; Charakterquelle: 02_Charaktere/02.01_Stadtbewohner_Zauberer.md, Abschnitt 3 – Sprache"
+        }
       }
     ],
     "values": [
@@ -161,7 +170,7 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "W20-Probe auf diese Eigenschaft."
+        "tooltip": "Gekaufter Wert 10; kein Rassenmodifikator = 10."
       },
       {
         "label": "Ausdauer",
@@ -171,7 +180,7 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "W20-Probe auf diese Eigenschaft."
+        "tooltip": "Gekaufter Wert 10; kein Rassenmodifikator = 10."
       },
       {
         "label": "Gewandtheit",
@@ -181,7 +190,7 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "W20-Probe auf diese Eigenschaft."
+        "tooltip": "Gekaufter Wert 16; kein Rassenmodifikator = 16."
       },
       {
         "label": "Intelligenz",
@@ -191,7 +200,7 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "W20-Probe auf diese Eigenschaft."
+        "tooltip": "Gekaufter Wert 16; kein Rassenmodifikator = 16."
       },
       {
         "label": "Intuition",
@@ -201,7 +210,7 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "W20-Probe auf diese Eigenschaft."
+        "tooltip": "Gekaufter Wert 16; kein Rassenmodifikator = 16."
       },
       {
         "label": "Erscheinung",
@@ -339,7 +348,15 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "Alle Völker beginnen mit 21 Lebenspunkten; Zwerge erhalten 10 zusätzliche Lebenspunkte."
+        "tooltip": "Alle Völker beginnen mit 21 Lebenspunkten.",
+        "conditionalTooltip": {
+          "field": "Volk",
+          "equals": [
+            "Zwerg",
+            "Zwerge"
+          ],
+          "text": " Zwerge erhalten 10 zusätzliche Lebenspunkte."
+        }
       },
       {
         "label": "Astralpunkte",

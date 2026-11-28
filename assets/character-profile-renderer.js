@@ -15,30 +15,55 @@
     if (!d.profile || typeof d.profile !== "object") throw Error("Profilkopf fehlt.");
     return d;
   };
-  function diceImage(file, cls, alt) {
+  function diceImage(file, cls, alt, tooltip) {
     const img = el("img", "dice-icon " + cls);
     img.src = "../assets/wuerfel/" + file;
     img.alt = alt;
+    if (tooltip) { img.dataset.tip = tooltip; img.tabIndex = 0; }
     return img;
   }
-  function appendW10Pair(parent) {
+  function appendW10Pair(parent, tooltip) {
     const pair = el("span", "dice-pair");
     pair.setAttribute("aria-label", "W10-Zehnerwürfel und W10-Einerwürfel");
+    if (tooltip) { pair.dataset.tip = tooltip; pair.tabIndex = 0; }
     pair.append(diceImage("w10_90.png", "w10", "Zehnerwürfel"), diceImage("w10_9.png", "w10", "Einerwürfel"));
     parent.append(pair);
   }
   function valueCard(v) {
     const card = el("div", "sheet-field");
-    card.append(el("span", "", v.label || v.name || v.key || ""));
-    const propertyName = v.label || v.name;
+    const propertyName = v.label || v.name || v.key || "";
     const isPrimaryAttribute = ["Stärke","Ausdauer","Gewandtheit","Intelligenz","Intuition"].includes(propertyName);
-    const value = el("strong", [v.tooltip ? "calculated-value" : "", isPrimaryAttribute ? "attribute-scale-value" : ""].filter(Boolean).join(" "), v.value);
-    if (isPrimaryAttribute) value.dataset.attributeScale = "";
-    if (v.tooltip) { value.dataset.tip = v.tooltip; value.tabIndex = 0; }
-    card.append(value);
-    if (isPrimaryAttribute) card.append(diceImage("w20.png", "w20", "W20"));
+    const label = el("span", "", propertyName);
+    if (Array.isArray(v.value) && v.tooltip) { label.dataset.tip = v.tooltip; label.tabIndex = 0; }
+    card.append(label);
+    if (Array.isArray(v.value)) {
+      const languageList = el("ul", "profile-language-list");
+      v.value.forEach(language => {
+        const item = el("li", "", "");
+        const name = el("strong", "", language.name);
+        const level = el("span", "calculated-value", String(language.value));
+        item.append(name, document.createTextNode(" – "), level);
+        if (language.status === "provisional") item.append(el("small","profile-status provisional","Vorläufig"));
+        if (language.source) sourceDetails(item,language.source);
+        languageList.append(item);
+      });
+      card.append(languageList);
+    } else {
+      const value = el("strong", [v.tooltip ? "calculated-value" : "", isPrimaryAttribute ? "attribute-scale-value" : ""].filter(Boolean).join(" "), v.value);
+      if (isPrimaryAttribute) value.dataset.attributeScale = "";
+      if (v.tooltip && !isPrimaryAttribute && !Array.isArray(v.value)) { value.dataset.tip = v.tooltip; value.tabIndex = 0; }
+      card.append(value);
+    }
+    if (isPrimaryAttribute) card.append(diceImage("w20.png", "w20", "W20", "Für eine Eigenschaftsprobe würfelst du mit einem W20. Das Ergebnis muss kleiner oder gleich deinem Eigenschaftswert sein, damit die Probe gelingt."));
     if (v.description) card.append(el("small", "attribute-help", v.description));
     if (v.status === "provisional") card.append(el("small", "profile-status provisional", "Vorläufig"));
+    if (v.conditionalTooltip) {
+      const race = (window.__profileData?.attributes?.characterData || []).find(x => x.label === v.conditionalTooltip.field)?.value;
+      if (Array.isArray(v.conditionalTooltip.equals) ? v.conditionalTooltip.equals.includes(race) : race === v.conditionalTooltip.equals) {
+        const target = card.querySelector("strong");
+        if (target) target.dataset.tip = (v.tooltip || "") + v.conditionalTooltip.text;
+      }
+    }
     return card;
   }
   function valueGroup(title, values, gridClass = "sheet-grid sheet-grid-3", hiddenLabels = []) {
@@ -73,13 +98,17 @@
           if (v.tooltip) { span.dataset.tip = v.tooltip; span.tabIndex = 0; }
           if (v.status === "provisional") span.classList.add("provisional");
           td.append(span);
-          if (options.dicePairOnValue && c.key === "value") appendW10Pair(td);
+          if (options.dicePairOnValue && c.key === "value") appendW10Pair(td, options.dicePairTooltip);
           if (v.status === "provisional") td.append(el("small","profile-status provisional","Vorläufig"));
           sourceDetails(td,v.source);
-        } else td.textContent = v == null ? "" : String(v);
+        } else {
+          const cellValue = el("span", "", v == null ? "" : v);
+          if (c.key === "level" && row.tooltip) { cellValue.dataset.tip = row.tooltip; cellValue.tabIndex = 0; }
+          td.append(cellValue);
+        }
         if (c.key === "damage") {
           const damageValue = v && typeof v === "object" && "value" in v ? String(v.value) : (v == null ? "" : String(v));
-          const match = /^(\\d+)W([+-]\\s*\\d+)?$/i.exec(damageValue.trim());
+          const match = /^(\d+)W(?:6)?([+-]\s*\d+)?$/i.exec(damageValue.trim());
           if (match) {
             const valueNode = td.querySelector("span") || td.firstChild;
             if (valueNode && valueNode.nodeType === Node.ELEMENT_NODE) valueNode.textContent = match[1];
@@ -88,7 +117,7 @@
             const dice = diceImage("w6.png", "w6", "W6");
             if (valueNode && valueNode.nodeType === Node.ELEMENT_NODE) valueNode.after(dice);
             else td.append(dice);
-            if (match[2]) td.append(document.createTextNode(" " + match[2].replace(/\\s+/g," ")));
+            if (match[2]) td.append(document.createTextNode(" " + match[2].replace(/\s+/g," ")));
           }
         }
         if (index===0 && row.status==="provisional") td.append(el("small","profile-status provisional","Vorläufig"));
@@ -138,6 +167,8 @@
     document.title = (profile.name || profile.title || "Charakterprofil") + " – Die Helden von Dornfels";
   }
   function attributes(a) {
+    window.__profileData = window.__profileData || {};
+    window.__profileData.attributes = a;
     const root = el("div", "profile-section-content");
     const hiddenCharacterData = ["Erfahrung","Stufe","Ehre","Abenteuerpunkte","Reichweite (belastet)","AP noch"];
     const hiddenAttributes = ["Reaktion (belastet)","Initiative (belastet)","Ausweichen (belastet)","Gewandtheit (belastet)","Beweglichkeit (belastet)","Bewegungsreichweite (unbelastet)","Bewegungsreichweite (belastet)"];
@@ -158,7 +189,7 @@
     const root=el("div","profile-section-content");
     const nested=el("div","nested-accordion skill-tabs");
     (s.groups || []).forEach((g,i) => {
-      const t=table(null,g.skills,[{key:"name",label:"Fertigkeit"},{key:"value",label:"Endwert",tooltip:"Fertigkeitswert in Prozent; die W10-Zehner- und Einerwürfel bilden den Prozentwurf."}],{dicePairOnValue:true,scaleValues:true});
+      const t=table(null,g.skills,[{key:"name",label:"Fertigkeit"},{key:"value",label:"Endwert"}],{dicePairOnValue:true,scaleValues:true,dicePairTooltip:"Für eine Fertigkeitsprobe bildest du mit zwei W10 einen Prozentwurf: Der Zehnerwürfel bestimmt die Zehnerstelle, der Einerwürfel die Einerstelle. Der zusammengesetzte Wert ist dein Wurf. Die Probe gelingt, wenn der Prozentwurf höchstens deinem Fertigkeitswert entspricht."});
       if(t) {
         t.classList.add("skill-card");
         const content=el("div","profile-skill-group");
@@ -188,7 +219,7 @@
       root.append(g);
     }
     const details=valueGroup("Berufliche Magiemerkmale",m.details,"sheet-grid sheet-grid-2",["Verfügbare Elemente","Zauberfokus","Maximale AP","Rüstungsbeschränkung","Waffenbeschränkung"]); if(details) root.append(details);
-    (m.spellGroups || []).forEach(x=>{ const t=table(x.name,x.spells,[{key:"name",label:"Zauber / Wirkung"},{key:"level",label:"Stufe",tooltip:"Die Spruchstufe entspricht den Astralpunktkosten je Anwendung."}]); if(t) root.append(t); });
+    (m.spellGroups || []).forEach(x=>{ const t=table(x.name,x.spells,[{key:"name",label:"Zauber / Wirkung"},{key:"level",label:"Stufe"}]); if(t) root.append(t); });
     return root;
   }
   function equipment(e) {
@@ -204,7 +235,7 @@
   async function run() {
     const r=await fetch(page.dataset.profileSrc,{cache:"no-store"});
     if(!r.ok) throw Error("JSON-Profildaten konnten nicht geladen werden.");
-    const d=validate(await r.json()); header(d.profile);
+    const d=validate(await r.json()); window.__profileData = d; header(d.profile);
     const target=page.querySelector("[data-profile-content]"); target.replaceChildren();
     if(page.dataset.backgroundSrc) {
       const sr=await fetch(page.dataset.backgroundSrc,{cache:"no-store"});

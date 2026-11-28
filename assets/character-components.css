@@ -317,3 +317,19 @@
   line-height: 1.3;
   margin: 1.35em 0 .55em;
 }
+
+
+/* Mehrere Sprachkenntnisse innerhalb eines Charakterdatenfeldes */
+.character-page-standard .profile-language-list {
+  display: grid;
+  gap: 4px;
+  margin: 6px 0 0;
+  padding: 0;
+  list-style: none;
+}
+.character-page-standard .profile-language-list li {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 4px;
+}
