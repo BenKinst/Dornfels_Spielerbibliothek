@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#11100e">
+<meta name="description" content="Charakterprofil des Heilers aus der Spielerbibliothek von Dornfels.">
+<title>Der Heiler – Die Helden von Dornfels</title>
+<link rel="stylesheet" href="../assets/site.css">
+<link rel="stylesheet" href="../assets/character-components.css">
+</head>
+<body class="character-page-standard">
+<header>
+  <div class="wrap topbar">
+    <a class="brand" href="../"><span class="brand-mark">✧</span><span>Das Archiv von Dornfels</span></a>
+    <nav aria-label="Hauptnavigation"><a href="../#hauptauswahl">Heldenübersicht</a></nav>
+  </div>
+</header>
+<main class="wrap character-page">
+  <section class="page-hero">
+    <a class="back" href="../">← Zur Spielerbibliothek</a>
+    <div class="eyebrow">Die letzten Schreie von Dornfels · Spielerakte</div>
+    <h1 data-profile-title>Der Heiler</h1>
+    <p class="profile-subtitle" data-profile-subtitle>Peredhil (Halbelf), sterbliche Linie · Heiler</p>
+    <img class="profile-art profile-art-responsive" data-profile-image src="../assets/Heiler_Beruf.jpg" alt="Illustration des Berufs Heiler">
+    <p class="notice">Diese Spielerakte zeigt den erwachsenen Heldenzustand nach dem OneShot. Die Kindheitsfassung wird getrennt dokumentiert; Erwachsenenwerte werden nicht auf den Kindheitszustand übertragen.</p>
+  </section>
+  <div class="accordion-controls" aria-label="Bereiche steuern">
+    <button type="button" data-expand-all>Alle öffnen</button>
+    <button type="button" data-collapse-all>Alle schließen</button>
+  </div>
+  <div class="character-accordion"
+       data-profile-src="../content/heiler.json"
+       data-spell-lexicon-src="../content/zauberlexikon.json"
+       data-background-src="../content/heiler.md">
+    <div data-profile-content></div>
+  </div>
+  <div class="accordion-controls accordion-controls-bottom" aria-label="Bereiche steuern">
+    <button type="button" data-expand-all>Alle öffnen</button>
+    <button type="button" data-collapse-all>Alle schließen</button>
+  </div>
+</main>
+<footer><div class="wrap">Die letzten Schreie von Dornfels · Spielerbibliothek</div></footer>
+<script src="../assets/eigenschaftsfarben.js"></script>
+<script src="../assets/character-profile-renderer.js"></script>
+</body>
+</html>
