@@ -409,6 +409,15 @@
         },
         "tooltip": "Temporärer Modifikator bei Überschreiten der halben Tragkraft.",
         "description": "Die angezeigten Waffenwerte berücksichtigen diesen Abzug."
+      },
+      {
+        "label": "Körperliche Merkmale",
+        "value": "Stark und schlank; dünner als Menschen, aber kräftiger als die anderen Elben.",
+        "status": "confirmed",
+        "source": {
+          "document": "RuneQuest – Buch der Helden v2.0",
+          "location": "Kapitel 1.1.4 – Peredhil, S. 8"
+        }
       }
     ],
     "lifeValues": [
