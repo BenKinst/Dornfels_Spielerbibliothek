@@ -44,6 +44,7 @@
         const item = el("li", "", "");
         const name = el("strong", "", language.name);
         const level = el("span", "calculated-value", String(language.value));
+        if (language.tooltip) { level.dataset.tip = language.tooltip; level.tabIndex = 0; }
         item.append(name, document.createTextNode(" – "), level);
         if (language.status === "provisional") item.append(el("small","profile-status provisional","Vorläufig"));
         if (language.source) sourceDetails(item,language.source);
