@@ -806,6 +806,24 @@
     ],
     "details": [
       {
+        "label": "Berufliche Einordnung",
+        "value": "Der Heiler ist ein vollwertiger Magierberuf.",
+        "status": "confirmed",
+        "source": {
+          "document": "02_Charaktere/01.01_Peredhil_Heiler.md",
+          "location": "Abschnitt 12 – Beruf und berufsspezifische Regeln"
+        }
+      },
+      {
+        "label": "Behandlung anderer Personen",
+        "value": "Verletzungen und Krankheiten anderer Personen werden auf den eigenen Körper des Heilers übertragen. Anschließend beginnt dessen Körper selbst mit der Heilung; dies funktioniert auch bei Bewusstlosigkeit.",
+        "status": "confirmed",
+        "source": {
+          "document": "02_Charaktere/01.01_Peredhil_Heiler.md",
+          "location": "Abschnitt 12 – Berufsvorteile und Sonderregeln"
+        }
+      },
+      {
         "label": "Automatische Selbstheilung",
         "value": "Bekannte Sprüche werden mit 35 % eingesetzt, solange AP vorhanden sind.",
         "status": "confirmed",
