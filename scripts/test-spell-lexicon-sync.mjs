@@ -61,10 +61,29 @@ try {
     magic: { spellGroups: [{ name: "Beliebige Liste", spells: [{ name: "Unklar", level: 1 }] }] }
   });
   result = run();
-  assert.notEqual(result.status, 0, "Ohne ID und Wirkung darf keine unsichere Zuordnung erfolgen.");
-  assert.match(result.stderr, /Wirkung angegeben sein/);
+  assert.equal(result.status, 0, result.stderr || result.stdout);
+  assert.match(result.stderr, /Achtung! Neue Zauber-ID im Lexikon eingetragen/);
+  const pendingProfile = JSON.parse(fs.readFileSync(path.join(content, "ohne-wirkung.json"), "utf8"));
+  const pendingLexicon = JSON.parse(fs.readFileSync(path.join(content, "zauberlexikon.json"), "utf8"));
+  const pendingSpell = pendingProfile.magic.spellGroups[0].spells[0];
+  const pendingEntry = pendingLexicon.spells.find(entry => entry.id === pendingSpell.lexiconId);
+  assert.ok(pendingSpell.lexiconId, "Auch ohne Wirkung muss eine lexiconId vergeben werden.");
+  assert.equal(pendingEntry.name, "Unklar");
+  assert.equal(Object.hasOwn(pendingEntry, "effect"), false,
+    "Ein neuer Lexikoneintrag bleibt bis zur Regelwerksprüfung ohne erfundene Wirkung.");
 
-  console.log("OK: Namens-/Wirkungsabgleich, listenunabhängige Zuordnung und fehlende Wirkung geprüft.");
+  pendingSpell.effect = "Eine später anhand des Regelwerks ergänzte Wirkung.";
+  writeJson(path.join(content, "ohne-wirkung.json"), pendingProfile);
+  result = run();
+  assert.equal(result.status, 0, result.stderr || result.stdout);
+  const completedLexicon = JSON.parse(fs.readFileSync(path.join(content, "zauberlexikon.json"), "utf8"));
+  assert.equal(completedLexicon.spells.find(entry => entry.id === pendingSpell.lexiconId).effect,
+    pendingSpell.effect, "Die nachträglich ergänzte Wirkung muss den bestehenden Lexikoneintrag vervollständigen.");
+
+  result = run(["--check"]);
+  assert.equal(result.status, 0, result.stderr || result.stdout);
+
+  console.log("OK: Namens-/Wirkungsabgleich, listenunabhängige Zuordnung und offene Wirkungen geprüft.");
 } finally {
   fs.rmSync(tempRoot, { recursive: true, force: true });
 }
