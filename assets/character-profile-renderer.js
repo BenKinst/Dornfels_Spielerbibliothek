@@ -54,7 +54,21 @@
     } else {
       const value = el("strong", [v.tooltip ? "calculated-value" : "", isPrimaryAttribute ? "attribute-scale-value" : ""].filter(Boolean).join(" "), v.value);
       if (isPrimaryAttribute) value.dataset.attributeScale = "";
-      if (v.tooltip && !Array.isArray(v.value)) { value.dataset.tip = v.tooltip; value.tabIndex = 0; }
+      if (isPrimaryAttribute) {
+        const attributes = window.__profileData?.attributes || {};
+        const race = (attributes.characterData || []).find(item => item.label === "Volk")?.value || "";
+        const rules = attributes.attributeRules || {};
+        const modifier = rules.racialModifiers?.[race]?.[propertyName] || 0;
+        const cap = rules.effectiveCaps?.[race]?.[propertyName];
+        const baseMin = Number.isFinite(rules.baseMinimum) ? rules.baseMinimum : 7;
+        const baseMax = Number.isFinite(rules.baseMaximum) ? rules.baseMaximum : 16;
+        const effectiveMin = baseMin + modifier;
+        const effectiveMax = Math.min(baseMax + modifier, Number.isFinite(cap) ? cap : Infinity);
+        const modifierText = modifier === 0 ? "kein Rassenmodifikator" : "Rassenmodifikator " + (modifier > 0 ? "+" : "") + modifier;
+        const rangeText = "Kaufbereich " + baseMin + "–" + baseMax + "; " + modifierText + "; effektiver Wertebereich für " + race + ": " + effectiveMin + "–" + effectiveMax + (Number.isFinite(cap) ? " (Obergrenze " + cap + ")" : "") + ".";
+        value.dataset.tip = rangeText;
+        value.tabIndex = 0;
+      } else if (v.tooltip && !Array.isArray(v.value)) { value.dataset.tip = v.tooltip; value.tabIndex = 0; }
       card.append(value);
     }
     if (isPrimaryAttribute) card.append(diceImage("w20.png", "w20", "W20", "Für eine Eigenschaftsprobe würfelst du mit einem W20. Das Ergebnis muss kleiner oder gleich deinem Eigenschaftswert sein, damit die Probe gelingt."));
