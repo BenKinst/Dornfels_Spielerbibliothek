@@ -1,5 +1,3 @@
-<!-- dornfels-story: freigegeben -->
-
 # Hinter dem Ladentisch
 
 Ich wurde in das unbeschwerte Leben einer fahrenden Hobbit-Händlerfamilie hineingeboren. Als das Familienoberhaupt starb und mein Vater die Verantwortung übernahm, beschlossen meine Eltern, sich niederzulassen. Ihre Wahl fiel auf Dornfels. Die Dorfbewohner konnten sich glücklich schätzen – auch wenn ihnen das damals vermutlich gar nicht bewusst war. Aus dem Leben auf Reisen wurde ein Alltag in einem kleinen Laden, in dem Waren, Menschen und Geschichten zusammenkamen.
