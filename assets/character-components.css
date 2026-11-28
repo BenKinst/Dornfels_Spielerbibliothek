@@ -333,3 +333,18 @@
   align-items: baseline;
   gap: 4px;
 }
+
+
+/* Einheitliche Kennzeichnung aller textlichen Tooltip-Auslöser.
+   Würfelgrafiken und ihre reine Bildgruppe bleiben ausdrücklich ohne Unterstreichung. */
+.character-page-standard [data-tip]:not(img):not(.dice-pair) {
+  text-decoration-line: underline;
+  text-decoration-style: dotted;
+  text-decoration-color: var(--gold-soft);
+  text-underline-offset: 3px;
+  cursor: help;
+}
+.character-page-standard img[data-tip] {
+  text-decoration: none;
+  cursor: help;
+}
