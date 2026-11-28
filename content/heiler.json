@@ -97,8 +97,8 @@
         "value": "2,06–2,15 m",
         "status": "confirmed",
         "source": {
-          "document": "RuneQuest – Buch der Helden v2.0",
-          "location": "Abschnitt 3 – Abgeleitete Grundwerte; Größenwert 17"
+          "document": "02_Charaktere/01.01_Peredhil_Heiler.md",
+          "location": "Abschnitt 3 – Abgeleitete Grundwerte"
         }
       },
       {
@@ -106,42 +106,32 @@
         "value": "100,97–114,79 kg",
         "status": "confirmed",
         "source": {
-          "document": "RuneQuest – Buch der Helden v2.0",
-          "location": "Abschnitt 3 – Abgeleitete Grundwerte; Elfenmodifikator ×0,75"
+          "document": "02_Charaktere/01.01_Peredhil_Heiler.md",
+          "location": "Abschnitt 3 – Abgeleitete Grundwerte"
         },
         "description": "Der konkrete Wert innerhalb der errechneten Spanne bleibt der späteren Spielerentscheidung überlassen."
       },
       {
-        "label": "Sprachen",
-        "value": [
-          {
-            "name": "Sindarin",
-            "value": 5,
-            "status": "confirmed",
-            "source": {
-              "document": "02_Charaktere/01.01_Peredhil_Heiler.md",
-              "location": "Abschnitt 5 – Sprachen"
-            }
-          },
-          {
-            "name": "Westron",
-            "value": 5,
-            "status": "confirmed",
-            "source": {
-              "document": "02_Charaktere/01.01_Peredhil_Heiler.md",
-              "location": "Abschnitt 5 – Sprachen"
-            }
-          },
-          {
-            "name": "Andere elbische Sprachen",
-            "value": 2,
-            "status": "confirmed",
-            "source": {
-              "document": "02_Charaktere/01.01_Peredhil_Heiler.md",
-              "location": "Abschnitt 5 – Sprachen"
-            }
-          }
-        ],
+        "label": "Sindarin",
+        "value": 5,
+        "status": "confirmed",
+        "source": {
+          "document": "02_Charaktere/01.01_Peredhil_Heiler.md",
+          "location": "Abschnitt 5 – Sprachen"
+        }
+      },
+      {
+        "label": "Westron",
+        "value": 5,
+        "status": "confirmed",
+        "source": {
+          "document": "02_Charaktere/01.01_Peredhil_Heiler.md",
+          "location": "Abschnitt 5 – Sprachen"
+        }
+      },
+      {
+        "label": "Andere elbische Sprachen",
+        "value": 2,
         "status": "confirmed",
         "source": {
           "document": "02_Charaktere/01.01_Peredhil_Heiler.md",
@@ -297,7 +287,7 @@
         "status": "confirmed",
         "source": {
           "document": "RuneQuest – Buch der Helden v2.0",
-          "location": "Abschnitt 11 – Rasse und Volksmerkmale"
+          "location": "Kapitel 1.1.4 – Peredhil, S. 8"
         }
       },
       {
@@ -306,7 +296,7 @@
         "status": "confirmed",
         "source": {
           "document": "RuneQuest – Buch der Helden v2.0",
-          "location": "Abschnitt 11 – Rasse und Volksmerkmale"
+          "location": "Kapitel 1.1.4 – Peredhil, S. 8"
         }
       },
       {
@@ -315,7 +305,7 @@
         "status": "confirmed",
         "source": {
           "document": "RuneQuest – Buch der Helden v2.0",
-          "location": "Abschnitt 11 – Rasse und Volksmerkmale"
+          "location": "Kapitel 1.1.4 – Peredhil, S. 8"
         }
       },
       {
