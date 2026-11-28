@@ -23,7 +23,8 @@
     },
     {
       "id": "holzfeuer",
-      "name": "Holzfeuer"
+      "name": "Holzfeuer",
+      "effect": "Entzündet berührtes trockenes Holz."
     },
     {
       "id": "luftstop",
