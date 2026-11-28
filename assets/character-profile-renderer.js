@@ -53,7 +53,7 @@
     } else {
       const value = el("strong", [v.tooltip ? "calculated-value" : "", isPrimaryAttribute ? "attribute-scale-value" : ""].filter(Boolean).join(" "), v.value);
       if (isPrimaryAttribute) value.dataset.attributeScale = "";
-      if (v.tooltip && !isPrimaryAttribute && !Array.isArray(v.value)) { value.dataset.tip = v.tooltip; value.tabIndex = 0; }
+      if (v.tooltip && !Array.isArray(v.value)) { value.dataset.tip = v.tooltip; value.tabIndex = 0; }
       card.append(value);
     }
     if (isPrimaryAttribute) card.append(diceImage("w20.png", "w20", "W20", "Für eine Eigenschaftsprobe würfelst du mit einem W20. Das Ergebnis muss kleiner oder gleich deinem Eigenschaftswert sein, damit die Probe gelingt."));
