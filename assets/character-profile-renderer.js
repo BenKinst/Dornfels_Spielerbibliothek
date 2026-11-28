@@ -101,6 +101,7 @@
           if (v.status === "provisional") span.classList.add("provisional");
           td.append(span);
           if (options.dicePairOnValue && c.key === "value") appendW10Pair(td, options.dicePairTooltip);
+          if (c.key === "attack" || c.key === "parry") appendW10Pair(td);
           if (v.status === "provisional") td.append(el("small","profile-status provisional","Vorläufig"));
           sourceDetails(td,v.source);
         } else {
