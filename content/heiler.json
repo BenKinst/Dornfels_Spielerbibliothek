@@ -262,26 +262,6 @@
         "tooltip": "18,30 m Grundwert + 0,50 m (3 m Größenmodifikator ÷ 6) = 18,80 m/Kampfrunde."
       },
       {
-        "label": "Zaubern",
-        "value": "75 %",
-        "status": "confirmed",
-        "source": {
-          "document": "02_Charaktere/01.01_Peredhil_Heiler.md",
-          "location": "Abschnitt 3 und Abschnitt 7 – Magie und Zaubersprüche"
-        },
-        "tooltip": "Beruflicher Grundwert laut Charakterdokumentation."
-      },
-      {
-        "label": "Gegenzauber / magische Verteidigung",
-        "value": "75 %",
-        "status": "confirmed",
-        "source": {
-          "document": "02_Charaktere/01.01_Peredhil_Heiler.md",
-          "location": "Abschnitt 3 und Abschnitt 6 – Kampfwerte, Waffen und Rüstung"
-        },
-        "tooltip": "Allgemeiner Wert für den vollwertigen Magierberuf."
-      },
-      {
         "label": "Krankheitsimmunität",
         "value": "Peredhil sind laut Charakterdokumentation immun gegen Krankheiten.",
         "status": "confirmed",
@@ -376,6 +356,59 @@
           "document": "02_Charaktere/01.01_Peredhil_Heiler.md",
           "location": "Abschnitt 13 – Charakterpunkt- und Hintergrundpunktabrechnung"
         }
+      },
+      {
+        "label": "Gesamtbelastung",
+        "value": "15,39 Belastungspunkte",
+        "status": "confirmed",
+        "source": {
+          "document": "02_Charaktere/01.01_Peredhil_Heiler.md",
+          "location": "Abschnitt 9 – Belastung"
+        },
+        "tooltip": "Summe aller mitgeführten Gegenstände: 15,39. Tragkraft 27; die Hälfte beträgt 13,5, drei Viertel 20,25."
+      },
+      {
+        "label": "Belastungszustand",
+        "value": "Eine Belastungsstufe",
+        "status": "confirmed",
+        "source": {
+          "document": "02_Charaktere/01.01_Peredhil_Heiler.md",
+          "location": "Abschnitt 9 – Belastung"
+        },
+        "tooltip": "15,39 liegt über der halben Tragkraft von 13,5 und unter drei Vierteln der Tragkraft von 20,25."
+      },
+      {
+        "label": "Belastungsmalus Gewandtheit",
+        "value": "−1",
+        "status": "confirmed",
+        "source": {
+          "document": "02_Charaktere/01.01_Peredhil_Heiler.md",
+          "location": "Abschnitt 9 – Temporäre Belastungsmodifikatoren"
+        },
+        "tooltip": "Temporärer Modifikator bei Überschreiten der halben Tragkraft.",
+        "description": "Wird nicht in den Grundwert eingerechnet."
+      },
+      {
+        "label": "Belastungsmalus Beweglichkeit",
+        "value": "− (20AU)",
+        "status": "confirmed",
+        "source": {
+          "document": "02_Charaktere/01.01_Peredhil_Heiler.md",
+          "location": "Abschnitt 9 – Temporäre Belastungsmodifikatoren"
+        },
+        "tooltip": "Wortlaut des Regelwerks; keine weitergehende Umdeutung.",
+        "description": "Temporärer Modifikator; wird nicht in den Grundwert eingerechnet."
+      },
+      {
+        "label": "Belastungsmalus Attacke / Parade",
+        "value": "−5 Prozentpunkte",
+        "status": "confirmed",
+        "source": {
+          "document": "02_Charaktere/01.01_Peredhil_Heiler.md",
+          "location": "Abschnitt 9 – Temporäre Belastungsmodifikatoren"
+        },
+        "tooltip": "Temporärer Modifikator bei Überschreiten der halben Tragkraft.",
+        "description": "Die angezeigten Waffenwerte berücksichtigen diesen Abzug."
       }
     ],
     "lifeValues": [
