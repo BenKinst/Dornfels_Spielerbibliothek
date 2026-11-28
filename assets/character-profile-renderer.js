@@ -19,13 +19,15 @@
     const img = el("img", "dice-icon " + cls);
     img.src = "../assets/wuerfel/" + file;
     img.alt = alt;
-    if (tooltip) { img.dataset.tip = tooltip; img.tabIndex = 0; }
+    const diceTooltip = tooltip || (cls === "w10" ? "Für einen Prozentwurf verwendest du zwei W10: Der Zehnerwürfel bestimmt die Zehnerstelle, der Einerwürfel die Einerstelle. Zusammen ergeben sie deinen Prozentwurf. Er ist erfolgreich, wenn das Ergebnis höchstens deinem Fertigkeits- bzw. Angriffs-/Paradewert entspricht." : cls === "w6" ? "Würfle mit einem W6 und addiere anschließend den angegebenen Schadenszuschlag." : "");
+    if (diceTooltip) { img.dataset.tip = diceTooltip; img.tabIndex = 0; }
     return img;
   }
   function appendW10Pair(parent, tooltip) {
     const pair = el("span", "dice-pair");
     pair.setAttribute("aria-label", "W10-Zehnerwürfel und W10-Einerwürfel");
-    if (tooltip) { pair.dataset.tip = tooltip; pair.tabIndex = 0; }
+    const pairTooltip = tooltip || "Für einen Prozentwurf verwendest du zwei W10: Der Zehnerwürfel bestimmt die Zehnerstelle, der Einerwürfel die Einerstelle. Zusammen ergeben sie deinen Prozentwurf. Er ist erfolgreich, wenn das Ergebnis höchstens deinem Fertigkeits- bzw. Angriffs-/Paradewert entspricht.";
+    pair.dataset.tip = pairTooltip; pair.tabIndex = 0;
     pair.append(diceImage("w10_90.png", "w10", "Zehnerwürfel"), diceImage("w10_9.png", "w10", "Einerwürfel"));
     parent.append(pair);
   }
@@ -212,6 +214,7 @@
         if (value) {
           const pair = el("span", "dice-pair");
           pair.setAttribute("aria-label", "W10-Zehnerwürfel und W10-Einerwürfel");
+          pair.dataset.tip = "Für einen Prozentwurf verwendest du zwei W10: Der Zehnerwürfel bestimmt die Zehnerstelle, der Einerwürfel die Einerstelle. Zusammen ergeben sie deinen Prozentwurf. Er ist erfolgreich, wenn das Ergebnis höchstens deinem Fertigkeits- bzw. Angriffs-/Paradewert entspricht."; pair.tabIndex = 0;
           pair.append(diceImage("w10_90.png", "w10", "Zehnerwürfel"), diceImage("w10_9.png", "w10", "Einerwürfel"));
           value.after(pair);
         }
