@@ -170,7 +170,15 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "Gekaufter Wert 10; kein Rassenmodifikator = 10."
+        "tooltip": "Kaufwert 10; kein Rassenmodifikator. Primäreigenschaften beginnen bei 7 und sind bis 16 steigerbar. Für Stadtbewohner ergibt sich damit ein Bereich von 7 bis 16.",
+        "attributeRange": {
+          "race": "Stadtbewohner",
+          "baseMinimum": 7,
+          "baseMaximum": 16,
+          "racialModifier": 0,
+          "effectiveMinimum": 7,
+          "effectiveMaximum": 16
+        }
       },
       {
         "label": "Ausdauer",
@@ -180,7 +188,15 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "Gekaufter Wert 10; kein Rassenmodifikator = 10."
+        "tooltip": "Kaufwert 10; kein Rassenmodifikator. Primäreigenschaften beginnen bei 7 und sind bis 16 steigerbar. Für Stadtbewohner ergibt sich damit ein Bereich von 7 bis 16.",
+        "attributeRange": {
+          "race": "Stadtbewohner",
+          "baseMinimum": 7,
+          "baseMaximum": 16,
+          "racialModifier": 0,
+          "effectiveMinimum": 7,
+          "effectiveMaximum": 16
+        }
       },
       {
         "label": "Gewandtheit",
@@ -190,7 +206,15 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "Gekaufter Wert 16; kein Rassenmodifikator = 16."
+        "tooltip": "Kaufwert 16; kein Rassenmodifikator. Primäreigenschaften beginnen bei 7 und sind bis 16 steigerbar. Für Stadtbewohner ergibt sich damit ein Bereich von 7 bis 16.",
+        "attributeRange": {
+          "race": "Stadtbewohner",
+          "baseMinimum": 7,
+          "baseMaximum": 16,
+          "racialModifier": 0,
+          "effectiveMinimum": 7,
+          "effectiveMaximum": 16
+        }
       },
       {
         "label": "Intelligenz",
@@ -200,7 +224,15 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "Gekaufter Wert 16; kein Rassenmodifikator = 16."
+        "tooltip": "Kaufwert 16; kein Rassenmodifikator. Primäreigenschaften beginnen bei 7 und sind bis 16 steigerbar. Für Stadtbewohner ergibt sich damit ein Bereich von 7 bis 16.",
+        "attributeRange": {
+          "race": "Stadtbewohner",
+          "baseMinimum": 7,
+          "baseMaximum": 16,
+          "racialModifier": 0,
+          "effectiveMinimum": 7,
+          "effectiveMaximum": 16
+        }
       },
       {
         "label": "Intuition",
@@ -210,7 +242,15 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "Gekaufter Wert 16; kein Rassenmodifikator = 16."
+        "tooltip": "Kaufwert 16; kein Rassenmodifikator. Primäreigenschaften beginnen bei 7 und sind bis 16 steigerbar. Für Stadtbewohner ergibt sich damit ein Bereich von 7 bis 16.",
+        "attributeRange": {
+          "race": "Stadtbewohner",
+          "baseMinimum": 7,
+          "baseMaximum": 16,
+          "racialModifier": 0,
+          "effectiveMinimum": 7,
+          "effectiveMaximum": 16
+        }
       },
       {
         "label": "Erscheinung",
@@ -220,7 +260,7 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "Grundwert 6 + W10-Wurf 7 = 13."
+        "tooltip": "6 + W10: 7"
       },
       {
         "label": "Größe",
@@ -230,7 +270,7 @@
           "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
           "location": "Abschnitt 2 – Vorläufige Eigenschaften und abgeleitete Werte"
         },
-        "tooltip": "Grundwert 6 + W10-Wurf 5 = 11."
+        "tooltip": "6 + W10: 5"
       },
       {
         "label": "Reaktion (unbelastet)",
