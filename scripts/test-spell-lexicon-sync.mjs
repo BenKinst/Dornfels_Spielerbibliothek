@@ -50,7 +50,7 @@ try {
     "Gleicher Name und gleiche Wirkung müssen listenübergreifend dieselbe ID erhalten.");
   assert.notEqual(spells[1].lexiconId, spells[4].lexiconId,
     "Unterschiedliche Namen dürfen trotz gleicher Wirkung nicht zusammengeführt werden.");
-  assert.equal(lexicon.spells.length, 3, "Es müssen genau drei eindeutige Name-Wirkung-Paare entstehen.");
+  assert.equal(lexicon.spells.length, 4, "Es müssen vier eindeutige Name-Wirkung-Paare entstehen; unterschiedliche Namen werden nicht zusammengeführt.");
 
   result = run(["--check"]);
   assert.equal(result.status, 0, result.stderr || result.stdout);
