@@ -59,7 +59,7 @@
     if (v.status === "provisional") card.append(el("small", "profile-status provisional", "Vorläufig"));
     if (v.conditionalTooltip) {
       const race = (window.__profileData?.attributes?.characterData || []).find(x => x.label === v.conditionalTooltip.field)?.value;
-      if (race === v.conditionalTooltip.equals) {
+      if (Array.isArray(v.conditionalTooltip.equals) ? v.conditionalTooltip.equals.includes(race) : race === v.conditionalTooltip.equals) {
         const target = card.querySelector("strong");
         if (target) target.dataset.tip = (v.tooltip || "") + v.conditionalTooltip.text;
       }
@@ -117,7 +117,7 @@
             const dice = diceImage("w6.png", "w6", "W6");
             if (valueNode && valueNode.nodeType === Node.ELEMENT_NODE) valueNode.after(dice);
             else td.append(dice);
-            if (match[2]) td.append(document.createTextNode(" " + match[2].replace(/\\s+/g," ")));
+            if (match[2]) td.append(document.createTextNode(" " + match[2].replace(/\s+/g," ")));
           }
         }
         if (index===0 && row.status==="provisional") td.append(el("small","profile-status provisional","Vorläufig"));
