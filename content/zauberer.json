@@ -850,7 +850,8 @@
               "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Windes"
             },
-            "tooltip": "Spruchstufe 1: Der Zauber kostet 1 Astralpunkte je Anwendung."
+            "tooltip": "Spruchstufe 1: Der Zauber kostet 1 Astralpunkte je Anwendung.",
+            "lexiconId": "brise"
           },
           {
             "name": "Luftwall",
@@ -860,7 +861,8 @@
               "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Windes"
             },
-            "tooltip": "Spruchstufe 2: Der Zauber kostet 2 Astralpunkte je Anwendung."
+            "tooltip": "Spruchstufe 2: Der Zauber kostet 2 Astralpunkte je Anwendung.",
+            "lexiconId": "luftwall"
           },
           {
             "name": "Wolke der Benommenheit",
@@ -870,7 +872,8 @@
               "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Windes"
             },
-            "tooltip": "Spruchstufe 4: Der Zauber kostet 4 Astralpunkte je Anwendung."
+            "tooltip": "Spruchstufe 4: Der Zauber kostet 4 Astralpunkte je Anwendung.",
+            "lexiconId": "wolke-der-benommenheit"
           },
           {
             "name": "Luftstop",
@@ -880,7 +883,8 @@
               "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Windes"
             },
-            "tooltip": "Spruchstufe 5: Der Zauber kostet 5 Astralpunkte je Anwendung."
+            "tooltip": "Spruchstufe 5: Der Zauber kostet 5 Astralpunkte je Anwendung.",
+            "lexiconId": "luftstop"
           }
         ]
       },
@@ -895,7 +899,8 @@
               "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Feuers"
             },
-            "tooltip": "Spruchstufe 1: Der Zauber kostet 1 Astralpunkte je Anwendung."
+            "tooltip": "Spruchstufe 1: Der Zauber kostet 1 Astralpunkte je Anwendung.",
+            "lexiconId": "fluessigkeit-kochen"
           },
           {
             "name": "Festes Erwärmen",
@@ -905,7 +910,8 @@
               "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Feuers"
             },
-            "tooltip": "Spruchstufe 2: Der Zauber kostet 2 Astralpunkte je Anwendung."
+            "tooltip": "Spruchstufe 2: Der Zauber kostet 2 Astralpunkte je Anwendung.",
+            "lexiconId": "festes-erwaermen"
           },
           {
             "name": "Holzfeuer",
@@ -915,7 +921,8 @@
               "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Feuers"
             },
-            "tooltip": "Spruchstufe 3: Der Zauber kostet 3 Astralpunkte je Anwendung."
+            "tooltip": "Spruchstufe 3: Der Zauber kostet 3 Astralpunkte je Anwendung.",
+            "lexiconId": "holzfeuer"
           },
           {
             "name": "Feuerwand",
@@ -925,7 +932,8 @@
               "document": "02_Charaktere/02.01_Stadtbewohner_Zauberer.md",
               "location": "Abschnitt 7 – Ausgewählte Zauberspruchlisten, Gesetz des Feuers"
             },
-            "tooltip": "Spruchstufe 4: Der Zauber kostet 4 Astralpunkte je Anwendung."
+            "tooltip": "Spruchstufe 4: Der Zauber kostet 4 Astralpunkte je Anwendung.",
+            "lexiconId": "feuerwand"
           }
         ]
       }
