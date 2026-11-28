@@ -13,6 +13,9 @@ function writeJson(file, value) {
   fs.mkdirSync(path.dirname(file), { recursive: true });
   fs.writeFileSync(file, JSON.stringify(value, null, 2) + "\n");
 }
+function readJson(file) {
+  return JSON.parse(fs.readFileSync(file, "utf8"));
+}
 function run(args = []) {
   return spawnSync(process.execPath, [syncScript, ...args], {
     cwd: tempRoot, encoding: "utf8"
@@ -21,69 +24,92 @@ function run(args = []) {
 
 try {
   const content = path.join(tempRoot, "content");
-  writeJson(path.join(content, "zauberlexikon.json"), { schemaVersion: 1, spells: [] });
-  writeJson(path.join(content, "charakter.json"), {
+  const lexiconFile = path.join(content, "zauberlexikon.json");
+  const profileFile = path.join(content, "charakter.json");
+
+  writeJson(lexiconFile, {
+    schemaVersion: 1,
+    spells: [
+      { id: "schutz-wind", name: "Schutz", effect: "Wirkung A aus dem Lexikon." },
+      { id: "gleicher-zauber", name: "Gleicher Zauber", effect: "Zentrale Wirkung." },
+      { id: "anderer-name", name: "Andere Bezeichnung", effect: "Zentrale Wirkung." }
+    ]
+  });
+  writeJson(profileFile, {
     schemaVersion: 1,
     profile: { name: "Test" },
     magic: { spellGroups: [
       { name: "Gesetz des Windes", spells: [
-        { name: "Schutz", effect: "Erzeugt einen schützenden Windschirm.", level: 1 },
-        { name: "Gleicher Zauber", effect: "Eine identische Wirkung.", level: 2 }
-      ] },
-      { name: "Gesetz des Feuers", spells: [
-        { name: "Schutz", effect: "Erzeugt eine schützende Feuerbarriere.", level: 1 },
-        { name: "Gleicher Zauber", effect: "Eine identische Wirkung.", level: 2 },
-        { name: "Andere Bezeichnung", effect: "Eine identische Wirkung.", level: 3 }
+        { name: "Schutz", level: 1 },
+        { name: "Gleicher Zauber", lexiconId: "gleicher-zauber", level: 2 },
+        { name: "Neuer Zauber", level: 3 }
       ] }
     ] }
   });
 
   let result = run();
   assert.equal(result.status, 0, result.stderr || result.stdout);
-  const profile = JSON.parse(fs.readFileSync(path.join(content, "charakter.json"), "utf8"));
-  const lexicon = JSON.parse(fs.readFileSync(path.join(content, "zauberlexikon.json"), "utf8"));
+
+  let profile = readJson(profileFile);
+  let lexicon = readJson(lexiconFile);
   const spells = profile.magic.spellGroups.flatMap(group => group.spells);
 
-  assert.notEqual(spells[0].lexiconId, spells[2].lexiconId,
-    "Gleicher Name mit unterschiedlicher Wirkung muss getrennte IDs erhalten.");
-  assert.equal(spells[1].lexiconId, spells[3].lexiconId,
-    "Gleicher Name und gleiche Wirkung müssen listenübergreifend dieselbe ID erhalten.");
-  assert.notEqual(spells[1].lexiconId, spells[4].lexiconId,
-    "Unterschiedliche Namen dürfen trotz gleicher Wirkung nicht zusammengeführt werden.");
-  assert.equal(lexicon.spells.length, 4, "Es müssen vier eindeutige Name-Wirkung-Paare entstehen; unterschiedliche Namen werden nicht zusammengeführt.");
-
-  result = run(["--check"]);
-  assert.equal(result.status, 0, result.stderr || result.stdout);
-
-  writeJson(path.join(content, "ohne-wirkung.json"), {
-    schemaVersion: 1,
-    profile: { name: "Unvollständig" },
-    magic: { spellGroups: [{ name: "Beliebige Liste", spells: [{ name: "Unklar", level: 1 }] }] }
-  });
-  result = run();
-  assert.equal(result.status, 0, result.stderr || result.stdout);
-  assert.match(result.stderr, /Achtung! Neue Zauber-ID im Lexikon eingetragen/);
-  const pendingProfile = JSON.parse(fs.readFileSync(path.join(content, "ohne-wirkung.json"), "utf8"));
-  const pendingLexicon = JSON.parse(fs.readFileSync(path.join(content, "zauberlexikon.json"), "utf8"));
-  const pendingSpell = pendingProfile.magic.spellGroups[0].spells[0];
-  const pendingEntry = pendingLexicon.spells.find(entry => entry.id === pendingSpell.lexiconId);
-  assert.ok(pendingSpell.lexiconId, "Auch ohne Wirkung muss eine lexiconId vergeben werden.");
-  assert.equal(pendingEntry.name, "Unklar");
-  assert.equal(Object.hasOwn(pendingEntry, "effect"), false,
+  assert.equal(spells[0].lexiconId, "schutz-wind",
+    "Ein Zauber ohne ID wird anhand eines eindeutigen Namens zugeordnet.");
+  assert.equal(spells[1].lexiconId, "gleicher-zauber",
+    "Eine vorhandene ID bleibt erhalten.");
+  assert.ok(spells[2].lexiconId, "Ein neuer Zauber erhält eine lexiconId.");
+  assert.ok(spells.every(spell => !Object.hasOwn(spell, "effect")),
+    "Charakterprofile dürfen keine Wirkungsbeschreibungen enthalten.");
+  assert.equal(lexicon.spells.find(entry => entry.id === "schutz-wind").effect,
+    "Wirkung A aus dem Lexikon.",
+    "Eine vorhandene Lexikonwirkung bleibt unverändert.");
+  const newEntry = lexicon.spells.find(entry => entry.id === spells[2].lexiconId);
+  assert.equal(newEntry.name, "Neuer Zauber");
+  assert.equal(Object.hasOwn(newEntry, "effect"), false,
     "Ein neuer Lexikoneintrag bleibt bis zur Regelwerksprüfung ohne erfundene Wirkung.");
 
-  pendingSpell.effect = "Eine später anhand des Regelwerks ergänzte Wirkung.";
-  writeJson(path.join(content, "ohne-wirkung.json"), pendingProfile);
-  result = run();
-  assert.equal(result.status, 0, result.stderr || result.stdout);
-  const completedLexicon = JSON.parse(fs.readFileSync(path.join(content, "zauberlexikon.json"), "utf8"));
-  assert.equal(completedLexicon.spells.find(entry => entry.id === pendingSpell.lexiconId).effect,
-    pendingSpell.effect, "Die nachträglich ergänzte Wirkung muss den bestehenden Lexikoneintrag vervollständigen.");
-
   result = run(["--check"]);
   assert.equal(result.status, 0, result.stderr || result.stdout);
 
-  console.log("OK: Namens-/Wirkungsabgleich, listenunabhängige Zuordnung und offene Wirkungen geprüft.");
+  // Gleiche Namen im Lexikon sind zulässig, müssen bei einer neuen Profilzuordnung
+  // ohne explizite lexiconId aber als mehrdeutig erkannt werden.
+  lexicon.spells.push({ id: "schutz-feuer", name: "Schutz", effect: "Wirkung B aus dem Lexikon." });
+  writeJson(lexiconFile, lexicon);
+  writeJson(profileFile, {
+    schemaVersion: 1,
+    profile: { name: "Mehrdeutig" },
+    magic: { spellGroups: [{ name: "Liste", spells: [{ name: "Schutz", level: 1 }] }] }
+  });
+  result = run();
+  assert.notEqual(result.status, 0, "Mehrdeutige Namen müssen eine explizite lexiconId erfordern.");
+  assert.match(result.stderr, /Mehrere Lexikoneinträge heißen/);
+
+  // Ein effect-Feld im Profil wird konsequent zurückgewiesen.
+  writeJson(profileFile, {
+    schemaVersion: 1,
+    profile: { name: "Verbotenes Wirkungsfeld" },
+    magic: { spellGroups: [{ name: "Liste", spells: [
+      { name: "Schutz", lexiconId: "schutz-wind", effect: "Doppelte Wirkung", level: 1 }
+    ] }] }
+  });
+  result = run();
+  assert.notEqual(result.status, 0, "Wirkungsbeschreibungen im Profil müssen abgewiesen werden.");
+  assert.match(result.stderr, /Wirkungen gehören ausschließlich ins zentrale Zauberlexikon/);
+
+  // Eine lexiconId darf nicht auf einen anders benannten Eintrag zeigen.
+  writeJson(profileFile, {
+    schemaVersion: 1,
+    profile: { name: "Falsche Referenz" },
+    magic: { spellGroups: [{ name: "Liste", spells: [
+      { name: "Falscher Name", lexiconId: "schutz-wind", level: 1 }
+    ] }] }
+  });
+  result = run();
+  assert.notEqual(result.status, 0);
+  assert.match(result.stderr, /Name passt nicht zur lexiconId/);
+
+  console.log("OK: zentrale Wirkungsdaten, ID-Zuordnung, wirkungsfreie Profile und Mehrdeutigkeiten geprüft.");
 } finally {
   fs.rmSync(tempRoot, { recursive: true, force: true });
 }
