@@ -6,7 +6,8 @@
  *   node scripts/sync-spell-lexicon.mjs        # IDs vergeben und Lexikon-Stubs anlegen
  *   node scripts/sync-spell-lexicon.mjs --check # nur prüfen, nichts verändern
  *
- * Wirkungsbeschreibungen werden absichtlich niemals erzeugt oder verändert.
+ * Identität: Zaubername + Wirkung. Der Name der Spruchliste ist bedeutungslos.
+ * Wirkungsbeschreibungen werden niemals erfunden oder automatisch umgeschrieben.
  */
 import fs from "node:fs";
 import path from "node:path";
@@ -20,11 +21,9 @@ const checkOnly = process.argv.includes("--check");
 function readJson(file) {
   return JSON.parse(fs.readFileSync(file, "utf8"));
 }
-
 function writeJson(file, value) {
   fs.writeFileSync(file, JSON.stringify(value, null, 2) + "\n", "utf8");
 }
-
 function listJsonFiles(dir) {
   return fs.readdirSync(dir, { withFileTypes: true }).flatMap((entry) => {
     const fullPath = path.join(dir, entry.name);
@@ -34,7 +33,9 @@ function listJsonFiles(dir) {
     return [fullPath];
   }).sort();
 }
-
+function normalize(value) {
+  return value.normalize("NFC").trim().replace(/\s+/g, " ").toLocaleLowerCase("de");
+}
 function slugify(name) {
   const transliterated = name.normalize("NFKD")
     .replace(/[\u0300-\u036f]/g, "")
@@ -43,12 +44,13 @@ function slugify(name) {
     .replace(/œ/gi, "oe")
     .replace(/ø/gi, "o")
     .toLowerCase();
-  const slug = transliterated.replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "");
-  return slug || "zauber";
+  return transliterated.replace(/[^a-z0-9]+/g, "-").replace(/^-+|-+$/g, "") || "zauber";
 }
-
-function shortHash(value) {
-  return createHash("sha256").update(value, "utf8").digest("hex").slice(0, 8);
+function hash(value) {
+  return createHash("sha256").update(value, "utf8").digest("hex").slice(0, 12);
+}
+function identity(name, effect) {
+  return normalize(name) + "\u0000" + normalize(effect);
 }
 
 const profiles = listJsonFiles(contentDir).map((file) => ({ file, data: readJson(file), changed: false }));
@@ -58,23 +60,24 @@ if (lexicon.schemaVersion !== 1 || !Array.isArray(lexicon.spells)) {
 }
 
 const byId = new Map();
-const byName = new Map();
+const byIdentity = new Map();
 for (const entry of lexicon.spells) {
-  if (!entry || typeof entry.id !== "string" || !entry.id.trim() || typeof entry.name !== "string" || !entry.name.trim()) {
+  if (!entry || typeof entry.id !== "string" || !entry.id.trim() ||
+      typeof entry.name !== "string" || !entry.name.trim()) {
     throw new Error("Jeder Lexikoneintrag benötigt eine nichtleere id und einen nichtleeren name.");
   }
   if (byId.has(entry.id)) throw new Error("Doppelte Lexikon-ID: " + entry.id);
   byId.set(entry.id, entry);
-  const matches = byName.get(entry.name) || [];
-  matches.push(entry);
-  byName.set(entry.name, matches);
-}
-for (const [name, matches] of byName) {
-  if (matches.length > 1) throw new Error("Der Zaubername steht mehrfach im Lexikon und ist nicht eindeutig: " + name);
+  if (typeof entry.effect === "string" && entry.effect.trim()) {
+    const key = identity(entry.name, entry.effect);
+    if (byIdentity.has(key)) throw new Error("Doppelter Lexikoneintrag für denselben Namen und dieselbe Wirkung: " + entry.name);
+    byIdentity.set(key, entry);
+  }
 }
 
 let assigned = 0;
 let created = 0;
+let effectsAdded = 0;
 for (const profile of profiles) {
   const groups = profile.data?.magic?.spellGroups;
   if (!Array.isArray(groups)) continue;
@@ -84,59 +87,71 @@ for (const profile of profiles) {
       if (!spell || typeof spell.name !== "string" || !spell.name.trim()) {
         throw new Error("Ein Zauber in " + path.relative(root, profile.file) + " hat keinen gültigen Namen.");
       }
+      const hasEffect = typeof spell.effect === "string" && spell.effect.trim().length > 0;
+      if (spell.effect != null && typeof spell.effect !== "string") {
+        throw new Error("Die Wirkung muss Text sein: " + spell.name);
+      }
 
+      let entry = null;
       let id = typeof spell.lexiconId === "string" && spell.lexiconId.trim() ? spell.lexiconId : null;
-      if (!id) {
-        const sameName = byName.get(spell.name);
-        if (sameName?.length === 1) {
-          id = sameName[0].id;
+
+      if (id) {
+        entry = byId.get(id);
+        if (!entry) throw new Error("Unbekannte lexiconId „" + id + "“ bei „" + spell.name + "“.");
+        if (normalize(entry.name) !== normalize(spell.name)) {
+          throw new Error("Name passt nicht zur lexiconId „" + id + "“: Profil „" + spell.name + "“, Lexikon „" + entry.name + "“.");
+        }
+        if (hasEffect) {
+          if (entry.effect && normalize(entry.effect) !== normalize(spell.effect)) {
+            throw new Error("Wirkung passt nicht zur lexiconId „" + id + "“ bei „" + spell.name + "“. Bitte einen eigenen Lexikoneintrag zuordnen.");
+          }
+          if (!entry.effect) {
+            if (checkOnly) throw new Error("Wirkung fehlt im Lexikon für „" + spell.name + "“; Synchronisierung erforderlich.");
+            entry.effect = spell.effect.trim();
+            profile.changed = true;
+            effectsAdded++;
+            byIdentity.set(identity(entry.name, entry.effect), entry);
+          }
+        }
+      } else {
+        if (!hasEffect) {
+          throw new Error("Keine sichere Zuordnung für „" + spell.name + "“: Ohne lexiconId muss auch die Wirkung angegeben sein. Der Listenname zählt nicht als Unterscheidungsmerkmal.");
+        }
+        const key = identity(spell.name, spell.effect);
+        entry = byIdentity.get(key) || null;
+        if (entry) {
+          id = entry.id;
         } else {
           const base = slugify(spell.name);
-          id = base;
-          const occupied = byId.get(id);
-          if (occupied && occupied.name !== spell.name) id = base + "-" + shortHash(spell.name);
+          id = base + "-" + hash(key);
           let suffix = 2;
-          while (byId.has(id) && byId.get(id).name !== spell.name) {
-            id = base + "-" + shortHash(spell.name) + "-" + suffix++;
-          }
+          while (byId.has(id)) id = base + "-" + hash(key) + "-" + suffix++;
+          entry = { id, name: spell.name.trim(), effect: spell.effect.trim() };
+          lexicon.spells.push(entry);
+          byId.set(id, entry);
+          byIdentity.set(key, entry);
+          created++;
         }
         spell.lexiconId = id;
         profile.changed = true;
         assigned++;
-      }
-
-      const existing = byId.get(id);
-      if (existing && existing.name !== spell.name) {
-        throw new Error("ID-Konflikt in " + path.relative(root, profile.file) + ": " + id +
-          " gehört im Lexikon zu „" + existing.name + "“, im Profil aber zu „" + spell.name + "“.");
-      }
-      if (!existing) {
-        const entry = { id, name: spell.name };
-        lexicon.spells.push(entry);
-        byId.set(id, entry);
-        const matches = byName.get(spell.name) || [];
-        matches.push(entry);
-        byName.set(spell.name, matches);
-        created++;
       }
     }
   }
 }
 
 if (checkOnly) {
-  if (assigned || created) {
-    throw new Error("Lexikon-Synchronisierung erforderlich: " + assigned +
-      " fehlende IDs, " + created + " fehlende Lexikoneinträge. Ohne --check ausführen.");
+  if (assigned || created || effectsAdded) {
+    throw new Error("Lexikon-Synchronisierung erforderlich: " + assigned + " fehlende IDs, " +
+      created + " neue Einträge, " + effectsAdded + " ergänzte Wirkungen. Ohne --check ausführen.");
   }
-  console.log("OK: Alle Zauber besitzen stabile IDs und passende Lexikoneinträge.");
+  console.log("OK: Alle Zauber sind über Name und Wirkung eindeutig verknüpft; Listenname wird ignoriert.");
 } else {
-  for (const profile of profiles) {
-    if (profile.changed) writeJson(profile.file, profile.data);
-  }
-  if (created) {
+  for (const profile of profiles) if (profile.changed) writeJson(profile.file, profile.data);
+  if (created || effectsAdded) {
     lexicon.spells.sort((a, b) => a.id.localeCompare(b.id, "de"));
     writeJson(lexiconPath, lexicon);
   }
-  console.log("Zauberlexikon synchronisiert: " + assigned + " IDs vergeben, " +
-    created + " Lexikoneinträge angelegt. Wirkungsbeschreibungen blieben unverändert.");
+  console.log("Zauberlexikon synchronisiert: " + assigned + " IDs vergeben, " + created +
+    " neue Einträge angelegt, " + effectsAdded + " Wirkungen ergänzt. Listenname ignoriert.");
 }
