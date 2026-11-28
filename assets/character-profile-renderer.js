@@ -31,11 +31,10 @@
   }
   function valueCard(v) {
     const card = el("div", "sheet-field");
-    card.append(el("span", "", v.label || v.name || v.key || ""));
-    const propertyName = v.label || v.name;
+    const propertyName = v.label || v.name || v.key || "";
     const isPrimaryAttribute = ["Stärke","Ausdauer","Gewandtheit","Intelligenz","Intuition"].includes(propertyName);
-    const label = el("span", "", propertyName || "");
-    if (v.tooltip) { label.dataset.tip = v.tooltip; label.tabIndex = 0; }
+    const label = el("span", "", propertyName);
+    if (Array.isArray(v.value) && v.tooltip) { label.dataset.tip = v.tooltip; label.tabIndex = 0; }
     card.append(label);
     if (Array.isArray(v.value)) {
       const languageList = el("ul", "profile-language-list");
@@ -52,7 +51,7 @@
     } else {
       const value = el("strong", [v.tooltip ? "calculated-value" : "", isPrimaryAttribute ? "attribute-scale-value" : ""].filter(Boolean).join(" "), v.value);
       if (isPrimaryAttribute) value.dataset.attributeScale = "";
-      if (v.tooltip && !isPrimaryAttribute) { value.dataset.tip = v.tooltip; value.tabIndex = 0; }
+      if (v.tooltip && !isPrimaryAttribute && !Array.isArray(v.value)) { value.dataset.tip = v.tooltip; value.tabIndex = 0; }
       card.append(value);
     }
     if (isPrimaryAttribute) card.append(diceImage("w20.png", "w20", "W20", "Für eine Eigenschaftsprobe würfelst du mit einem W20. Das Ergebnis muss kleiner oder gleich deinem Eigenschaftswert sein, damit die Probe gelingt."));
