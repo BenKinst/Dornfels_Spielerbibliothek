@@ -107,6 +107,7 @@
     const body = document.createElement("tbody");
     rows.forEach(row => {
       const tr = document.createElement("tr");
+      if (row.emptySpellLevel) tr.classList.add("spell-level-empty");
       columns.forEach((c,index) => {
         const td = document.createElement("td"), v = row[c.key];
         if (v && typeof v === "object" && "value" in v) {
@@ -122,6 +123,7 @@
         } else {
           const cellValue = el("span", "", v == null ? "" : v);
           if (c.key === "level" && row.tooltip) { cellValue.dataset.tip = row.tooltip; cellValue.tabIndex = 0; }
+          if (c.key === "name" && row.nameTooltip) { cellValue.dataset.tip = row.nameTooltip; cellValue.tabIndex = 0; }
           td.append(cellValue);
         }
         if (c.key === "damage") {
@@ -218,7 +220,7 @@
     });
     root.append(nested); return root;
   }
-  function magic(m) {
+  function magic(m, spellLexicon = new Map()) {
     const root=el("div","profile-section-content");
     if(Array.isArray(m.lists) && m.lists.length) {
       const card=el("div","sheet-card"); card.append(el("h3","","Spruchlisten"));
@@ -238,7 +240,23 @@
       root.append(g);
     }
     const details=valueGroup("Berufliche Magiemerkmale",m.details,"sheet-grid sheet-grid-2",["Verfügbare Elemente","Zauberfokus","Maximale AP","Rüstungsbeschränkung","Waffenbeschränkung"]); if(details) root.append(details);
-    (m.spellGroups || []).forEach(x=>{ const t=table(x.name,x.spells,[{key:"name",label:"Zauber / Wirkung"},{key:"level",label:"Stufe"}]); if(t) root.append(t); });
+    (m.spellGroups || []).forEach(x=>{
+      const spells = Array.isArray(x.spells) ? x.spells : [];
+      const maxLevel = spells.reduce((max, spell) => Number.isInteger(spell.level) ? Math.max(max, spell.level) : max, 0);
+      const rows = [];
+      for (let level = 1; level <= maxLevel; level++) {
+        const atLevel = spells.filter(spell => spell.level === level);
+        if (atLevel.length) {
+          atLevel.forEach(spell => {
+            const entry = spell.lexiconId ? spellLexicon.get(spell.lexiconId) : null;
+            rows.push({...spell, nameTooltip: entry && typeof entry.effect === "string" ? entry.effect : undefined});
+          });
+        } else {
+          rows.push({name:"", level, emptySpellLevel:true});
+        }
+      }
+      const t=table(x.name,rows,[{key:"name",label:"Zauber / Wirkung"},{key:"level",label:"Stufe"}]); if(t) root.append(t);
+    });
     return root;
   }
   function equipment(e) {
@@ -255,6 +273,14 @@
     const r=await fetch(page.dataset.profileSrc,{cache:"no-store"});
     if(!r.ok) throw Error("JSON-Profildaten konnten nicht geladen werden.");
     const d=validate(await r.json()); window.__profileData = d; header(d.profile);
+    let spellLexicon = new Map();
+    if (page.dataset.spellLexiconSrc) {
+      const lexiconResponse = await fetch(page.dataset.spellLexiconSrc,{cache:"no-store"});
+      if (!lexiconResponse.ok) throw Error("Zentrales Zauberlexikon konnte nicht geladen werden.");
+      const lexicon = await lexiconResponse.json();
+      if (!lexicon || lexicon.schemaVersion !== 1 || !Array.isArray(lexicon.spells)) throw Error("Das zentrale Zauberlexikon hat eine ungültige Datenstruktur.");
+      spellLexicon = new Map(lexicon.spells.filter(entry => entry && typeof entry.id === "string").map(entry => [entry.id,entry]));
+    }
     const target=page.querySelector("[data-profile-content]"); target.replaceChildren();
     if(page.dataset.backgroundSrc) {
       const sr=await fetch(page.dataset.backgroundSrc,{cache:"no-store"});
@@ -265,7 +291,7 @@
     [
       ["Eigenschaften",d.attributes && attributes(d.attributes),"profile-attributes"],
       ["Fertigkeiten",d.skills && skills(d.skills),"profile-skills"],
-      ["Magie",d.magic && magic(d.magic),"profile-magic"],
+      ["Magie",d.magic && magic(d.magic,spellLexicon),"profile-magic"],
       ["Ausrüstung",d.equipment && equipment(d.equipment),"profile-equipment"]
     ].forEach(([t,c,id])=>{ const a=accordion(t,c,id); if(a) target.append(a); });
     if (typeof window.applyCharacterValueColors === "function") {
