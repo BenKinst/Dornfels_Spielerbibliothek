@@ -1,4 +1,37 @@
 {
   "schemaVersion": 1,
-  "spells": []
+  "spells": [
+    {
+      "id": "brise",
+      "name": "Brise"
+    },
+    {
+      "id": "festes-erwaermen",
+      "name": "Festes Erwärmen"
+    },
+    {
+      "id": "feuerwand",
+      "name": "Feuerwand"
+    },
+    {
+      "id": "fluessigkeit-kochen",
+      "name": "Flüssigkeit kochen"
+    },
+    {
+      "id": "holzfeuer",
+      "name": "Holzfeuer"
+    },
+    {
+      "id": "luftstop",
+      "name": "Luftstop"
+    },
+    {
+      "id": "luftwall",
+      "name": "Luftwall"
+    },
+    {
+      "id": "wolke-der-benommenheit",
+      "name": "Wolke der Benommenheit"
+    }
+  ]
 }
